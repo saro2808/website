@@ -1,0 +1,103 @@
+{% extends 'math.html' %}
+
+{% block content %}
+    <hr>
+    <h3>Geometry</h3>
+    <hr>
+    <a href="{{ url_for('problem', category='geometry', i=1) }}">
+        <h5>Problem 1</h5>
+    </a>
+    <p>
+        Let \(m_a, m_b, m_c\) be the medians of the triangle \(ABC\) and \(r_a, r_b, r_c\) be its exradii. Then prove
+        that \(m_a+m_b+m_c\le r_a+r_b+r_c\).
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h1902971p13014338">AoPS forum</a></i></p>
+    <a href="{{ url_for('problem', category='geometry', i=5) }}">
+        <h5>Problem 5</h5>
+    </a>
+    <p>
+        The points \(D\) and \(E\) on the side \(AC\) of the triangle \(ABC\) are chosen so that
+        the incircles of \(ABD\) and \(CBE\) with respective centers \(J_a\) and \(K_c\) have equal
+        radii. Also \(J_c\) and \(K_a\) are the incenters of \(CBD\) and \(ABE\) respectively. Prove
+        that the circles \(BJ_aJ_c\) and \(BK_aK_c\) concur second time on the bisector of angle \(B\).
+    </p>
+    <p align="right"><i><a href="http://turmath.ru/kolm/files/archive/kolm24.zip">
+        XXIV Kolmogorov Cup</a>, individual olympiad, senior group, conclusion, problem 7
+    </i></p>
+    <a href="{{ url_for('problem', category='geometry', i=11) }}">
+        <h5>Problem 11</h5>
+    </a>
+    <p>
+        In triangle \(ABC\) \(I\) is the incenter and \(J\) is the \(B\)-excenter. \(BH\) is height. Reconstruct
+        \(ABC\) given the points \(I,J,H\).
+    </p>
+    <a href="{{ url_for('problem', category='geometry', i=37) }}">
+        <h5>Problem 37</h5>
+    </a>
+    <p>
+        Let the side \(AC\) of triangle \(ABC\) touch the incircle and the corresponding
+        excircle at points \(K\) and \(L\) respectively. Let \(P\) be the projection of the incenter
+        onto the perpendicular bisector of \(AC\). It is known that the tangents to the circumcircle
+        of triangle \(BKL\) at \(K\) and \(L\) meet on the circumcircle of \(ABC\). Prove that the lines
+        \(AB\) and \(BC\) touch the circumcircle of triangle \(PKL\).
+    </p>
+    <p align="right"><i><a href="https://geometry.ru/olimp/2019/zaoch_sol_eng.pdf">
+            XV Geometrical Olympiad in Honour of I.F. Sharygin, correspondence round</a>, problem 14
+    </i></p>
+    <a href="{{ url_for('problem', category='geometry', i=41) }}">
+        <h5>Problem 41</h5>
+    </a>
+    <p>
+        Let us be given a convex quadrilateral \(ABCD\) none of whose diagonals is its axis of symmetry
+        and \(DA+AB=DC+CB\). Let \(N_a\) and \(N_c\) be the Nagel points of \(ABD\) and \(CBD\) respectively.
+        Prove that \(N_aN_c\perp BD\) iff the length of \(BD\) is the quarter of \(ABCD\)'s perimeter.
+    </p>
+    <p align="right"><i>
+        taken from "The Nagel point and the difference triangle",
+        <a href="http://kvant.mccme.ru/pdf/2018/2019-09.pdf">journal “Quantum”, 2019 №9</a>, pages 32-33
+    </i></p>
+    <a href="{{ url_for('problem', category='geometry', i=49) }}">
+        <h5>Problem 49</h5>
+    </a>
+    <p>
+        Let \(I\) be the incenter of the triangle \(ABC\). Let the respective excircle
+        touch the segment \(AC\) at the point \(K\). Let \(W\) be the second point of
+        intersection of \(BI\) and the circumcircle of \(ABC\), and let \(P\) be the
+        reflection of \(I\) in the \(B\)-height of \(ABC\). It is known that
+        \(\angle IKW=90^\circ\). Then find the measure of \(\angle BPK\).
+    </p>
+    <p align="right"><i><a href="http://turmath.ru/kolm/files/archive/kolm24.zip">
+        XXIV Kolmogorov Cup</a>, first tour, senior league, problem 6
+    </i></p>
+    <a href="{{ url_for('problem', category='geometry', i=66) }}">
+        <h5>Problem 66</h5>
+    </a>
+    <p>
+        Let us be given an isosceles tetrahedron \(ABCD\), i.e. it has equal opposite edges. Choose
+        a point \(X\) on its circumsphere \(\Omega\) different from the points \(A, B, C, D\). Prove
+        that the center of the sphere passing through the reflections of \(X\) in the faces
+        of \(ABCD\) lies on \(\Omega\).
+    </p>
+    <p align="right"><i><a href="http://turmath.ru/kolm/files/archive/kolm23.zip">
+        XXIII Kolmogorov Cup</a>, second tour, senior league, problem 1
+    </i></p>
+    <a href="{{ url_for('problem', category='geometry', i=72) }}">
+        <h5>Problem 72</h5>
+    </a>
+    <p>
+        Let the sphere \(\omega\) with center \(I\) be inscribed in a
+        <ul>
+            <li>hexahedron which has only quadriangular faces and in each vertex of which exactly
+                three faces meet;</li>
+            <li>dodecahedron which has only pentagonal faces and in each vertex of which exactly
+                three faces meet.</li>
+        </ul>
+        It turned out that the projections of
+        \(I\) on the edges of each of the faces are concyclic. Prove that the diagonals of the
+        polyhedron are concurrent and that the lines joining the touch-points of the insphere
+        with the opposite faces are concurrent in the same point.
+    </p>
+    <p align="right"><i><a href="http://turmath.ru/kolm/files/archive/kolm24.zip">
+        XXIV Kolmogorov Cup</a>, third tour, senior league, problem 8
+    </i></p>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'math.html' %}
+
+{% block content %}
+    <h5>Problem 3</h5>
+    <p>
+        Prove that for reals \(a, b, c\ge 0\)
+        \[(a^2-ab+b^2)(b^2-bc+c^2)(c^2-ca+a^2)\ge \frac{1}{8}(a^2+bc)(b^2+ca)(c^2+ab)\ge
+        \frac{1}{9}(a^2b+b^2c+c^2a)(ab^2+bc^2+ca^2).\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h2200752p16572353">
+            AoPS forum</a>
+    </i></p>
+    <h5>Solution</h5>
+    <p>
+        The left inequality is equivalent to
+        \[\sum_{cyc}ab(ab-c^2)^2\ge 0.\]
+        The right inequality is equivalent to
+        \[\sum_{cyc}(a^2-ab+b^2)\left[3c^2 \left(c-\frac{a+b}{2}\right)^2+\frac{c^2 (a-b)^2}{4}+(a^2+ab+b^2 )
+        \left(c-\frac{3ab(a+b)}{2(a^2+ab+b^2 )} \right)^2+\frac{3a^2 b^2 (a-b)^2}{4(a^2+ab+b^2 )} \right]\ge 0.\]
+    </p>
+{% endblock %}

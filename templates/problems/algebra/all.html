@@ -1,0 +1,50 @@
+{% extends 'math.html' %}
+
+{% block content %}
+    <hr>
+    <h3>Algebra</h3>
+    <hr>
+    <a href="{{ url_for('problem', category='algebra', i=1) }}">
+        <h5>Problem 1</h5>
+    </a>
+    <p>
+        Prove that for nonnegative \(a, b, c\) the following inequality holds:
+        \[\left(\frac{a(b+c)}{4a+b+c} \right)^3+\left(\frac{b(c+a)}{4b+c+a} \right)^3+
+        \left(\frac{c(a+b)}{4c+a+b} \right)^3 \leq \frac{(a+b)(b+c)(c+a)}{72}\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h1907707p13058566">
+            AoPS forum</a>
+    </i></p>
+    <a href="{{ url_for('problem', category='algebra', i=2) }}">
+        <h5>Problem 2</h5>
+    </a>
+    <p>
+        Prove that if \(a, b, c\) are sides of a triangle then
+        \[\frac{(a^2+b^2+c^2)(a+b+c)}{9}\ge \frac{(-a^2+b^2+c^2)(a^2-b^2+c^2)(a^2+b^2-c^2)}{(-a+b+c)(a-b+c)(a+b-c)}.\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h2001215p13988758">
+            AoPS forum</a>
+    </i></p>
+    <a href="{{ url_for('problem', category='algebra', i=3) }}">
+        <h5>Problem 3</h5>
+    </a>
+    <p>
+        Prove that for reals \(a, b, c\ge 0\)
+        \[(a^2-ab+b^2)(b^2-bc+c^2)(c^2-ca+a^2)\ge \frac{1}{8}(a^2+bc)(b^2+ca)(c^2+ab)\ge
+        \frac{1}{9}(a^2b+b^2c+c^2a)(ab^2+bc^2+ca^2).\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h2200752p16572353">
+            AoPS forum</a>
+    </i></p>
+    <a href="{{ url_for('problem', category='algebra', i=4) }}">
+        <h5>Problem 4</h5>
+    </a>
+    <p>
+        Find the largest number \(k>0\) with the property that for any \(a, b, c\ge 0\) the following
+        inequality holds:
+        \[(a-b)(b-c)(c-a)\le \frac{(a+b+c)^3}{k}.\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h2247837p17289524">
+            AoPS forum</a>
+    </i></p>
+{% endblock %}

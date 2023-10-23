@@ -1,0 +1,20 @@
+{% extends 'math.html' %}
+
+{% block content %}
+    <h5>Problem 1</h5>
+    <p>
+        Prove that for nonnegative \(a, b, c\) the following inequality holds:
+        \[\left(\frac{a(b+c)}{4a+b+c} \right)^3+\left(\frac{b(c+a)}{4b+c+a} \right)^3+
+        \left(\frac{c(a+b)}{4c+a+b} \right)^3 \leq \frac{(a+b)(b+c)(c+a)}{72}\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h1907707p13058566">
+            AoPS forum</a>
+    </i></p>
+    <h5>Solution</h5>
+    <p>
+        Denote \(x=\frac{b+c}{2}, y=\frac{c+a}{2}, z=\frac{a+b}{2}\). Note that
+        \[xyz \geq (-x+y+z)(x-y+z)(x+y-z)=\sum_{cyc} x \cdot x \cdot (-x+y+z)-2xyz
+        \geq \sum_{cyc} \left(\frac{3}{\frac{1}{x}+\frac{1}{x}+\frac{1}{-x+y+z}}\right)^3-2xyz.\]
+        Now it remains to substitute the variables.
+    </p>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <hr>
+    <h3>Music</h3>
+    <hr>
+    <h5>Composed music</h5>
+    <p>Some casual music I came up with.</p>
+    <ul>
+        <li><h6>Through the clouds</h6>
+            <audio title="Through the clouds" controls>
+                <source src="static/audio/first.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio></li>
+        <li><h6>Latin jazz riff</h6>
+            <audio title="Latin jazz riff" controls>
+                <source src="static/audio/Latin_jazz.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio></li>
+    </ul>
+    <hr>
+    <h5>Tutorials</h5>
+    <p>
+        Arrangements of some music on the piano
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=BxnK70Rj9PA">
+                Samsung Hypnotize ringtone</a></li>
+            <li><a href="https://www.youtube.com/watch?v=yweoD17UKOQ">
+                Vasily Chernov - Pulse of the Earth</a></li>
+        </ul>
+    </p>
+{% endblock %}

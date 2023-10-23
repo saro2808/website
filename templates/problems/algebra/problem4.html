@@ -1,0 +1,40 @@
+{% extends 'math.html' %}
+
+{% block content %}
+    <h5>Problem 4</h5>
+    <p>
+        Find the largest number \(k>0\) with the property that for any \(a, b, c\ge 0\) the following
+        inequality holds:
+        \[(a-b)(b-c)(c-a)\le \frac{(a+b+c)^3}{k}.\]
+    </p>
+    <p align="right"><i><a href="https://artofproblemsolving.com/community/q1h2247837p17289524">
+            AoPS forum</a>
+    </i></p>
+    <h5>Solution</h5>
+    <p>We'll prove that the wanted maximum value \(k_\max\) is \(6\sqrt 3\).</p>
+    <p>
+        It suffices to consider the case \((a-b)(b-c)(c-a)\ge 0\). WLOG \(a\le b\le c\). Then exist \(x, y\ge 0\)
+        such that \(b=a+x, c=a+x+y\). If some two of \(a, b, c\) are equal then the LHS of the inequality is \(0\)
+        so we may discuss only the case \(a< b< c\). We need to find
+        \[k_\max=\min_{\substack{x, y\>0\\ a\ge 0}}\frac{(3a+2x+y)^3}{xy(x+y)}.\]
+        Note that putting \(a=0\) makes the expression in \(\min\) not larger so we may search the minimum of
+        \[\frac{(2x+y)^3}{xy(x+y)}.\]
+    </p>
+    <p>
+        We'll try to find such a \(t\in(0, 1)\) that when applying the Cauchy inequality in the form
+        \begin{equation}
+        \label{eq}
+        \frac{(2x+y)^3}{27}=\frac{((2-t)x+(1-t)y+t(x+y))^3}{27}\ge (2-t)(1-t)t\cdot xy(x+y)\tag{*}
+        \end{equation}
+        the value of \(f(t)=(2-t)(1-t)t\) is the maximal. Differentiating \(f\)
+        \[f'(t)=3\left(t-1-\frac{1}{\sqrt 3}\right)\left(t-1+\frac{1}{\sqrt 3}\right)\]
+        we see that on \((0, 1)\) \(f\) attains its maximum at \(t_\max=1-\frac{1}{\sqrt 3}\). Inserting this
+        value we find
+        \[k_\max\ge 27f(t_\max)=6\sqrt 3.\]
+        \eqref{eq} becomes equality iff
+        \[(2-t)x=(1-t)y=t(x+y)\]
+        which is equivalent to \(x:y=1:1+\sqrt 3\) which in turn is equivalent to \(b:c=1:2+\sqrt 3\) in case of
+        \(a=0\). Inserting \((a, b, c)=(0, 1, 2+\sqrt 3)\) into the inequality we make sure that \(k\le 6\sqrt 3\)
+        finishing the proof.
+    </p>
+{% endblock %}
