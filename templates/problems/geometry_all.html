@@ -1,0 +1,9 @@
+{% extends 'math_base.html' %}
+
+{% block content %}
+    <h3>Geometry</h3>
+    <hr>
+    {% for problem in problems %}
+        {{ problem['statement'] | safe }}
+    {% endfor %}
+{% endblock %}

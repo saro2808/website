@@ -19,6 +19,27 @@ def get_post(post_id):
     return post
 
 
+def get_problem(category, id):
+    conn = get_db_connection()
+    problem = conn.execute('SELECT * FROM problems WHERE category = ? AND id = ?',
+                            (category, id)).fetchone()
+    conn.close()
+    if problem is None:
+        abort(404)
+    return problem
+
+
+def get_problem_tags(category, id):
+    conn = get_db_connection()
+    tags = conn.execute('SELECT tag FROM problem_tags WHERE problem_category = ? and problem_id = ?',
+                        (category, id)).fetchall()
+    tags = [tag[0] for tag in tags]
+    conn.close()
+    if tags is None:
+        abort(404)
+    return tags
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
 
@@ -27,8 +48,9 @@ app.config['SECRET_KEY'] = 'your secret key'
 def index():
     conn = get_db_connection()
     posts = conn.execute('SELECT * FROM posts').fetchall()
+    problems = conn.execute('SELECT * FROM problems').fetchall()
     conn.close()
-    return render_template('index.html', posts=posts)
+    return render_template('index.html', posts=posts, problems=problems)
 
 
 @app.route('/<int:post_id>')
@@ -37,56 +59,11 @@ def post(post_id):
     return render_template('post.html', post=post)
 
 
-@app.route('/create', methods=('GET', 'POST'))
-def create():
-    if request.method == 'POST':
-        title = request.form['title']
-        content = request.form['content']
-
-        if not title:
-            flash('Title is required!')
-        else:
-            conn = get_db_connection()
-            conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
-                         (title, content))
-            conn.commit()
-            conn.close()
-            return redirect(url_for('index'))
-
-    return render_template('create.html')
-
-
-@app.route('/<int:id>/edit', methods=('GET', 'POST'))
-def edit(id):
-    post = get_post(id)
-
-    if request.method == 'POST':
-        title = request.form['title']
-        content = request.form['content']
-
-        if not title:
-            flash('Title is required!')
-        else:
-            conn = get_db_connection()
-            conn.execute('UPDATE posts SET title = ?, content = ?'
-                         ' WHERE id = ?',
-                         (title, content, id))
-            conn.commit()
-            conn.close()
-            return redirect(url_for('index'))
-
-    return render_template('edit.html', post=post)
-
-
-@app.route('/<int:id>/delete', methods=('POST',))
-def delete(id):
-    post = get_post(id)
-    conn = get_db_connection()
-    conn.execute('DELETE FROM posts WHERE id = ?', (id,))
-    conn.commit()
-    conn.close()
-    flash('"{}" was successfully deleted!'.format(post['title']))
-    return redirect(url_for('index'))
+@app.route('/mathematics/<category>/<int:id>')
+def problem(category, id):
+    problem = get_problem(category, id)
+    tags = get_problem_tags(category, id)
+    return render_template('problem.html', problem=problem, tags=tags)
 
 
 @app.route('/about')
@@ -94,19 +71,19 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/problems')
-def problems():
-    return render_template('problems.html')
+@app.route('/mathematics')
+def mathematics():
+    return render_template('mathematics.html')
 
 
-@app.route('/problems/<string:category>/<int:i>')
-def problem(category, i):
-    return render_template(f'problems/{category}/problem{i}.html')
-
-
-@app.route('/problems/<category>/all')
+@app.route('/mathematics/<category>/all')
 def category_all(category):
-    return render_template(f'problems/{category}/all.html')
+    conn = get_db_connection()
+    problems = conn.execute('SELECT * FROM problems WHERE category = ?',
+                            (category,)
+                            ).fetchall()
+    conn.close()
+    return render_template(f'problems/{category}_all.html', problems=problems)
 
 @app.route('/music')
 def music():

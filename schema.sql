@@ -1,8 +1,17 @@
-DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS problems;
 
-CREATE TABLE posts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    title TEXT NOT NULL,
-    content TEXT NOT NULL
+CREATE TABLE problems (
+    category TEXT,
+    id INTEGER,
+    statement TEXT NOT NULL,
+    solution TEXT NOT NULL,
+    PRIMARY KEY (category, id)
+);
+
+DROP TABLE IF EXISTS problem_tags;
+
+CREATE TABLE problem_tags (
+    problem_category TEXT REFERENCES problems(category),
+    problem_id INTEGER REFERENCES problems(id),
+    tag VARCHAR(255)
 );

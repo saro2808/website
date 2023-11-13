@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>{% block title %} {% endblock %}</title>
+    <style>{% block style %} {% endblock %}</style>
     {% block javascript %} {% endblock %}
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="{{ url_for('index')}}">MyWebsite</a>
+        <a class="navbar-brand" href="{{ url_for('index')}}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,7 +24,7 @@
                 <a class="nav-link" href="{{url_for('about')}}">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('problems')}}">Mathematics</a>
+                <a class="nav-link" href="{{url_for('mathematics')}}">Mathematics</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('music')}}">Music</a>
@@ -31,18 +32,15 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('academic')}}">Academic</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url_for('create')}}">New Post</a>
-            </li>
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                    <li>HTML</li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
-                </ul>
-            </div>
+<!--            <div class="dropdown">-->
+<!--                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example-->
+<!--                <span class="caret"></span></button>-->
+<!--                <ul class="dropdown-menu">-->
+<!--                    <li>HTML</li>-->
+<!--                    <li><a href="#">CSS</a></li>-->
+<!--                    <li><a href="#">JavaScript</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
             </ul>
         </div>
     </nav>
