@@ -1,20 +1,12 @@
 {% extends 'math_base.html' %}
 
-{% block style %}
-    .tag-frame {
-        border: 1px solid #ccc;
-        padding: 5px;
-        margin: 5px;
-        display: inline-block;
-    }
-{% endblock %}
-
 {% block content %}
-    {{ problem['statement'] | safe }}
-    {{ problem['solution'] | safe }}
-    <p>
-        <b>Tags:</b> {% for tag in tags %}
-            <span class="tag-frame">{{ tag }}</span>
-        {% endfor %}
-    </p>
+<h5>Problem {{ problem['id'] }}</h5>
+{{ problem['statement'] | safe }}
+<p>
+    <b>Tags:</b> {% for tag in tags %}
+    <span class="tag-frame">{{ tag }}</span>
+    {% endfor %}
+</p>
+{{ problem['solution'] | safe }}
 {% endblock %}

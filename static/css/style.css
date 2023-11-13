@@ -1,6 +1,6 @@
-h1 {
-    border: 2px #eee solid;
-    color: brown;
-    text-align: center;
-    padding: 10px;
+.tag-frame {
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
 }

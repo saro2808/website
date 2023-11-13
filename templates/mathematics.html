@@ -1,113 +1,125 @@
 {% extends 'math_base.html' %}
 
 {% block content %}
-    <h2>Composed problems</h2>
-    <p>Here are some of my composed problems which are exposed to public:</p>
-    <ul>
-        <li><a href="{{ url_for('category_all', category='geometry') }}">Geometry</a></li>
-        <li><a href="{{ url_for('category_all', category='algebra') }}">Algebra</a></li>
-    </ul>
-    <h2>Selected solutions</h2>
-    <p>
-        I am a member of the <a href="https://math.stackexchange.com/users/1135242/saroyr">stackexchange</a> and
-        <a href="https://artofproblemsolving.com/community/user/490563">AoPS</a> communities and occasionally
-        solve problems there. Here are some of my selected solutions to problems in these forums:
-    </p>
-    <ul>
-        <li><a href="https://artofproblemsolving.com/community/c6h1894496p12951728">
-            If some two of the three corner triangles formed by inscribed equilateral triangle are equidistant from
-            the respective point then the second external tangents of the three corner incircles concur
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1686498p13908086">
-            Tetrahedron's volume is not less than the third of its biheights' product
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1897930p13965926">
-            Is there a polyhedron whose area ratio of any two faces is at least \(2\)?
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2139794p15987677">
-            For point \(M\) in face \(ABC\) of tetrahedron \(SABC\) and points \(X\in SA\) with \(SBC\parallel MX\) etc.
-            holds \(27[MXYZ]\le 2[SABC]\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2137719p16026453">
-            For bicentric \(ABCD\) with incenter \(I\) holds \((IA^2 + IC^2)(IB^2 + ID^2) \ge  AB \cdot BC \cdot CD \cdot  DA\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1962477p16061023">
-            For point \(M\) inside tetrahedron \(A_1A_2A_3A_4\) with \(A_{ij}=A_iA_j\cap MA_kA_l\), \(V_i=[A_iA_{ij}A_{ik}A_{il}]\),
-            \(V=[A_1A_2A_3A_4]\), \(V_0=[A_{12}A_{13}A_{14}A_{23}A_{24}A_{34}]\) holds \(VV_0\geq32\sqrt{V_1V_2V_3V_4}\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2056039p16071598">
-            Rigid flat triangle \(T\) with area \(<4\), may be inserted in a triangular hole of area \(3\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1904377p16195845">
-            Find \(AB/CD\) in tetrahedron \(ABCD\) with dihedrons \(BC, CD, DA\) of measure \(\alpha\), and the others of measure \(\beta\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1530275p16292298">
-            Doubled distance between the intersections of adjacent angles' bisectors in convex quadrilateral
-            is not less than its sides' alternating sum
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1685037p16674897">
-            For two points of a circle joined by a broken line shorter than the diameter exists diameter not intersecting the broken line
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2254528p17538661">
-            For reals \(a, b, c\) holds \((1+a^2)(b-c)^2+(1+b^2)(c-a)^2+(1+c^2)(a-b)^2\ge 2\sqrt{3}|(a-b)(b-c)(c-a)|\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2164539p16070792">
-            For positive reals \(x, y, z\) holds \(5xyz+\left[ \sqrt{\frac{xy+yz+zx}{3}} +\frac{3(x+y)(y+z)(z+x)}{4(xy+yz+zx)} \right]^3 \ge 4(x+y)(y+z)(z+x)\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2327317p19623384">
-            For \(a, b, c\in[0, 4]\) with \(ab+bc+ca=4\) holds \(\sqrt{a+b}+\sqrt{b+c}+\sqrt{c+a}\le 3+\sqrt 5\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2398932p19679612">
-            For \(a\ge b\ge c\ge d\ge 0\) with \(a^4+b^4+c^4+d^4=4\) hold \(\frac{1-abcd}{(ac-bd)^2}\ge \frac 1{\sqrt 2}\)
-            and \(\frac{1-abcd}{(a^2-b^2)(c^2-d^2)}\ge 1\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2405245p19746418">
-            For \(a\ge b\ge c\ge 0\) with \(a^2+b^2+c^2=3\) holds \(1-\sqrt[3]{abc}\ge \frac 2{3}(a-b)(b-c)\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2413701p19827047">
-            For \(a\ge b\ge c\ge d\ge 0\) with \(a^2+b^2+c^2+d^2=4\) holds \(1-\sqrt[5]{abcd}\ge \frac 2{5}(a-b)(c-d)\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2405237p19827408">
-            For \(A_1, B_1, C_1\) on the sides of \(ABC\) with \(AB_1A_1C_1\) cyclic holds \(\frac{4S_{A_1B_1C_1}}{S_{ABC}}\le \left(\frac{B_1C_1}{AA_1}\right)^2\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2405238p19871196">
-            For \(A_1\in BC, B_1\in AC\) and \(K\) the midpoint of \(AB\) holds \(9[KA_1B_1]\ge 2[ABC]\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1307455p19920025">
-            For positive reals \(a, b, c\) with \(a+b+c=1\) maximize \(abc(a-b)(b-c)(c-a)\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h471230p19955493">
-            The perimeter of the bisectral triangle does not exceed the semiperimeter of the triangle
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c7h2114938p20135883">
-            For the tetrahedron \(ABCD\) with angles \(\alpha, \beta, \gamma\) between the opposite edges and in- and circumradii \(r, R\)
-            holds \(\left(\frac{3r}{R}\right)^3\leq \sin \frac{\alpha +\beta +\gamma}{3}\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c7h2873874p26779795">
-            For measure-preserving map \(T\) and \(A\) such that \(T^{-1}A\approx A\) there exists \(B\) such that \(T^{-1}B=B\) and \(A\approx B\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h1226076p26793630">
-            For convex body \(A\) there is a plane on which the projection area of \(A\) is not less than surface area of \(A\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2490201p26803656">
-            For point \(P\) in tetrahedron \(ABCD\) with circumradius \(R\), circumcenter \(O\) and \(x=OP\) holds
-            \((R + x) (R - x)^3 \le PA\cdot PB\cdot PC\cdot PD \le (R + x)^3 (R - x)\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c893771h1904503p26804162">
-            At least \(n-1\) of the angles \(\angle A_iOA_j\) for point \(O\) inside convex polyhedron \(A_1A_2\dots A_n\) are not acute
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2824529p26815340">
-            Find the probability that for point inside an \(n-1\)-simplex the volumes of the \(n\) smaller simplices are sides of a polygon
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h2596577p26837369">
-            Construct a plane through the centroid of tetrahedron minimizing sum of volumes of some tetrahedra
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c6h476347p26842013">
-            For \(M, N, P\) on the sides of \(ABC\) dividing the sides in triples of equal cyclic sums holds \(4[MNP]\le [ABC]\)
-        </a></li>
-        <li><a href="https://artofproblemsolving.com/community/c7h2975159p26890142">
-            For reals \(\alpha, \beta, \gamma\) with \(\alpha^3+\beta^3+\gamma^3=0\) holds
-            \(\left[(\alpha-\beta)^2+(\beta-\gamma)^2+(\gamma-\alpha)^2\right]\left[\alpha^4+\beta^4+\gamma^4\right]\geq\left[\alpha^2+\beta^2+\gamma^2\right]^3\)
-        </a></li>
-    </ul>
+<h2>Composed problems</h2>
+<p>Here are some of my composed problems which are exposed to public:</p>
+<ul>
+    <li><a href="{{ url_for('category_all', category='geometry') }}">Geometry</a></li>
+    <li><a href="{{ url_for('category_all', category='algebra') }}">Algebra</a></li>
+</ul>
+<h2>Selected solutions</h2>
+<p>
+    I am a member of the <a href="https://math.stackexchange.com/users/1135242/saroyr">stackexchange</a> and
+    <a href="https://artofproblemsolving.com/community/user/490563">AoPS</a> communities and occasionally
+    solve problems there. Here are some of my selected solutions to problems in these forums:
+</p>
+<ul>
+    <li><a href="https://artofproblemsolving.com/community/c6h1894496p12951728">
+        If some two of the three corner triangles formed by inscribed equilateral triangle are equidistant from
+        the respective point then the second external tangents of the three corner incircles concur
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1686498p13908086">
+        Tetrahedron's volume is not less than the third of its biheights' product
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1897930p13965926">
+        Is there a polyhedron whose area ratio of any two faces is at least \(2\)?
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2139794p15987677">
+        For point \(M\) in face \(ABC\) of tetrahedron \(SABC\) and points \(X\in SA\) with \(SBC\parallel MX\) etc.
+        holds \(27[MXYZ]\le 2[SABC]\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2137719p16026453">
+        For bicentric \(ABCD\) with incenter \(I\) holds \((IA^2 + IC^2)(IB^2 + ID^2) \ge AB \cdot BC \cdot CD \cdot
+        DA\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1962477p16061023">
+        For point \(M\) inside tetrahedron \(A_1A_2A_3A_4\) with \(A_{ij}=A_iA_j\cap MA_kA_l\),
+        \(V_i=[A_iA_{ij}A_{ik}A_{il}]\),
+        \(V=[A_1A_2A_3A_4]\), \(V_0=[A_{12}A_{13}A_{14}A_{23}A_{24}A_{34}]\) holds \(VV_0\geq32\sqrt{V_1V_2V_3V_4}\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2056039p16071598">
+        Rigid flat triangle \(T\) with area \(<4\), may be inserted in a triangular hole of area \(3\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1904377p16195845">
+        Find \(AB/CD\) in tetrahedron \(ABCD\) with dihedrons \(BC, CD, DA\) of measure \(\alpha\), and the others of
+        measure \(\beta\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1530275p16292298">
+        Doubled distance between the intersections of adjacent angles' bisectors in convex quadrilateral
+        is not less than its sides' alternating sum
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1685037p16674897">
+        For two points of a circle joined by a broken line shorter than the diameter exists diameter not intersecting
+        the broken line
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2254528p17538661">
+        For reals \(a, b, c\) holds \((1+a^2)(b-c)^2+(1+b^2)(c-a)^2+(1+c^2)(a-b)^2\ge 2\sqrt{3}|(a-b)(b-c)(c-a)|\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2164539p16070792">
+        For positive reals \(x, y, z\) holds \(5xyz+\left[ \sqrt{\frac{xy+yz+zx}{3}}
+        +\frac{3(x+y)(y+z)(z+x)}{4(xy+yz+zx)} \right]^3 \ge 4(x+y)(y+z)(z+x)\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2327317p19623384">
+        For \(a, b, c\in[0, 4]\) with \(ab+bc+ca=4\) holds \(\sqrt{a+b}+\sqrt{b+c}+\sqrt{c+a}\le 3+\sqrt 5\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2398932p19679612">
+        For \(a\ge b\ge c\ge d\ge 0\) with \(a^4+b^4+c^4+d^4=4\) hold \(\frac{1-abcd}{(ac-bd)^2}\ge \frac 1{\sqrt 2}\)
+        and \(\frac{1-abcd}{(a^2-b^2)(c^2-d^2)}\ge 1\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2405245p19746418">
+        For \(a\ge b\ge c\ge 0\) with \(a^2+b^2+c^2=3\) holds \(1-\sqrt[3]{abc}\ge \frac 2{3}(a-b)(b-c)\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2413701p19827047">
+        For \(a\ge b\ge c\ge d\ge 0\) with \(a^2+b^2+c^2+d^2=4\) holds \(1-\sqrt[5]{abcd}\ge \frac 2{5}(a-b)(c-d)\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2405237p19827408">
+        For \(A_1, B_1, C_1\) on the sides of \(ABC\) with \(AB_1A_1C_1\) cyclic holds
+        \(\frac{4S_{A_1B_1C_1}}{S_{ABC}}\le \left(\frac{B_1C_1}{AA_1}\right)^2\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2405238p19871196">
+        For \(A_1\in BC, B_1\in AC\) and \(K\) the midpoint of \(AB\) holds \(9[KA_1B_1]\ge 2[ABC]\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1307455p19920025">
+        For positive reals \(a, b, c\) with \(a+b+c=1\) maximize \(abc(a-b)(b-c)(c-a)\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h471230p19955493">
+        The perimeter of the bisectral triangle does not exceed the semiperimeter of the triangle
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c7h2114938p20135883">
+        For the tetrahedron \(ABCD\) with angles \(\alpha, \beta, \gamma\) between the opposite edges and in- and
+        circumradii \(r, R\)
+        holds \(\left(\frac{3r}{R}\right)^3\leq \sin \frac{\alpha +\beta +\gamma}{3}\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c7h2873874p26779795">
+        For measure-preserving map \(T\) and \(A\) such that \(T^{-1}A\approx A\) there exists \(B\) such that
+        \(T^{-1}B=B\) and \(A\approx B\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h1226076p26793630">
+        For convex body \(A\) there is a plane on which the projection area of \(A\) is not less than surface area of
+        \(A\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2490201p26803656">
+        For point \(P\) in tetrahedron \(ABCD\) with circumradius \(R\), circumcenter \(O\) and \(x=OP\) holds
+        \((R + x) (R - x)^3 \le PA\cdot PB\cdot PC\cdot PD \le (R + x)^3 (R - x)\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c893771h1904503p26804162">
+        At least \(n-1\) of the angles \(\angle A_iOA_j\) for point \(O\) inside convex polyhedron \(A_1A_2\dots A_n\)
+        are not acute
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2824529p26815340">
+        Find the probability that for point inside an \(n-1\)-simplex the volumes of the \(n\) smaller simplices are
+        sides of a polygon
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h2596577p26837369">
+        Construct a plane through the centroid of tetrahedron minimizing sum of volumes of some tetrahedra
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c6h476347p26842013">
+        For \(M, N, P\) on the sides of \(ABC\) dividing the sides in triples of equal cyclic sums holds \(4[MNP]\le
+        [ABC]\)
+    </a></li>
+    <li><a href="https://artofproblemsolving.com/community/c7h2975159p26890142">
+        For reals \(\alpha, \beta, \gamma\) with \(\alpha^3+\beta^3+\gamma^3=0\) holds
+        \(\left[(\alpha-\beta)^2+(\beta-\gamma)^2+(\gamma-\alpha)^2\right]\left[\alpha^4+\beta^4+\gamma^4\right]\geq\left[\alpha^2+\beta^2+\gamma^2\right]^3\)
+    </a></li>
+</ul>
 {% endblock %}

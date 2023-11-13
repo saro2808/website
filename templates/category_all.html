@@ -1,0 +1,16 @@
+{% extends 'math_base.html' %}
+
+{% block content %}
+<h3>{{ category_name }}</h3>
+<hr>
+{% for problem in problems %}
+<h5><a href="{{ url_for('problem', category=problem['category'], id=problem['id']) }}">Problem {{ problem['id'] }}</a>
+</h5>
+{{ problem['statement'] | safe }}
+<p>
+    <b>Tags:</b> {% for tag in tags[loop.index0] %}
+    <span class="tag-frame">{{ tag }}</span>
+    {% endfor %}
+</p>
+{% endfor %}
+{% endblock %}

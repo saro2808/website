@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
-    {% for problem in problems %}
-        <p>{{ problem['statement'] | safe }}</p>
-    {% endfor %}
+<h1>{% block title %} Welcome to this website!{% endblock %}</h1>
+<p>
+    Hi, I am Saro Harutyunyan, a mathematics enthusiast currently interested in AI. In this
+    website you will find content related to my activities and interests.
+</p>
+<figure align="center">
+    <img src='../../static/images/saroyr.png' style="width:360px;">
+    <figcaption style="text-align:center;">Սարոյը նայում է դեպի պայծառ ապագան</figcaption>
+</figure>
 {% endblock %}
