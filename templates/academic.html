@@ -3,13 +3,18 @@
 {% block content %}
 <h3>Academic</h3>
 <p>Some academic stuff that displays my background and might be helpful for others.</p>
+<p>These are some courses completed at MIPT.</p>
+<h4>Computer Science</h4>
 <ul>
+    {% for course in cs_courses %}
     <li>
-        MIPT metaprogramming
+        {{ course['name'] }}
         <ul>
-            <li><a href="https://github.com/Mrkol/metaprogramming-course">Course repository</a></li>
-            <li><a href="https://github.com/saro2808/metaprogramming-course-solutions">Homework</a></li>
+            {% for url in course['urls'] %}
+            <li><a href={{url['url']}}>{{ url['text'] }}</a></li>
+            {% endfor %}
         </ul>
     </li>
+    {% endfor %}
 </ul>
 {% endblock %}

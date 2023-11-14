@@ -1,4 +1,6 @@
 import sqlite3
+import json
+
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
@@ -77,4 +79,6 @@ def music():
 
 @app.route('/academic')
 def academic():
-    return render_template('academic.html')
+    with open('static/text/courses.json', 'r') as file:
+        cs_courses = json.load(file)['computer-science-courses']
+    return render_template('academic.html', cs_courses=cs_courses)

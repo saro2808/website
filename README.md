@@ -20,3 +20,5 @@ $env:FLASK_ENV = "development"
 $env:FLASK_DEBUG = "1"
 flask run
 ```
+
+TODO: add contacts, add references, add art, add literature.
