@@ -8,7 +8,7 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-with open('static/text/problems.json', 'r') as file:
+with open('static/json/problems.json', 'r') as file:
     problems = json.load(file)['problems']
 
 for problem in problems:

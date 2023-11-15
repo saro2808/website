@@ -3,18 +3,25 @@
 {% block content %}
 <h3>Academic</h3>
 <p>Some academic stuff that displays my background and might be helpful for others.</p>
-<p>These are some courses completed at MIPT.</p>
-<h4>Computer Science</h4>
-<ul>
-    {% for course in cs_courses %}
-    <li>
-        {{ course['name'] }}
+<p>These are materials of some courses completed at MIPT.</p>
+<p><b>Note.</b> Not all the work done below belongs to me. A portion of these is due to the contributions of my several coursemates.</p>
+<div class="text-container">
+    {% for courses in course_categories %}
+    <div class="text{{loop.index}}">
+        <h4>{{ courses['name'] }}</h4>
         <ul>
-            {% for url in course['urls'] %}
-            <li><a href={{url['url']}}>{{ url['text'] }}</a></li>
+            {% for course in courses['list'] %}
+            <li>
+                {{ course['name'] }}
+                <ul>
+                    {% for url in course['urls'] %}
+                    <li><a href={{url['url']}}>{{ url['text'] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
             {% endfor %}
         </ul>
-    </li>
+    </div>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

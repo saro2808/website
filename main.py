@@ -55,7 +55,9 @@ def cv():
 
 @app.route('/mathematics')
 def mathematics():
-    return render_template('mathematics.html')
+    with open('static/json/selected_solutions.json', 'r') as file:
+        solutions = json.load(file)['solutions']
+    return render_template('mathematics.html', solutions=solutions)
 
 
 @app.route('/mathematics/<category>/all')
@@ -79,6 +81,6 @@ def music():
 
 @app.route('/academic')
 def academic():
-    with open('static/text/courses.json', 'r') as file:
-        cs_courses = json.load(file)['computer-science-courses']
-    return render_template('academic.html', cs_courses=cs_courses)
+    with open('static/json/courses.json', 'r') as file:
+        course_categories = json.load(file)['categories']
+    return render_template('academic.html', course_categories=course_categories)
