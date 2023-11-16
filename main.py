@@ -84,3 +84,7 @@ def academic():
     with open('static/json/courses.json', 'r') as file:
         course_categories = json.load(file)['categories']
     return render_template('academic.html', course_categories=course_categories)
+
+@app.route('/writings')
+def writings():
+    return render_template('writings.html')
