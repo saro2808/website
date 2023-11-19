@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+<h3>Humor search</h3>
+<hr>
+<p>You can search humors by humorists and tags here.</p>
+<br>
+<h5>Search by humorists</h5>
+<p>{% for humorist in humorists %}
+    <button class="humorist-frame">{{ humorist }}</button>
+    {% endfor %}</p>
+<h5>Search by tags</h5>
+<p>{% for tag in tags %}
+    <button class="tag-frame" id="tag-{{ loop.index }}" data-tag="{{ tag }}">{{ tag }}</button>
+    {% endfor %}</p>
+<div id="humor-container">
+    <!-- Humors will be displayed here -->
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const humoristButtons = document.querySelectorAll('.humorist-frame');
+    const tagButtons = document.querySelectorAll('.tag-frame');
+    const humorContainer = document.getElementById('humor-container');
+    let selectedTags = [];
+    let selectedHumorists = [];
+
+    tagButtons.forEach(button => {
+      button.addEventListener('click', async function() {
+        const tag = button.getAttribute('data-tag');
+        button.classList.toggle('selected');
+
+        if (button.classList.contains('selected')) {
+          selectedTags.push(tag);
+        } else {
+          selectedTags = selectedTags.filter(selectedTag => selectedTag !== tag);
+        }
+
+        await fetchHumors();
+      });
+    });
+
+    humoristButtons.forEach(button => {
+      button.addEventListener('click', async function() {
+        const humorist = button.textContent;
+        button.classList.toggle('selected');
+
+        if (button.classList.contains('selected')) {
+          selectedHumorists.push(humorist);
+        } else {
+          selectedHumorists = selectedHumorists.filter(selectedHumorist => selectedHumorist !== humorist);
+        }
+
+        await fetchHumors();
+      });
+    });
+
+    async function fetchHumors() {
+      try {
+        const tagQueryString = selectedTags.map(tag => `tag=${tag}`).join('&');
+        const humoristQueryString = selectedHumorists.map(humorist => `humorist=${humorist}`).join('&');
+
+        const queryString = `${tagQueryString}&${humoristQueryString}`;
+        const response = await fetch(`/get_humors?${queryString}`);
+        const humors = await response.json();
+
+        humorContainer.innerHTML = '';
+
+        humors.forEach(humor => {
+          const humorDiv = document.createElement('div');
+          humorDiv.classList.add('div-frame');
+
+          const humorContent = document.createElement('p');
+          humorContent.textContent = humor.content;
+
+          humorDiv.appendChild(humorContent);
+          humorContainer.appendChild(humorDiv);
+
+          humorContainer.insertAdjacentHTML('beforeend', '<br>');
+        });
+      } catch (error) {
+        console.error('Error fetching humors:', error);
+      }
+    }
+  });
+</script>
+{% endblock %}

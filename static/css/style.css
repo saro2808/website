@@ -1,5 +1,7 @@
-.tag-frame {
+.tag-frame,
+.humorist-frame {
     border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 5px;
     margin: 5px;
     display: inline-block;
@@ -14,4 +16,17 @@
 .text1 {
     width: 35%;
     box-sizing: border-box;
+}
+
+.div-frame {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Add styles for selected tags */
+.selected {
+  background-color: #ffa500; /* Change to your preferred color */
+  color: white;
+  /* Add any other styles you want for selected tags */
 }

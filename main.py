@@ -1,7 +1,7 @@
 import sqlite3
 import json
 
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, url_for, flash, redirect, jsonify
 from werkzeug.exceptions import abort
 
 
@@ -30,6 +30,31 @@ def get_problem_tags(category, id):
     if tags is None:
         abort(404)
     return tags
+
+
+def get_humors_by_humorists_and_tags(selected_humorists, selected_tags):
+    conn = get_db_connection()
+    humorist_placeholders = ', '.join('?' for _ in selected_humorists)
+    tag_placeholders = ', '.join('?' for _ in selected_tags)
+    humors = conn.execute(
+        f'''SELECT * FROM humors WHERE id IN
+            (SELECT id FROM humor_humorists
+            WHERE humorist IN ({humorist_placeholders})
+            GROUP BY humor_humorists.id
+            HAVING COUNT(DISTINCT humorist) >= ?
+            INTERSECT
+            SELECT id FROM humor_tags
+            WHERE tag IN ({tag_placeholders})
+            GROUP BY humor_tags.id
+            HAVING COUNT(DISTINCT tag) >= ?);''',
+        list(selected_humorists) + [len(selected_humorists)]
+        + list(selected_tags) + [len(selected_tags)]
+    )
+    humors = [dict(row) for row in humors]
+    conn.close()
+    if humors is None:
+        abort(404)
+    return humors
 
 
 app = Flask(__name__)
@@ -64,8 +89,7 @@ def mathematics():
 def category_all(category):
     conn = get_db_connection()
     problems = conn.execute('SELECT * FROM problems WHERE category = ?',
-                            (category,)
-                            ).fetchall()
+                            (category,)).fetchall()
     tags = []
     for problem in problems:
         tags.append(get_problem_tags(problem['category'], problem['id']))
@@ -88,3 +112,25 @@ def academic():
 @app.route('/writings')
 def writings():
     return render_template('writings.html')
+
+@app.route('/humor')
+def humor():
+    # TODO query to the db for the censored-only humors
+    with open('static/json/humors.json', 'r') as file:
+        humors = json.load(file)['humors']
+    return render_template('humor.html', humors=humors)
+
+@app.route('/humor/search')
+def search_humors(humorist=None, tag=None):
+    conn = get_db_connection()
+    all_humorists = sorted([humorist[0] for humorist in conn.execute("SELECT DISTINCT humorist FROM humor_humorists").fetchall()])
+    all_tags = sorted([tag[0] for tag in conn.execute("SELECT DISTINCT tag FROM humor_tags").fetchall()])
+    conn.close()
+    return render_template('search_humors.html', humorists=all_humorists, tags=all_tags)
+
+@app.route('/get_humors', methods=['GET'])
+def get_humors():
+    selected_tags = request.args.getlist('tag')
+    selected_humorists = request.args.getlist('humorist')
+    humors = get_humors_by_humorists_and_tags(selected_humorists, selected_tags)
+    return jsonify(humors)

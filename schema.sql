@@ -15,3 +15,25 @@ CREATE TABLE problem_tags (
     problem_id INTEGER REFERENCES problems(id),
     tag VARCHAR(255)
 );
+
+DROP TABLE IF EXISTS humors;
+
+CREATE TABLE humors (
+    id INTEGER PRIMARY KEY,
+    content TEXT NOT NULL,
+    censored INTEGER NOT NULL CHECK (censored IN (0, 1))
+);
+
+DROP TABLE IF EXISTS humor_humorists;
+
+CREATE TABLE humor_humorists (
+    id INTEGER REFERENCES humors(id),
+    humorist VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS humor_tags;
+
+CREATE TABLE humor_tags (
+    id INTEGER REFERENCES humors(id),
+    tag VARCHAR(255)
+);

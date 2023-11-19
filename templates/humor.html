@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<hr>
+<h3>Humors</h3>
+<hr>
+<p>These are humors heard and collected by me during my conversations (in Armenian mainly).</p>
+<p>You can also search humors by humorists and tags <a href="{{ url_for('search_humors') }}">here</a>.</p>
+<br>
+{% for humor in humors %}
+<div class="div-frame">
+    <p>{{ humor['content'] }}</p>
+    <p>
+        <b>Humorists:</b>
+        {% for humorist in humor['humorists'] %}
+        <a href="{{ url_for('search_humors', humorist=humorist) }}">
+            <button class="humorist-frame">{{ humorist }}</button>
+        </a>
+        {% endfor %}
+        <b>Tags:</b>
+        {% for tag in humor['tags'] %}
+        <a href="{{ url_for('search_humors', tag=tag) }}">
+            <button class="tag-frame">{{ tag }}</button>
+        </a>
+        {% endfor %}
+    </p>
+</div>
+<br>
+{% endfor %}
+{% endblock %}

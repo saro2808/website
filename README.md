@@ -1,6 +1,6 @@
 # website
 
-This is a my personal website source code.
+This is my personal website source code.
 
 This website is deployed [here](https://saroyr-com-d9a4be4812ff.herokuapp.com/).
 
@@ -21,4 +21,12 @@ $env:FLASK_DEBUG = "1"
 flask run
 ```
 
-TODO: add contacts, add references, add art, add literature.
+TODO: add
+* contacts,
+* references,
+* art,
+* black mode,
+* Armenian language,
+* ggb support,
+* problem search by tag
+* humor search by only humorists or tags.
