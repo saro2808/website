@@ -1,5 +1,6 @@
 .tag-frame,
-.humorist-frame {
+.humorist-frame,
+.censor-frame {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;

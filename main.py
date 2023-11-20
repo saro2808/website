@@ -32,25 +32,29 @@ def get_problem_tags(category, id):
     return tags
 
 
-def get_humors_by_humorists_and_tags(selected_humorists, selected_tags):
+def get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected_censor):
     conn = get_db_connection()
-    humorist_placeholders = ', '.join('?' for _ in selected_humorists)
-    tag_placeholders = ', '.join('?' for _ in selected_tags)
-    humors = conn.execute(
-        f'''SELECT * FROM humors WHERE id IN
-            (SELECT id FROM humor_humorists
-            WHERE humorist IN ({humorist_placeholders})
-            GROUP BY humor_humorists.id
-            HAVING COUNT(DISTINCT humorist) >= ?
-            INTERSECT
-            SELECT id FROM humor_tags
-            WHERE tag IN ({tag_placeholders})
-            GROUP BY humor_tags.id
-            HAVING COUNT(DISTINCT tag) >= ?);''',
-        list(selected_humorists) + [len(selected_humorists)]
-        + list(selected_tags) + [len(selected_tags)]
-    )
-    humors = [dict(row) for row in humors]
+    subqueries = []
+    params = []
+    selected_items = [selected_humorists, selected_tags]
+    names = ['humorist', 'tag']
+    for i in range(2):
+        if selected_items[i]:
+            placeholders = ', '.join('?' for _ in selected_items[i])
+            subqueries.append(f'''SELECT id FROM humor_{names[i]}s
+                               WHERE {names[i]} IN ({placeholders})
+                               GROUP BY humor_{names[i]}s.id
+                               HAVING COUNT(DISTINCT {names[i]}) >= ?''')
+            params += list(selected_items[i]) + [len(selected_items[i])]
+    query = '''SELECT * FROM humors
+               WHERE 1=1 '''
+    if selected_censor == 'censored-only':
+        query += 'AND censored = ? '
+        params = [1] + params
+    if selected_tags or selected_humorists:
+        query += f'AND id IN (' + ' INTERSECT '.join(subqueries) + ')'
+    query += ';'
+    humors = [dict(row) for row in conn.execute(query, params)]
     conn.close()
     if humors is None:
         abort(404)
@@ -118,6 +122,7 @@ def humor():
     # TODO query to the db for the censored-only humors
     with open('static/json/humors.json', 'r') as file:
         humors = json.load(file)['humors']
+    humors = [humor for humor in humors if humor['censored']]
     return render_template('humor.html', humors=humors)
 
 @app.route('/humor/search')
@@ -132,5 +137,6 @@ def search_humors(humorist=None, tag=None):
 def get_humors():
     selected_tags = request.args.getlist('tag')
     selected_humorists = request.args.getlist('humorist')
-    humors = get_humors_by_humorists_and_tags(selected_humorists, selected_tags)
+    selected_censor = request.args.get('censor')
+    humors = get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected_censor)
     return jsonify(humors)

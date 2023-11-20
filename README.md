@@ -28,5 +28,4 @@ TODO: add
 * black mode,
 * Armenian language,
 * ggb support,
-* problem search by tag
-* humor search by only humorists or tags.
+* creation of Saroy.

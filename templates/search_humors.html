@@ -6,14 +6,19 @@
 <hr>
 <p>You can search humors by humorists and tags here.</p>
 <br>
-<h5>Search by humorists</h5>
+<h5>Humorists</h5>
 <p>{% for humorist in humorists %}
     <button class="humorist-frame">{{ humorist }}</button>
     {% endfor %}</p>
-<h5>Search by tags</h5>
+<h5>Tags</h5>
 <p>{% for tag in tags %}
     <button class="tag-frame" id="tag-{{ loop.index }}" data-tag="{{ tag }}">{{ tag }}</button>
     {% endfor %}</p>
+<h5>Censor</h5>
+<p>
+    <button class="censor-frame" id="censor-0" data-censor="censored-only">censored-only</button>
+    <button class="censor-frame" id="censor-1" data-censor="all">all</button>
+</p>
 <div id="humor-container">
     <!-- Humors will be displayed here -->
 </div>
@@ -25,8 +30,10 @@
     const humoristButtons = document.querySelectorAll('.humorist-frame');
     const tagButtons = document.querySelectorAll('.tag-frame');
     const humorContainer = document.getElementById('humor-container');
+    const censorButtons = document.querySelectorAll('.censor-frame');
     let selectedTags = [];
     let selectedHumorists = [];
+    let selectedCensor = 'censored-only';
 
     tagButtons.forEach(button => {
       button.addEventListener('click', async function() {
@@ -58,12 +65,33 @@
       });
     });
 
+    censorButtons.forEach(button => {
+      button.addEventListener('click', async function() {
+        const censorOption = button.getAttribute('data-censor');
+
+        if (censorOption === 'all') {
+          const confirmed = confirm('Are you sure you want to view all humors?');
+          if (!confirmed) return; // Do nothing if user cancels
+        }
+
+        // Toggle selection for censor buttons
+        censorButtons.forEach(btn => {
+          btn.classList.remove('selected');
+        });
+        button.classList.add('selected');
+
+        selectedCensor = censorOption;
+        await fetchHumors();
+      });
+    });
+
     async function fetchHumors() {
       try {
         const tagQueryString = selectedTags.map(tag => `tag=${tag}`).join('&');
         const humoristQueryString = selectedHumorists.map(humorist => `humorist=${humorist}`).join('&');
+        const censorQueryString = `censor=${selectedCensor}`;
 
-        const queryString = `${tagQueryString}&${humoristQueryString}`;
+        const queryString = `${tagQueryString}&${humoristQueryString}&${censorQueryString}`;
         const response = await fetch(`/get_humors?${queryString}`);
         const humors = await response.json();
 
