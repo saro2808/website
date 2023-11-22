@@ -31,3 +31,17 @@
   color: white;
   /* Add any other styles you want for selected tags */
 }
+
+#index-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the start (top) of the container */
+}
+
+#index-figure {
+    margin-right: 40px; /* Adjust the space between the figure and the list */
+}
+
+#contact-list {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+}

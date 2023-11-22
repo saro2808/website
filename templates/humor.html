@@ -11,6 +11,9 @@
 {% for humor in humors %}
 <div class="div-frame">
     <p>{{ humor['content'] }}</p>
+    {% if 'img' in humor %}
+    <img src="{{ humor['img']['src'] }}" alt="{{ humor['img']['alt'] }}">
+    {% endif %}
     <p>
         <b>Humorists:</b>
         {% for humorist in humor['humorists'] %}

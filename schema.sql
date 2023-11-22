@@ -21,7 +21,9 @@ DROP TABLE IF EXISTS humors;
 CREATE TABLE humors (
     id INTEGER PRIMARY KEY,
     content TEXT NOT NULL,
-    censored INTEGER NOT NULL CHECK (censored IN (0, 1))
+    censored INTEGER NOT NULL CHECK (censored IN (0, 1)),
+    img_src VARCHAR(255),
+    img_alt VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS humor_humorists;

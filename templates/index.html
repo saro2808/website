@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<br>
 <h1>{% block title %} Welcome to this website!{% endblock %}</h1>
 <p>
     Hi, I am Saro Harutyunyan, a mathematics enthusiast currently interested in AI. In this
     website you will find content related to my activities and interests.
 </p>
-<figure align="center">
-    <img src='../../static/images/saroyr.png' style="width:360px;">
-    <figcaption style="text-align:center;">Me, looking to a brighter future,<br>
-        15.05.2022, photo by Arsenius</figcaption>
-</figure>
+<br>
+<div class="container" id="index-container">
+    <figure id="index-figure">
+        <img src='../../static/images/saroyr.png' style="width:360px;">
+        <figcaption>Me, looking to a brighter future,<br>
+            15.05.2022, photo by Arsenius
+        </figcaption>
+    </figure>
+    <div>
+        <h5>You can find me in</h5>
+        <ul class="contact-list">
+            <li><a href="mailto:saro.harutyunyan@gmail.com">Gmail</a></li>
+            <li><a href="https://www.linkedin.com/in/saro-harutyunyan-a4019823b">Linkedin</a></li>
+            <li><a href="https://t.me/saroyr">Telegram</a></li>
+            <li><a href="https://www.facebook.com/saro.harutyunyan.9">Facebook</a></li>
+            <li><a href="https://vk.com/id559429444">VKontakte</a></li>
+        </ul>
+    </div>
+</div>
 {% endblock %}

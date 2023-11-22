@@ -24,8 +24,14 @@ with open('static/json/humors.json', 'r') as file:
 
 humor_index = 0
 for humor in humors:
-    cur.execute("INSERT INTO humors (id, content, censored) VALUES (?, ?, ?)",
-                (humor_index, humor['content'], humor['censored']))
+    if 'img' in humor:
+        img_src = humor['img']['src']
+        img_alt = humor['img']['alt']
+    else:
+        img_src = None
+        img_alt = None
+    cur.execute("INSERT INTO humors (id, content, censored, img_src, img_alt) VALUES (?, ?, ?, ?, ?)",
+                (humor_index, humor['content'], humor['censored'], img_src, img_alt))
     for humorist in humor['humorists']:
         cur.execute("INSERT INTO humor_humorists (id, humorist) VALUES (?, ?)",
                     (humor_index, humorist))

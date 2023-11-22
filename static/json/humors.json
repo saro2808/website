@@ -342,7 +342,7 @@
       "tags": ["Արսեն", "Լյով", "ֆիզտեխ"],
       "censored": true,
       "img": {
-        "src": "static/mneNeVsyoRavno.png",
+        "src": "static/images/mneNeVsyoRavno.png",
         "alt": "Լյովը նայում ա պլակատին"
       }
     },
@@ -538,7 +538,7 @@
       "tags": ["Սարո", "ֆիզտեխ"],
       "censored": true,
       "img": {
-        "src": "",
+        "src": "static/images/papinerov.jpg",
         "alt": "նկարը իմ ու պապիի"
       }
     },
@@ -1064,7 +1064,7 @@
       "tags": ["Արսեն", "ֆիզտեխ"],
       "censored": true,
       "img": {
-        "src": "static/demq.png",
+        "src": "static/images/demq.png",
         "alt": "դեմք"
       }
     },

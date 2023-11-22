@@ -5,6 +5,7 @@
 <h3>Humor search</h3>
 <hr>
 <p>You can search humors by humorists and tags here.</p>
+<p>Unless you select all under censor, only censored humors will be displayed.</p>
 <br>
 <h5>Humorists</h5>
 <p>{% for humorist in humorists %}
@@ -70,7 +71,7 @@
         const censorOption = button.getAttribute('data-censor');
 
         if (censorOption === 'all') {
-          const confirmed = confirm('Are you sure you want to view all humors?');
+          const confirmed = confirm('Are you sure you want to view all humors? Non-censored text might be loaded.');
           if (!confirmed) return; // Do nothing if user cancels
         }
 
@@ -86,33 +87,41 @@
     });
 
     async function fetchHumors() {
-      try {
-        const tagQueryString = selectedTags.map(tag => `tag=${tag}`).join('&');
-        const humoristQueryString = selectedHumorists.map(humorist => `humorist=${humorist}`).join('&');
-        const censorQueryString = `censor=${selectedCensor}`;
+  try {
+    const tagQueryString = selectedTags.map(tag => `tag=${tag}`).join('&');
+    const humoristQueryString = selectedHumorists.map(humorist => `humorist=${humorist}`).join('&');
+    const censorQueryString = `censor=${selectedCensor}`;
 
-        const queryString = `${tagQueryString}&${humoristQueryString}&${censorQueryString}`;
-        const response = await fetch(`/get_humors?${queryString}`);
-        const humors = await response.json();
+    const queryString = `${tagQueryString}&${humoristQueryString}&${censorQueryString}`;
+    const response = await fetch(`/get_humors?${queryString}`);
+    const humors = await response.json();
 
-        humorContainer.innerHTML = '';
+    humorContainer.innerHTML = '';
 
-        humors.forEach(humor => {
-          const humorDiv = document.createElement('div');
-          humorDiv.classList.add('div-frame');
+    humors.forEach(humor => {
+      const humorDiv = document.createElement('div');
+      humorDiv.classList.add('div-frame');
 
-          const humorContent = document.createElement('p');
-          humorContent.textContent = humor.content;
+      const humorContent = document.createElement('p');
+      humorContent.textContent = humor.content;
 
-          humorDiv.appendChild(humorContent);
-          humorContainer.appendChild(humorDiv);
-
-          humorContainer.insertAdjacentHTML('beforeend', '<br>');
-        });
-      } catch (error) {
-        console.error('Error fetching humors:', error);
+      // Check if 'img' property exists in the humor object
+      if (humor.img_src) {
+        const img = document.createElement('img');
+        img.src = '/' + humor.img_src;
+        img.alt = humor.img_alt;
+        humorDiv.appendChild(img);
       }
-    }
+
+      humorDiv.appendChild(humorContent);
+      humorContainer.appendChild(humorDiv);
+
+      humorContainer.insertAdjacentHTML('beforeend', '<br>');
+    });
+  } catch (error) {
+    console.error('Error fetching humors:', error);
+  }
+}
   });
 </script>
 {% endblock %}
