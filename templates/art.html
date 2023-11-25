@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hr>
+<h3>Art</h3>
+<hr>
+<p>A handful of my hundreds of paintings (mainly copy-painted).</p>
+<table>
+    {% for pair in files %}
+    <tr>
+        {% for file in pair %}
+        <td><img src="/static/images/art/{{ file }}" style="width:550px;"></td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

@@ -23,7 +23,7 @@ flask run
 
 TODO: add
 * references,
-* art,
 * Armenian language,
 * ggb support,
-* creation of Saroy.
+* creation of Saroy,
+* TUMO 3D.

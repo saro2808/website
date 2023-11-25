@@ -1,5 +1,6 @@
 import sqlite3
 import json
+import os
 
 from flask import Flask, render_template, request, url_for, flash, redirect, jsonify
 from werkzeug.exceptions import abort
@@ -140,3 +141,11 @@ def get_humors():
     selected_censor = request.args.get('censor')
     humors = get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected_censor)
     return jsonify(humors)
+
+@app.route('/art')
+def art():
+    files = os.listdir('static/images/art')
+    files = [[files[2 * i], files[2 * i + 1]] for i in range(len(files) // 2)]
+    if len(files) % 2:
+        files += [[files[-1]]]
+    return render_template('art.html', files=files)
