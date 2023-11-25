@@ -22,10 +22,8 @@ flask run
 ```
 
 TODO: add
-* contacts,
 * references,
 * art,
-* black mode,
 * Armenian language,
 * ggb support,
 * creation of Saroy.

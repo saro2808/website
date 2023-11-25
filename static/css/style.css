@@ -1,13 +1,104 @@
+/* Define colors for light and dark modes */
+:root {
+    /* Light mode colors */
+    --bg-color-light: #ffffff;
+    --text-color-light: #000000;
+    --selected-bg-light: #2fff00;
+
+    /* Dark mode colors */
+    --bg-color-dark: #1f1f1f;
+    --text-color-dark: #ffffff;
+    --border-color-dark: #ccc;
+    --selected-bg-dark: #007f00;
+}
+
+/* Default styles */
+body {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* Frames and containers */
 .tag-frame,
 .humorist-frame,
 .censor-frame {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color-dark);
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
     display: inline-block;
 }
 
+body.dark-mode .tag-frame,
+body.dark-mode .humorist-frame,
+body.dark-mode .censor-frame {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+.div-frame {
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body.dark-mode .div-frame {
+    border-color: var(--border-color-dark);
+}
+
+/* Selected elements */
+.selected {
+    background-color: var(--selected-bg-light);
+}
+
+body.dark-mode .selected {
+    background-color: var(--selected-bg-dark);
+}
+
+/* Elements inside panel-group for dark mode */
+body.dark-mode .panel-group,
+body.dark-mode .panel-default,
+body.dark-mode .panel-heading,
+body.dark-mode .panel-title,
+body.dark-mode .panel-collapse,
+body.dark-mode .list-group,
+body.dark-mode .list-group-item,
+body.dark-mode .panel-group .panel-default .panel-heading h6.panel-title a {
+    /* Define dark mode styles for elements inside the panel-group */
+    background-color: #2f2f2f;
+    color: #ffffff;
+    /* Adjust other styles as needed */
+}
+
+body .panel-group .panel-default .panel-heading h6.panel-title a {
+    color: #000000;
+}
+
+body .panel-group {
+    background-color: #f3f3f3;
+    color: #000000;
+}
+
+/* Dark mode styles for dark mode toggle button */
+body.dark-mode #darkModeToggle {
+    background-color: #2f2f2f; /* Set background color for dark mode */
+    /* Add any other necessary styles */
+}
+
+/* Dark mode styles for the dark mode icon */
+body.dark-mode #darkModeToggle .fa-sun,
+body.dark-mode #darkModeToggle .fa-moon {
+    color: #ffffff; /* Set icon color for dark mode */
+    /* Add any other necessary styles */
+}
+
+/* Layout styles */
 .text-container {
     display: flex;
     justify-content: space-between;
@@ -19,29 +110,16 @@
     box-sizing: border-box;
 }
 
-.div-frame {
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-/* Add styles for selected tags */
-.selected {
-  background-color: #ffa500; /* Change to your preferred color */
-  color: white;
-  /* Add any other styles you want for selected tags */
-}
-
 #index-container {
     display: flex;
-    align-items: flex-start; /* Align items to the start (top) of the container */
+    align-items: flex-start;
 }
 
 #index-figure {
-    margin-right: 40px; /* Adjust the space between the figure and the list */
+    margin-right: 40px;
 }
 
 #contact-list {
-    list-style: none; /* Remove default list styles */
+    list-style: none;
     padding: 0;
 }

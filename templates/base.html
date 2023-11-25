@@ -12,10 +12,41 @@
 
     <title>{% block title %} {% endblock %}</title>
     <style>{% block style %} {% endblock %}</style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const storedDarkMode = localStorage.getItem('dark-mode');
+            const body = document.body;
+            const navbar = document.getElementById('mainNavbar');
+
+            if (storedDarkMode === 'true') {
+                body.classList.add('dark-mode');
+                navbar.classList.add('navbar-dark', 'bg-dark');
+                navbar.classList.remove('navbar-light', 'bg-light')
+            } else {
+                body.classList.remove('dark-mode');
+                navbar.classList.remove('navbar-dark', 'bg-dark');
+                navbar.classList.add('navbar-light', 'bg-light')
+            }
+        });
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const navbar = document.getElementById('mainNavbar');
+
+            body.classList.toggle('dark-mode');
+            navbar.classList.toggle('navbar-dark');
+            navbar.classList.toggle('bg-dark');
+            navbar.classList.toggle('navbar-light');
+            navbar.classList.toggle('bg-light');
+
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('dark-mode', isDarkMode);
+        }
+    </script>
     {% block javascript %} {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-md" id="mainNavbar">
     <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +71,12 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('humor') }}">Humor</a>
+            </li>
+            <li class="nav-item active">
+                <button class="nav-link" onclick="toggleDarkMode()" id="darkModeToggle">
+                    <i class="fas fa-sun"></i> <!-- Light mode icon -->
+                    <i class="fas fa-moon"></i> <!-- Dark mode icon -->
+                </button>
             </li>
             <!--            <div class="dropdown">-->
             <!--                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example-->
@@ -70,6 +107,9 @@
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+        integrity="sha384-..."
         crossorigin="anonymous"></script>
 </body>
 </html>

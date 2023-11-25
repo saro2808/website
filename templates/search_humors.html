@@ -105,6 +105,9 @@
       const humorContent = document.createElement('p');
       humorContent.textContent = humor.content;
 
+      humorDiv.appendChild(humorContent);
+      humorContainer.appendChild(humorDiv);
+
       // Check if 'img' property exists in the humor object
       if (humor.img_src) {
         const img = document.createElement('img');
@@ -112,9 +115,6 @@
         img.alt = humor.img_alt;
         humorDiv.appendChild(img);
       }
-
-      humorDiv.appendChild(humorContent);
-      humorContainer.appendChild(humorDiv);
 
       humorContainer.insertAdjacentHTML('beforeend', '<br>');
     });
