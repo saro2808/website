@@ -4,12 +4,10 @@
       "category": "Dictionaries",
       "list": [
         {
-          "url": "http://nayiri.com",
-          "description": "A compilation of more than a hundred Armenian dictionaries."
+          "item": "<a href=\"http://nayiri.com\">Nayiri</a> is a compilation of more than a hundred Armenian dictionaries."
         },
         {
-          "url": "https://hy.glosbe.com/en/hy/",
-          "description": "Also a great English-Armenian dictionary; it contains some newer words that are absent in Nayiri."
+          "item": "<a href=\"https://hy.glosbe.com/en/hy/\">Glosbe</a> is also a great English-Armenian dictionary; it contains some newer words that are absent in Nayiri."
         }
       ]
     },
@@ -18,20 +16,16 @@
       "description": "For more info see <a href=\"https://en.wikipedia.org/wiki/File_sharing\">this</a>.",
       "list": [
         {
-          "url": "https://libgen.li/",
-          "description": "Archive of many books and articles."
+          "item": "<a href=\"https://libgen.li/\">LibGen</a> is an archive of many books and articles."
         },
         {
-          "url": "https://z-lib.is/",
-          "description": "Another shadow library."
+          "item": "<a href=\"https://z-lib.is/\">Z-Library</a> is another shadow library."
         },
         {
-          "url": "https://www.pdfdrive.com/",
-          "description": "Shadow book archive."
+          "item": "<a href=\"https://www.pdfdrive.com/\">PDF Drive</a> is a shadow book archive too."
         },
         {
-          "url": "https://arar.sci.am/dlibra",
-          "description": "Pan-Armenian digital library."
+          "item": "<a href=\"https://arar.sci.am/dlibra\">Pan-Armenian digital library</a>."
         }
       ]
     },
@@ -39,12 +33,10 @@
       "category": "Religious",
       "list": [
         {
-          "url": "https://www.openbible.info/topics/",
-          "description": "Here one can find out what the Bible says about the interested topic."
+          "item": "In <a href=\"https://www.openbible.info/topics/\">OpenBible</a> one can find out what the Bible says about the interested topic."
         },
         {
-          "url": "https://www.1patasxan.com/",
-          "description": "Answers to some questions about life and God (in Armenian)."
+          "item": "<a href=\"https://www.1patasxan.com/\">1patasxan</a> has answers to some questions about life and God (in Armenian)."
         }
       ]
     },
@@ -52,28 +44,22 @@
       "category": "Miscellaneous",
       "list": [
         {
-          "url": "https://forebears.io/",
-          "description": "Information about name and surname distribution and more."
+          "item": "<a href=\"https://forebears.io/\">forebears.io</a> contains information about name and surname distribution and more."
         },
         {
-          "url": "https://www.overleaf.com/",
-          "description": "Online LaTeX editor."
+          "item": "<a href=\"https://www.overleaf.com/\">Overleaf</a> is an online LaTeX editor."
         },
         {
-          "url": "https://downdetector.com/",
-          "description": "Shows if a website is operating or is down."
+          "item": "<a href=\"https://downdetector.com/\">Downdetector</a> shows if a website is operating or is down."
         },
         {
-          "url": "https://www.3dtuning.com/en-US/",
-          "description": "Online car configurator."
+          "item": "<a href=\"https://www.3dtuning.com/en-US/\">3D Tuning</a> is an online car configurator."
         },
         {
-          "url": "https://fileinfo.com",
-          "description": "Info about files."
+          "item": "<a href=\"https://fileinfo.com\">FileInfo</a> gives info about files."
         },
         {
-          "url": "https://wikidiff.com/",
-          "description": "Info about the difference between two words."
+          "item": "<a href=\"https://wikidiff.com/\">WikiDiff</a> gives info about the difference between two words."
         }
       ]
     }

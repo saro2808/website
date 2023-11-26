@@ -13,8 +13,7 @@
 <ul>
 {% for site in category['list'] %}
 <li>
-    <a href="{{ site['url'] }}">{{ site['url'] }}</a><br>
-    {{ site['description'] }}
+    {{ site['item'] | safe }}
 </li>
 {% endfor %}
 </ul>
