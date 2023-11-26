@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hr>
+<h3>References</h3>
+<hr>
+<p>Here is a list of references that I often use and might be helpful for others too.</p>
+{% for category in sites %}
+<h5>{{ category['category'] }}</h5>
+{% if 'description' in category %}
+<p>{{ category['description'] | safe }}</p>
+{% endif %}
+<ul>
+{% for site in category['list'] %}
+<li>
+    <a href="{{ site['url'] }}">{{ site['url'] }}</a><br>
+    {{ site['description'] }}
+</li>
+{% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

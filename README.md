@@ -1,6 +1,7 @@
 # website
 
-This is my personal website source code.
+This is my personal website source code. I relied on [this](https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3)
+tutorial when writing this website.
 
 This website is deployed [here](https://saroyr-com-d9a4be4812ff.herokuapp.com/).
 
@@ -22,7 +23,6 @@ flask run
 ```
 
 TODO: add
-* references,
 * Armenian language,
 * ggb support,
 * creation of Saroy,

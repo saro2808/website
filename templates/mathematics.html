@@ -45,4 +45,17 @@
     </div>
 </div>
 {% endfor %}
+<hr>
+<h3>References</h3>
+<hr>
+{% for item in references %}
+<h5>{{ item['category'] }}</h5>
+<ul>
+{% for ref in item['list'] %}
+<li>
+    {{ ref['item'] | safe }}
+</li>
+{% endfor %}
+</ul>
+{% endfor %}
 {% endblock %}

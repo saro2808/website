@@ -85,9 +85,11 @@ def cv():
 
 @app.route('/mathematics')
 def mathematics():
-    with open('static/json/selected_solutions.json', 'r') as file:
-        solutions = json.load(file)['solutions']
-    return render_template('mathematics.html', solutions=solutions)
+    with open('static/json/mathematics.json', 'r') as file:
+        loaded = json.load(file)
+    solutions = loaded['solutions']
+    references = loaded['references']
+    return render_template('mathematics.html', solutions=solutions, references=references)
 
 
 @app.route('/mathematics/<category>/all')
@@ -110,9 +112,11 @@ def music():
 
 @app.route('/academic')
 def academic():
-    with open('static/json/courses.json', 'r') as file:
-        course_categories = json.load(file)['categories']
-    return render_template('academic.html', course_categories=course_categories)
+    with open('static/json/academic.json', 'r') as file:
+        loaded = json.load(file)
+    course_categories = loaded['categories']
+    references = loaded['references']
+    return render_template('academic.html', course_categories=course_categories, references=references)
 
 @app.route('/writings')
 def writings():
@@ -149,3 +153,9 @@ def art():
     if len(files) % 2:
         files += [[files[-1]]]
     return render_template('art.html', files=files)
+
+@app.route('/references')
+def references():
+    with open('static/json/sites.json', 'r') as file:
+        sites = json.load(file)['sites']
+    return render_template('references.html', sites=sites)

@@ -232,5 +232,49 @@
         }
       ]
     }
+  ],
+  "references": [
+    {
+      "category": "Computer Science",
+      "list": [
+        {
+          "item": "<a href=\"https://d2l.ai/\">d2l.ai</a> is a very good book to dive into deep learning."
+        },
+        {
+          "item": "<a href=\"https://wikidocs.net/book/8027\">DL Bible 3. NLP</a> is another comprehensive deep learning book, on NLP."
+        },
+        {
+          "item": "<a href=\"https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world\">The Flask mega-tutorial</a> is a good guide to write and deploy Flask website."
+        },
+        {
+          "item": "<a href=\"https://armenbadal.gitbooks.io/talks-about-c-language/content/index.html\">Conversations about C</a> is the starter's guide on the language C (in Armenian)."
+        }
+      ]
+    },
+    {
+      "category": "Physics",
+      "list": [
+        {
+          "item": "<a href=\"https://openstax.org/details/books/university-physics-volume-1\">University Physics</a>."
+        },
+        {
+          "item": "<a href=\"https://www.feynmanlectures.caltech.edu/\">Feynman's lectures</a>."
+        }
+      ]
+    },
+    {
+      "category": "Miscellaneous",
+      "list": [
+        {
+          "item": "<a href=\"https://neerc.ifmo.ru/wiki/index.php\">Wiki-notes on mathematics and computer science</a>."
+        },
+        {
+          "item": "<a href=\"https://renrenthehamster.wordpress.com/\">Hamster's Hideout</a> contains some materials of functional analysis and quantum physics."
+        },
+        {
+          "item": "<a href=\"https://github.com/MIPT-Group/Lectures_Tex_Club\">Lecture Tex Club</a> has notes of some lectures at MIPT."
+        }
+      ]
+    }
   ]
 }

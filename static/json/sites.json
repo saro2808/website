@@ -1,0 +1,81 @@
+{
+  "sites": [
+    {
+      "category": "Dictionaries",
+      "list": [
+        {
+          "url": "http://nayiri.com",
+          "description": "A compilation of more than a hundred Armenian dictionaries."
+        },
+        {
+          "url": "https://hy.glosbe.com/en/hy/",
+          "description": "Also a great English-Armenian dictionary; it contains some newer words that are absent in Nayiri."
+        }
+      ]
+    },
+    {
+      "category": "Libraries",
+      "description": "For more info see <a href=\"https://en.wikipedia.org/wiki/File_sharing\">this</a>.",
+      "list": [
+        {
+          "url": "https://libgen.li/",
+          "description": "Archive of many books and articles."
+        },
+        {
+          "url": "https://z-lib.is/",
+          "description": "Another shadow library."
+        },
+        {
+          "url": "https://www.pdfdrive.com/",
+          "description": "Shadow book archive."
+        },
+        {
+          "url": "https://arar.sci.am/dlibra",
+          "description": "Pan-Armenian digital library."
+        }
+      ]
+    },
+    {
+      "category": "Religious",
+      "list": [
+        {
+          "url": "https://www.openbible.info/topics/",
+          "description": "Here one can find out what the Bible says about the interested topic."
+        },
+        {
+          "url": "https://www.1patasxan.com/",
+          "description": "Answers to some questions about life and God (in Armenian)."
+        }
+      ]
+    },
+    {
+      "category": "Miscellaneous",
+      "list": [
+        {
+          "url": "https://forebears.io/",
+          "description": "Information about name and surname distribution and more."
+        },
+        {
+          "url": "https://www.overleaf.com/",
+          "description": "Online LaTeX editor."
+        },
+        {
+          "url": "https://downdetector.com/",
+          "description": "Shows if a website is operating or is down."
+        },
+        {
+          "url": "https://www.3dtuning.com/en-US/",
+          "description": "Online car configurator."
+        },
+        {
+          "url": "https://fileinfo.com",
+          "description": "Info about files."
+        },
+        {
+          "url": "https://wikidiff.com/",
+          "description": "Info about the difference between two words."
+        }
+      ]
+    }
+  ]
+}

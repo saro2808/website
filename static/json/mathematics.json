@@ -136,5 +136,29 @@
         }
       ]
     }
+  ],
+  "references": [
+    {
+      "category": "Encyclopedias",
+      "list": [
+        {
+          "item": "Chris van Tienhoven's <a href=\"https://chrisvantienhoven.nl/quadrilateral-objects\">Encyclopedia of quadrilateral objects</a>"
+        },
+        {
+          "item": "<a href=\"https://planetmath.org/msc.html\">PlanetMath</a>"
+        },
+        {
+          "item": "<a href=\"https://encyclopediaofmath.org/wiki/Main_Page\">Encyclopedia of Mathematics</a>"
+        }
+      ]
+    },
+    {
+      "category": "Other resources",
+      "list": [
+        {
+          "item": "<a href=\"https://www.cut-the-knot.org/\">Cut the Knot</a> - Alexander Bogomolny's website"
+        }
+      ]
+    }
   ]
 }
