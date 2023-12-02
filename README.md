@@ -26,4 +26,5 @@ TODO: add
 * Armenian language,
 * ggb support,
 * creation of Saroy,
-* TUMO 3D.
+* TUMO 3D,
+* biker's guide.
