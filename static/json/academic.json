@@ -17,6 +17,19 @@
           ]
         },
         {
+          "name": "Computer Architecture and Operating Systems",
+          "urls": [
+            {
+              "url": "static/documents/caos-victim.pdf",
+              "text": "Lecture notes"
+            },
+            {
+              "url": "static/documents/caos-sems.pdf",
+              "text": "Seminar notes"
+            }
+          ]
+        },
+        {
           "name": "Machine Learning (basic)",
           "urls": [
             {

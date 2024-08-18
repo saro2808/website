@@ -8,7 +8,7 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-with open('static/json/problems.json', 'r') as file:
+with open('static/json/problems.json', 'r', encoding='utf-8') as file:
     problems = json.load(file)['problems']
 
 for problem in problems:
@@ -19,7 +19,7 @@ for problem in problems:
         cur.execute("INSERT INTO problem_tags (problem_category, problem_id, tag) VALUES (?, ?, ?)",
                     (problem['category'], problem['id'], tag))
 
-with open('static/json/humors.json', 'r') as file:
+with open('static/json/humors.json', 'r', encoding='utf-8') as file:
     humors = json.load(file)['humors']
 
 humor_index = 0

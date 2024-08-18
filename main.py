@@ -85,7 +85,7 @@ def cv():
 
 @app.route('/mathematics')
 def mathematics():
-    with open('static/json/mathematics.json', 'r') as file:
+    with open('static/json/mathematics.json', 'r', encoding='utf-8') as file:
         loaded = json.load(file)
     solutions = loaded['solutions']
     references = loaded['references']
@@ -112,23 +112,26 @@ def music():
 
 @app.route('/academic')
 def academic():
-    with open('static/json/academic.json', 'r') as file:
+    with open('static/json/academic.json', 'r', encoding='utf-8') as file:
         loaded = json.load(file)
     course_categories = loaded['categories']
     references = loaded['references']
     return render_template('academic.html', course_categories=course_categories, references=references)
 
+
 @app.route('/writings')
 def writings():
     return render_template('writings.html')
 
+
 @app.route('/humor')
 def humor():
     # TODO query to the db for the censored-only humors
-    with open('static/json/humors.json', 'r') as file:
+    with open('static/json/humors.json', 'r', encoding='utf-8') as file:
         humors = json.load(file)['humors']
     humors = [humor for humor in humors if humor['censored']]
     return render_template('humor.html', humors=humors)
+
 
 @app.route('/humor/search')
 def search_humors(humorist=None, tag=None):
@@ -138,6 +141,7 @@ def search_humors(humorist=None, tag=None):
     conn.close()
     return render_template('search_humors.html', humorists=all_humorists, tags=all_tags)
 
+
 @app.route('/get_humors', methods=['GET'])
 def get_humors():
     selected_tags = request.args.getlist('tag')
@@ -145,6 +149,7 @@ def get_humors():
     selected_censor = request.args.get('censor')
     humors = get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected_censor)
     return jsonify(humors)
+
 
 @app.route('/art')
 def art():
@@ -154,8 +159,9 @@ def art():
         files += [[files[-1]]]
     return render_template('art.html', files=files)
 
+
 @app.route('/references')
 def references():
-    with open('static/json/sites.json', 'r') as file:
+    with open('static/json/sites.json', 'r', encoding='utf-8') as file:
         sites = json.load(file)['sites']
     return render_template('references.html', sites=sites)
