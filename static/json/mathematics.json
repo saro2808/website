@@ -38,6 +38,10 @@
         {
           "url": "https://artofproblemsolving.com/community/c6h475278p31141646",
           "text": "Minimize \\({\\left( {\\frac{x}{{2x - y - z}}} \\right)^2} + {\\left( {\\frac{y}{{2y - z - x}}} \\right)^2} + {\\left( {\\frac{z}{{2z - x - y}}} \\right)^2}\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h1788074p31523745",
+          "text": "Find \\(x, y>0\\) with \\(\\frac{1}{x+y^2}+\\frac{1}{x^2+y}+\\frac{1}{xy+1}=\\frac{1}{2}(\\frac{1}{x}+\\frac{1}{y}+\\frac{1}{xy})\\)"
         }
       ]
     },
@@ -125,7 +129,7 @@
           "text": "\\(\\forall \\Delta ABC, \\forall x, y, z > 0, \\forall M\\) holds \\(x\\cdot MA^2+y\\cdot MB^2+z\\cdot MC^2\\geq \\frac{xyz}{x+y+z} (\\frac{a^2}{x}+\\frac{b^2}{y}+\\frac{c^2}{z})\\)"
         },
         {
-          "url": "https://artofproblemsolving.com/community/c6h3365210p31416979",
+          "url": "https://artofproblemsolving.com/community/c6h3376288p31446775",
           "text": "If no two adjacent faces of a circumscribed polyhedron are painted then the painted area does not exceed the not painted area"
         }
       ]
@@ -176,6 +180,30 @@
         {
           "url": "https://artofproblemsolving.com/community/c6h3365210p31416979",
           "text": "Maximal number of rays in space each of which makes an acute angle with exactly two others"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3391823p32520966",
+          "text": "Number of regions that great circles cut the sphere into"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3395753p32754064",
+          "text": "Four colored sphere has two points of the same color apart more than the edgelength of inscribed regular tetrahedron"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3395728p32802468",
+          "text": "Point set in space with isometries swapping any pair of points leaving the set invariant lies on a sphere"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c7h1565251p32891400",
+          "text": "Existence of five point set with any quadruple being harmonic"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3449379p33280684",
+          "text": "Among four points in the unit square two are apart less than \\(1\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h2325383p33293150",
+          "text": "Minimax number of people in photography competition with photographers fixed"
         }
       ]
     },
@@ -201,6 +229,51 @@
         {
           "url": "https://artofproblemsolving.com/community/c6h2277064p31292155",
           "text": "If in tetrahedron \\(ABCD\\) \\(\\angle BAC + \\angle BAD = \\angle ABC + \\angle ABD = 90^\\circ\\), \\(O\\) is the circumcenter of \\(ABC\\), \\(N\\) is the midpoint of \\(CD\\) then \\(AB\\perp MO\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3339930p31622158",
+          "text": "Bisectors passing through tangency points in similar triangles"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3388408p31788172",
+          "text": "For tetrahedron \\(ABCD\\), point \\(P\\) and circle \\(\\omega\\ni P\\) with \\(\\omega\\cap (PBCD) = \\{P, A_0\\}\\) and \\(PA_0\\cap BCD = \\{A_1\\}\\) etc. \\(A_1\\) etc. are collinear"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h2989416p32747510",
+          "text": "Three faceplanes of isodynamic tetrahedron cut the tangent to circumsphere at the respecitve vertex in six equal angles"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h1312455p32871583",
+          "text": "3D Brianchon for octahedron and inscribed ellipsoid"
+        }
+      ]
+    },
+    {
+      "name": "Combinatorics",
+      "list": [
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3374937p31520394",
+          "text": "Find the max number of sets \\(A_1, \\ldots, A_k\\subset [m]\\) with \\(|A_i|\\notin A_j\\) for \\(i\\ne j\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3398523p32731580",
+          "text": "Among \\(101\\) hyperedges of \\(3\\)-uniform hypergraph on \\(100\\) vertices two have intersection exactly one"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3445502p33229005",
+          "text": "Maximizing \"midpoint\" elements in a sequence"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/u490563h1146964p33314312",
+          "text": "Chromatic number of power set graph with edges between non-intersecting subsets"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3422640p33321999",
+          "text": "Number of edges of \\(3\\)-uniform hypergraph with every pair of hyperedges intersecting in one vertex"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/u490563h3436649p33328654",
+          "text": "Hypergraph on \\(n\\) vertices with every two hyperedges intersecting in one vertex has at most \\(n\\) hyperedges"
         }
       ]
     },
@@ -210,6 +283,18 @@
         {
           "url": "https://artofproblemsolving.com/community/c7h2873874p26779795",
           "text": "For measure-preserving map \\(T\\) and \\(A\\) such that \\(T^{-1}A\\approx A\\) there exists \\(B\\) such that\n        \\(T^{-1}B=B\\) and \\(A\\approx B\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c7h2157445p32405971",
+          "text": "Integral around a function \\(f\\) with \\(f(x)f(1-\\frac{1}{x})=-x\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3410493p32828530",
+          "text": "Maximizing \\(\\tau(n)/\\sqrt n\\) for integer \\(n\\)"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c7h3456936p33383067",
+          "text": "Cauchy's mean value theorem for three functions"
         }
       ]
     }

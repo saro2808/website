@@ -153,6 +153,18 @@
           "name": "Algebraic Topology (extra chapters)",
           "urls": [
             {
+              "url": "static/documents/atpset1_2022.pdf",
+              "text": "Problem set 1"
+            },
+            {
+              "url": "static/documents/atpset2_2022.pdf",
+              "text": "Problem set 2"
+            },
+            {
+              "url": "static/documents/atpset3_2022.pdf",
+              "text": "Problem set 3"
+            },
+            {
               "url": "static/documents/atp_all_sets_sols.pdf",
               "text": "Homework"
             }
@@ -161,6 +173,14 @@
         {
           "name": "Cryptography",
           "urls": [
+            {
+              "url": "static/documents/crypto-hw-1-2022.pdf",
+              "text": "Problem set 1"
+            },
+            {
+              "url": "static/documents/crypto-hw-2-2022.pdf",
+              "text": "Problem set 2"
+            },
             {
               "url": "static/documents/crypto-all-hw-sol.pdf",
               "text": "Homework"
