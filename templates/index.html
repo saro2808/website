@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<br>
-<h1>{% block title %} Welcome to this website!{% endblock %}</h1>
-<p>
-    Hi, I am Saro Harutyunyan, a mathematics enthusiast currently interested in AI. In this
-    website you will find content related to my activities and interests.
-</p>
 <div class="container" id="index-container">
-    <figure id="index-figure">
-        <img src='../../static/images/mard.jpg' style="width:360px;">
-        <figcaption>
-            A random cyclist, 11.08.2024
-<!--            Me, looking to a brighter future,<br>-->
-<!--            15.05.2022, photo by Arsenius-->
-        </figcaption>
-    </figure>
     <div>
-        <h5>You can find me in/through</h5>
+        <br>
+        <h2>{% block title %} Saro Harutyunyan {% endblock %}</h2>
+        <p>
+            I am a mathematics enthusiast and science enjoyer. In this website you will
+            find content related to my activities and interests.
+        </p>
+        <p>You can find me in/via</p>
         <ul class="contact-list">
             <li><a href="mailto:saro.harutyunyan@gmail.com">Gmail</a></li>
             <li><a href="https://github.com/saro2808">Github</a></li>
@@ -27,5 +19,13 @@
             <li><a href="https://vk.com/id559429444">VKontakte</a></li>
         </ul>
     </div>
+    <figure id="index-figure">
+        <img src='../../static/images/mard.jpg' style="width:360px;">
+        <figcaption>
+            A random cyclist, 11.08.2024
+<!--            Me, looking to a brighter future,<br>-->
+<!--            15.05.2022, photo by Arsenius-->
+        </figcaption>
+    </figure>
 </div>
 {% endblock %}
