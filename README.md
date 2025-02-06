@@ -22,7 +22,13 @@ $env:FLASK_DEBUG = "1"
 flask run
 ```
 
+After adding new humors or math problems run the following to repopulate the db:
+```commandline
+python init_db.py
+```
+
 TODO: add
+* DB visual model,
 * Armenian language,
 * ggb support,
 * creation of Saroy,
