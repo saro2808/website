@@ -10,7 +10,7 @@
 {% block content %}
 <hr>
 <h3>Composed problems</h3>
-<hr>
+<!--<hr>-->
 <p>Here are some of my composed problems which are exposed to public:</p>
 <ul>
     <li><a href="{{ url_for('category_all', category='geometry') }}">Geometry</a></li>
@@ -18,7 +18,7 @@
 </ul>
 <hr>
 <h3>Selected solutions</h3>
-<hr>
+<!--<hr>-->
 <p>
     I am a member of the <a href="https://math.stackexchange.com/users/1135242/saroyr">stackexchange</a> and
     <a href="https://artofproblemsolving.com/community/user/490563">AoPS</a> communities and occasionally
@@ -47,10 +47,25 @@
 {% endfor %}
 <hr>
 <h3>Collected problems</h3>
-<hr>
+<!--<hr>-->
 Here are chosen problems collected by me that stand out with their beauty:
 <ul>
-    <li><a href="static/documents/Chosen_problems.pdf">Chosen problems</a></li>
+    <li><a href="https://www.dropbox.com/scl/fi/f37difj5b3xu0l7rns9uv/Chosen_problems.pdf?rlkey=juc9el7q11ndky5prnz9qc3ap&e=1&st=kevgfshc&dl=0">
+        Chosen problems (current version)
+    </a></li>
+    <li><a href="static/documents/Chosen_problems.pdf">
+        Chosen problems (backup of older version in case the current version is gone)
+    </a></li>
+</ul>
+<hr>
+<h3>Favorite books</h3>
+<!--<hr>-->
+<ul>
+    {% for book in books %}
+    <li>
+        <a href="{{ book['link'] }}"><em>{{ book['name'] }}</em></a>, {{ book['authors'] }}
+    </li>
+    {% endfor %}
 </ul>
 <hr>
 <h3>References</h3>
@@ -58,11 +73,11 @@ Here are chosen problems collected by me that stand out with their beauty:
 {% for item in references %}
 <h5>{{ item['category'] }}</h5>
 <ul>
-{% for ref in item['list'] %}
-<li>
-    {{ ref['item'] | safe }}
-</li>
-{% endfor %}
+    {% for ref in item['list'] %}
+    <li>
+        {{ ref['item'] | safe }}
+    </li>
+    {% endfor %}
 </ul>
 {% endfor %}
 {% endblock %}

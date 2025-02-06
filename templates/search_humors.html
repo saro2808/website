@@ -10,16 +10,21 @@
 <h5>Humorists</h5>
 <p>{% for humorist in humorists %}
     <button class="humorist-frame">{{ humorist }}</button>
-    {% endfor %}</p>
+    {% endfor %}
+</p>
 <h5>Tags</h5>
 <p>{% for tag in tags %}
     <button class="tag-frame" id="tag-{{ loop.index }}" data-tag="{{ tag }}">{{ tag }}</button>
-    {% endfor %}</p>
+    {% endfor %}
+</p>
+{% if non_censored_too %}
 <h5>Censor</h5>
 <p>
     <button class="censor-frame" id="censor-0" data-censor="censored-only">censored-only</button>
     <button class="censor-frame" id="censor-1" data-censor="all">all</button>
 </p>
+{% endif %}
+<p id="humor-count" hidden></p>
 <div id="humor-container">
     <!-- Humors will be displayed here -->
 </div>
@@ -32,9 +37,14 @@
     const tagButtons = document.querySelectorAll('.tag-frame');
     const humorContainer = document.getElementById('humor-container');
     const censorButtons = document.querySelectorAll('.censor-frame');
-    let selectedTags = [];
+    let selectedTags = {{ mandatory_tag_list | tojson }};
     let selectedHumorists = [];
     let selectedCensor = 'censored-only';
+
+    const humorists = {{ humorists | tojson }};
+    const tags = {{ tags | tojson }};
+    const id_humorist_dict = {{ id_humorist_dict | tojson }};
+    const id_tag_dict = {{ id_tag_dict | tojson }};
 
     tagButtons.forEach(button => {
       button.addEventListener('click', async function() {
@@ -106,7 +116,6 @@
       humorContent.textContent = humor.content;
 
       humorDiv.appendChild(humorContent);
-      humorContainer.appendChild(humorDiv);
 
       // Check if 'img' property exists in the humor object
       if (humor.img_src) {
@@ -116,8 +125,37 @@
         humorDiv.appendChild(img);
       }
 
+      const humoristsTagsP = document.createElement('p');
+
+      const humoristsTitle = document.createElement('b');
+      humoristsTitle.textContent = 'Humorists:';
+      humoristsTagsP.appendChild(humoristsTitle);
+      humor.humorists.forEach(id => {
+        const button = document.createElement('button');
+        button.textContent = id_humorist_dict[id];
+        button.setAttribute("class", "humorist-frame");
+        humoristsTagsP.appendChild(button);
+      });
+
+      const tagsTitle = document.createElement('b');
+      tagsTitle.textContent = 'Tags:';
+      humoristsTagsP.appendChild(tagsTitle);
+      humor.tags.forEach(id => {
+        const button = document.createElement('button');
+        button.textContent = id_tag_dict[id];
+        button.setAttribute("class", "humorist-frame");
+        humoristsTagsP.appendChild(button);
+      });
+
+      humorDiv.appendChild(humoristsTagsP);
+      humorContainer.appendChild(humorDiv);
       humorContainer.insertAdjacentHTML('beforeend', '<br>');
     });
+
+    const humorCountElement = document.getElementById('humor-count');
+    humorCountElement.textContent = `Loaded ${humors.length} humors.`;
+    humorCountElement.hidden = false;
+    
   } catch (error) {
     console.error('Error fetching humors:', error);
   }

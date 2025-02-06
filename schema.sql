@@ -16,6 +16,20 @@ CREATE TABLE problem_tags (
     tag VARCHAR(255)
 );
 
+DROP TABLE IF EXISTS humorists;
+
+CREATE TABLE humorists (
+    id INTEGER PRIMARY KEY,
+    humorist TEXT NOT NULL
+);
+
+DROP TABLE IF EXISTS tags;
+
+CREATE TABLE tags (
+    id INTEGER PRIMARY KEY,
+    tag TEXT NOT NULL
+);
+
 DROP TABLE IF EXISTS humors;
 
 CREATE TABLE humors (
@@ -29,13 +43,13 @@ CREATE TABLE humors (
 DROP TABLE IF EXISTS humor_humorists;
 
 CREATE TABLE humor_humorists (
-    id INTEGER REFERENCES humors(id),
-    humorist VARCHAR(255)
+    humor_id INTEGER REFERENCES humors(id),
+    humorist_id INTEGER REFERENCES humorists(id)
 );
 
 DROP TABLE IF EXISTS humor_tags;
 
 CREATE TABLE humor_tags (
-    id INTEGER REFERENCES humors(id),
-    tag VARCHAR(255)
+    humor_id INTEGER REFERENCES humors(id),
+    tag_id INTEGER REFERENCES tags(id)
 );

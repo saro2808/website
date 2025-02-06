@@ -299,6 +299,23 @@
       ]
     }
   ],
+  "books": [
+    {
+      "authors": "Imre Bárány",
+      "name": "Combinatorial Convexity",
+      "link": "https://bookstore.ams.org/view?ProductCode=ULECT/77"
+    },
+    {
+      "authors": "Jiří Matoušek",
+      "name": "Thirty-three Miniatures: Mathematical and Algorithmic Applications of Linear Algebra",
+      "link": "https://kam.mff.cuni.cz/~matousek/stml-53-matousek-1.pdf"
+    },
+    {
+      "authors": "Арсений Акопян, Алексей Заславский",
+      "name": "Геометрические свойства кривых второго порядка",
+      "link": "https://math.ru/lib/452"
+    }
+  ],
   "references": [
     {
       "category": "Encyclopedias",

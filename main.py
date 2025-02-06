@@ -33,20 +33,40 @@ def get_problem_tags(category, id):
     return tags
 
 
+conn = get_db_connection()
+
+selection_humorists = conn.execute('''SELECT * FROM humorists;''').fetchall()
+humorist_id_dict = {row['humorist']: row['id'] for row in selection_humorists}
+id_humorist_dict = {row['id']: row['humorist'] for row in selection_humorists}
+all_humorists = list(humorist_id_dict.keys())
+
+selection_tags = conn.execute('''SELECT * FROM tags;''').fetchall()
+tag_id_dict = {row['tag']: row['id'] for row in selection_tags}
+id_tag_dict = {row['id']: row['tag'] for row in selection_tags}
+all_tags = list(tag_id_dict.keys())
+
+conn.close()
+
+
 def get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected_censor):
     conn = get_db_connection()
     subqueries = []
     params = []
+
     selected_items = [selected_humorists, selected_tags]
+    humorist_ids = [humorist_id_dict[humorist] for humorist in selected_humorists]
+    tag_ids = [tag_id_dict[tag] for tag in selected_tags]
+    selected_item_ids = [humorist_ids, tag_ids]
+
     names = ['humorist', 'tag']
     for i in range(2):
         if selected_items[i]:
             placeholders = ', '.join('?' for _ in selected_items[i])
-            subqueries.append(f'''SELECT id FROM humor_{names[i]}s
-                               WHERE {names[i]} IN ({placeholders})
-                               GROUP BY humor_{names[i]}s.id
-                               HAVING COUNT(DISTINCT {names[i]}) >= ?''')
-            params += list(selected_items[i]) + [len(selected_items[i])]
+            subqueries.append(f'''SELECT humor_id FROM humor_{names[i]}s
+                               WHERE {names[i]}_id IN ({placeholders})
+                               GROUP BY humor_{names[i]}s.humor_id
+                               HAVING COUNT(DISTINCT {names[i]}_id) >= ?''')
+            params += list(selected_item_ids[i]) + [len(selected_item_ids[i])]
     query = '''SELECT * FROM humors
                WHERE 1=1 '''
     if selected_censor == 'censored-only':
@@ -56,6 +76,12 @@ def get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected
         query += f'AND id IN (' + ' INTERSECT '.join(subqueries) + ')'
     query += ';'
     humors = [dict(row) for row in conn.execute(query, params)]
+
+    for humor in humors:
+        humor['humorists'] = [row['humorist_id'] for row in conn.execute(f'''SELECT humorist_id FROM humor_humorists
+                                                                            WHERE humor_id = {humor["id"]}''')]
+        humor['tags'] = [row['tag_id'] for row in conn.execute(f'''SELECT tag_id FROM humor_tags
+                                                                    WHERE humor_id = {humor["id"]}''')]
     conn.close()
     if humors is None:
         abort(404)
@@ -88,8 +114,9 @@ def mathematics():
     with open('static/json/mathematics.json', 'r', encoding='utf-8') as file:
         loaded = json.load(file)
     solutions = loaded['solutions']
+    books = loaded['books']
     references = loaded['references']
-    return render_template('mathematics.html', solutions=solutions, references=references)
+    return render_template('mathematics.html', solutions=solutions, books=books, references=references)
 
 
 @app.route('/mathematics/<category>/all')
@@ -126,20 +153,20 @@ def writings():
 
 @app.route('/humor')
 def humor():
-    # TODO query to the db for the censored-only humors
-    with open('static/json/humors.json', 'r', encoding='utf-8') as file:
-        humors = json.load(file)['humors']
-    humors = [humor for humor in humors if humor['censored']]
-    return render_template('humor.html', humors=humors)
+    return render_template('humor.html')
 
 
 @app.route('/humor/search')
-def search_humors(humorist=None, tag=None):
-    conn = get_db_connection()
-    all_humorists = sorted([humorist[0] for humorist in conn.execute("SELECT DISTINCT humorist FROM humor_humorists").fetchall()])
-    all_tags = sorted([tag[0] for tag in conn.execute("SELECT DISTINCT tag FROM humor_tags").fetchall()])
-    conn.close()
-    return render_template('search_humors.html', humorists=all_humorists, tags=all_tags)
+def search_humors():
+    return render_template('search_humors.html', humorists=all_humorists, tags=all_tags,
+                           id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict, mandatory_tag_list=[])
+
+
+@app.route('/humor/search-all')
+def search_humors_all():
+    return render_template('search_humors.html', humorists=all_humorists, tags=all_tags,
+                           id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict,
+                           mandatory_tag_list=[], non_censored_too=True)
 
 
 @app.route('/get_humors', methods=['GET'])
@@ -149,6 +176,64 @@ def get_humors():
     selected_censor = request.args.get('censor')
     humors = get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected_censor)
     return jsonify(humors)
+
+
+def humor_category(category_tag, non_censored_too=False):
+    conn = get_db_connection()
+    humorist_ids = [row['humorist_id'] for row in conn.execute(f'''SELECT DISTINCT humorist_id
+                                                    FROM humor_humorists JOIN humor_tags
+                                                    ON humor_humorists.humor_id = humor_tags.humor_id
+                                                    WHERE humor_tags.tag_id = {tag_id_dict[category_tag]};''').fetchall()]
+    tag_ids = [row['tag_id'] for row in conn.execute(f'''SELECT DISTINCT t1.tag_id
+                                                    FROM humor_tags t1 JOIN humor_tags t2
+                                                    ON t1.humor_id = t2.humor_id
+                                                    WHERE t2.tag_id = {tag_id_dict[category_tag]};''').fetchall()]
+    humorists = [id_humorist_dict[id] for id in humorist_ids]
+    tags = [id_tag_dict[id] for id in tag_ids]
+    tags.remove(category_tag)  # remove category tag not to let toggling it and loading all humors
+    conn.close()
+    return render_template('search_humors.html', humorists=humorists, tags=tags,
+                           id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict,
+                           mandatory_tag_list=[category_tag], non_censored_too=non_censored_too)
+
+
+@app.route('/humor-isaa')
+def humor_isaa():
+    return humor_category("ISAA")
+
+
+@app.route('/humor-isaa-all')
+def humor_isaa_all():
+    return humor_category("ISAA", non_censored_too=True)
+
+
+@app.route('/humor-familiar')
+def humor_familiar():
+    return humor_category("ընտանեկան")
+
+
+@app.route('/humor-familiar-all')
+def humor_familiar_all():
+    return humor_category("ընտանեկան", non_censored_too=True)
+
+
+@app.route('/humor-phystech')
+def humor_phystech():
+    return humor_category("ֆիզտեխ")
+
+
+@app.route('/humor-phystech-all')
+def humor_phystech_all():
+    return humor_category("ֆիզտեխ", non_censored_too=True)
+
+
+@app.route("/verify_answer", methods=["POST"])
+def verify_answer():
+    user_answer = request.form.get("answer", "").strip()
+    correct = user_answer == "1"  # the answer to the problem
+    if correct:
+        return render_template("humor.html", correct=True)
+    return render_template("humor.html", incorrect=True)
 
 
 @app.route('/art')

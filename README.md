@@ -27,4 +27,9 @@ TODO: add
 * ggb support,
 * creation of Saroy,
 * TUMO 3D,
-* biker's guide.
+* homework (complex analysis and field theory & multiple integrals)
+* secret path that only I will know (maybe); login may also be added; this may be useful for example for adding humors without redeploying the website.
+
+update periodically
+* math problems with the new ones,
+* favorite music and musicians.
