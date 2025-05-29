@@ -270,10 +270,6 @@
         {
           "url": "https://artofproblemsolving.com/community/c6h3422640p33321999",
           "text": "Number of edges of \\(3\\)-uniform hypergraph with every pair of hyperedges intersecting in one vertex"
-        },
-        {
-          "url": "https://artofproblemsolving.com/community/u490563h3436649p33328654",
-          "text": "Hypergraph on \\(n\\) vertices with every two hyperedges intersecting in one vertex has at most \\(n\\) hyperedges"
         }
       ]
     },
