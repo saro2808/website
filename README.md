@@ -36,6 +36,11 @@ TODO: add
 * homework (complex analysis and field theory & multiple integrals)
 * secret path that only I will know (maybe); login may also be added; this may be useful for example for adding humors without redeploying the website
 
+for humors
+* humor rating capability
+* humor dates separately
+* filter weak humors
+
 update periodically
 * math problems with the new ones,
 * favorite music and musicians

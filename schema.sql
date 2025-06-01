@@ -30,12 +30,20 @@ CREATE TABLE tags (
     tag TEXT NOT NULL
 );
 
+DROP TABLE IF EXISTS viewers;
+
+CREATE TABLE viewers (
+    id INTEGER PRIMARY KEY,
+    viewer TEXT NOT NULL
+);
+
 DROP TABLE IF EXISTS humors;
 
 CREATE TABLE humors (
     id INTEGER PRIMARY KEY,
     content TEXT NOT NULL,
     censored INTEGER NOT NULL CHECK (censored IN (0, 1)),
+    is_local INTEGER NOT NULL CHECK (is_local IN (0, 1)),
     img_src VARCHAR(255),
     img_alt VARCHAR(255)
 );
@@ -52,4 +60,11 @@ DROP TABLE IF EXISTS humor_tags;
 CREATE TABLE humor_tags (
     humor_id INTEGER REFERENCES humors(id),
     tag_id INTEGER REFERENCES tags(id)
+);
+
+DROP TABLE IF EXISTS humor_viewers;
+
+CREATE TABLE humor_viewers (
+    humor_id INTEGER REFERENCES humors(id),
+    viewer_id INTEGER REFERENCES viewers(id)
 );

@@ -5,7 +5,9 @@
 <h3>Humor search</h3>
 <hr>
 <p>You can search humors by humorists and tags here.</p>
+{% if non_censored_too %}
 <p>Unless you select all under censor, only censored humors will be displayed.</p>
+{% endif %}
 <br>
 <h5>Humorists</h5>
 <p>{% for humorist in humorists %}
@@ -45,6 +47,8 @@
     const tags = {{ tags | tojson }};
     const id_humorist_dict = {{ id_humorist_dict | tojson }};
     const id_tag_dict = {{ id_tag_dict | tojson }};
+    const viewers = {{ viewers | tojson }};
+    const non_local_only = {{ non_local_only | default(false) | tojson }};
 
     tagButtons.forEach(button => {
       button.addEventListener('click', async function() {
@@ -101,8 +105,10 @@
     const tagQueryString = selectedTags.map(tag => `tag=${tag}`).join('&');
     const humoristQueryString = selectedHumorists.map(humorist => `humorist=${humorist}`).join('&');
     const censorQueryString = `censor=${selectedCensor}`;
+    const viewersQueryString = viewers.map(viewer => `viewer=${viewer}`).join('&');
+    const localQueryString = `non_local_only=${non_local_only}`;
 
-    const queryString = `${tagQueryString}&${humoristQueryString}&${censorQueryString}`;
+    const queryString = `${tagQueryString}&${humoristQueryString}&${censorQueryString}&${viewersQueryString}&${localQueryString}`;
     const response = await fetch(`/get_humors?${queryString}`);
     const humors = await response.json();
 

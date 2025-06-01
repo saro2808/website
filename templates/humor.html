@@ -5,12 +5,16 @@
 <h3>Humors</h3>
 <hr>
 <p>These are humors heard and collected by me during my conversations (in Armenian mainly).</p>
+<p>I apologize beforehand if the humors you read are not funny for you.</p>
+<p>See this default collection: &nbsp;&nbsp;<span><a href="{{ url_for('global_humors') }}">Global humors</a></span></p>
+<p>If you are my acquaintance then you may want to refer to more local humors. These are the main clusters:</p>
 <ul>
     <li><a href="{{ url_for('humor_phystech') }}">PhysTech humors</a></li>
-    <li><a href="{{ url_for('humor_familiar') }}">Familiar humors</a></li>
+    <li><a href="{{ url_for('humor_familiar') }}">Family humors</a></li>
     <li><a href="{{ url_for('humor_isaa') }}">ISAA humors</a></li>
     <li><a href="{{ url_for('search_humors') }}">All humors</a></li>
 </ul>
+<h5>Note</h5>
 <p>The above are references to censored humors only. To get the links to all humors (including non-censored too)
 solve the following problem:
 <br><br>
@@ -20,7 +24,7 @@ Find the norm of the following operator:
 
 <form method="post" action="{{ url_for('verify_answer') }}" class="mt-4">
     <div class="input-group w-50" style="max-width: 250px;">
-        <input type="text" id="answer" name="answer" class="form-control" placeholder="Enter your answer" required>
+        <input type="text" id="problem_answer" name="problem_answer" class="form-control" placeholder="Enter your answer" required>
         <div class="input-group-append">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
@@ -42,8 +46,5 @@ Find the norm of the following operator:
         ❌ Incorrect answer. Try again.
     </div>
 {% endif %}
-
-<br>
-I apologize beforehand if the humors you read are not funny for you.
 
 {% endblock %}

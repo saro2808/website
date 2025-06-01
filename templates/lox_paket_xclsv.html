@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hr>
+<h3>Lox paket</h3>
+<p><a href="/static/images/mock/{{ readme }}">README</a></p>
+<p>TODO:
+{% for item in todo %}
+    &nbsp;&nbsp;<span><a href="/static/images/mock/{{ item }}">{{ item }}</a></span>
+{% endfor %}
+</p>
+<hr>
+<table>
+    {% for pair in images %}
+    <tr>
+        {% for image in pair %}
+        <td><img src="/static/images/mock/{{ image }}" style="width:550px;"></td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}
