@@ -155,6 +155,11 @@ def music():
     return render_template('music.html')
 
 
+@app.route('/music/notes')
+def music_notes():
+    return render_template('դաւթար_երաժշտական.html')
+
+
 @app.route('/academic')
 def academic():
     with open('static/json/academic.json', 'r', encoding='utf-8') as file:
