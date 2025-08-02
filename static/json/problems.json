@@ -73,6 +73,31 @@
       ]
     },
     {
+      "id": 55,
+      "category": "geometry",
+      "statement": "<p>\n        Reconstruct bicyclic quadrilateral \\(ABCD\\) with its incenter \\(I\\), point \\(E\\) of intersection of tangents to the circumcircle at \\(A, C\\) and point \\(F\\) of intersection of tangents to the circumcircle at \\(B, D\\).\n    <p align=\"right\"><i><a href=\"https://t.me/olympgeom/1768\">\n        XXI Geometrical Olympiad in Honor of I.F. Sharygin, final round</a>, 9th grade, problem 8\n    </i></p>",
+      "solution": "<h5>Solution</h5>\n    <p>\n        First we prove two lemmas.\n    <p>\n        <b>Lemma 1.</b> \\(EI\\parallel BD\\), \\(FI\\parallel AC\\).\n    </p>\n    <p>\n        <b>Proof.</b> We may assume that \\(AB\\ge AD\\). Note that\n        \\[\\angle AIC=\\angle IAB+\\angle ICB+\\angle B=90^\\circ+\\angle B=180^\\circ -\\frac{\\angle AEC}{2},\\]\n        consequently \\(E\\) is the circumcenter of \\(AIC\\). Hence\n        \\begin{align*}\n        \\angle (IE,AC)\n        &=\\angle EIC+\\angle ICA = 90^\\circ - \\angle IAC + \\angle ICA \\\\\n        &=90^\\circ-\\frac{\\angle BAC-\\angle CAD}{2}+\\frac{\\angle BCA-\\angle ACD}{2} =\\frac{\\overset{\\frown}{BC} + \\overset{\\frown}{AD}}{2}\n        =\\angle (BD,AC)\n        \\end{align*}\n        и \\(EI\\parallel BD\\). Similarly \\(FI\\parallel AC\\).\n    <p>\n        <b>Lemma 2.</b> Let \\(AC\\cap EF=\\{K\\}\\), \\(BD\\cap EF=\\{L\\}\\). Then \\(\\angle EIK= \\angle FIL=90^\\circ\\).\n    </p>\n    <p>\n        <b>Proof.</b> Let \\(O\\) be the circumcenter of \\(ABCD\\), \\(OI\\cap EF=\\{P\\}\\) (figure 1).\n        By lemma 1 \\(EI\\parallel BD\\perp OF\\), \\(FI\\parallel AC\\perp OE\\), thus \\(I\\) is the orthocenter of \\(OEF\\) and \\(OI\\perp EF\\).\n        As we showed in the proof of the above lemma, \\(E\\) is the circumcenter of \\(AIC\\). Hence the circumcircles of \\(AIC\\) and \\(IEP\\) touch each other.\n        On the other hand, \\(A, C, P\\) lie on the circle with diameter \\(OE\\). Hence \\(K\\) is the radical center of circumcircles of \\(ACE, IPE, AIC\\) and \\(KI\\) is the radical axis of the latter two, whence \\(\\angle EIK=90^\\circ\\).\n        Similarly \\(\\angle FIL=90^\\circ\\).\n    </p>\n    <p>\n        <figure style=\"float:right;\">\n        <img src=\"../../static/images/problem55pic1.png\" style=\"width:330px;\">\n        <figcaption style=\"text-align:center;\">Figure 1</figcaption>\n    </figure>\n    <p>\n        From the lemmas follows this construction:\n\n    <ol>\n        <li> draw a line through \\(I\\), perpendicular to \\(EI\\) and mark the point \\(K\\) of its intersection with \\(EF\\); similarly construct the point \\(L\\),\n        <li> draw the lines \\(k\\) и \\(l\\) through \\(K\\) and \\(L\\), parallel to \\(IF\\) and \\(IE\\), respectively,\n        <li> construct the orthocenter \\(O\\) of \\(EFI\\),\n        <li> construct the circle with diameter \\(OE\\) and mark the points \\(A\\) and \\(C\\) of its intersection with \\(k\\); similarly construct the points \\(B\\) and \\(D\\).\n    </ol>\n    \\(ABCD\\) is the desired quadrilateral.\n    </p>",
+      "tags": [
+        "quadrilateral",
+        "circles",
+        "incircle",
+        "circumcircle",
+        "construction"
+      ]
+    },
+    {
+      "id": 57,
+      "category": "geometry",
+      "statement": "<p>\n         A quadrilateral \\(ABCD\\) is given in which \\(AB+AD=CB+CD\\). Circles \\(\\omega_A\\) and \\(\\omega_C\\) inscribed in \\(ABD\\) and \\(CBD\\) touch  \\(BD\\) in points  \\(P\\) and \\(Q\\), respectively. Points  \\(R\\) and  \\(S\\) are diametrically opposite to  \\(P\\) and  \\(Q\\) in  \\(\\omega_A\\) and  \\(\\omega_C\\), respectively. Prove that the points  \\(B, R, D, S\\) are concyclic if and only if the Nagel points of  \\(ABD\\) and \\(CBD\\) are equidistant from the midpoint of \\(BD\\).\n    <p align=\"right\"><i><a href=\"https://turmath.ru/kolm/files/archive/kolm26.zip\">\n        XXVI Kolmogorov Cup</a>, individual olympiad, senior group, conclusion, problem 7\n    </i></p>\n    <p>\n        <b>Note.</b> In the olympiad students were asked to prove the implication only in one direction.\n    </p>",
+      "solution": "<h5>Solution</h5>\n    <p>\n        Denote \\(DA=x,AB=y,BC=z,CD=t,DB=u,x+y=z+t=p,x+y+u=2q,RP=2r_a,QS=2r_c\\). First we prove the following lemmas․\n    <p>\n        <b>Lemma 1.</b> We have \\[\\angle BRD=90^\\circ \\iff p/u=5/3;\\]   \\[\\angle BRD>90^\\circ \\iff p/u<5/3;\\]    \\[\\angle BRD<90^\\circ \\iff p/u>5/3\\] (clearly all this is true for \\(\\angle BSD\\) as well).\n    </p>\n    <p>\n        <b>Proof.</b> Let \\(M\\) be the midpoint of \\(BD\\). We have \\(MP=\\dfrac{|x-y|}{2},r_a=\\sqrt{\\dfrac{(q-x)(q-y)(q-u)}{q}}\\), thus\n \\[\\angle BRD=90^\\circ \\iff RM^2=MB^2 \\iff MP^2+PR^2=MB^2 \\iff 4r_a^2=(q-x)(q-y) \\iff 4(q-u)=q\\iff p/u=5/3.\\]    Using the equivalences \\(\\angle BRD>90^\\circ \\iff RM < BM\\) and \\(\\angle BRD<90^\\circ \\iff RM>BM\\) (if the side of a triangle is shorter than half the median towards it, then the angle in front of that side is acute; and vice versa) and the above judgement we will prove the other two parts of the lemma.</p>\n    <p>\n        <b>Lemma 2.</b> Let \\(N_a\\) and \\(N_c\\) be the Nagel points of triangles \\(BAD\\) and \\(BCD\\), respectively. Then \\(MN_a=MN_c\\iff p/u=5/3\\).\n    </p>\n    <p>\n        <b>Proof.</b> Let \\(X\\) and \\(Y\\) be the midpoints of \\(DA\\) and \\(AB\\), respectively, \\(I_a\\) be the incenter of \\(BAD\\). Since \\(I_a\\) is the Nagel point of \\(XYM\\), we have \\(BN_a^2=4XI_a^2=4(r_a^2+(u-y)^2/4)\\). Similarly \\(DN_a^2=4YI_a^2=4(r_a^2+(u-x)^2/4)\\). Applying the median length formula for triangle \\(BN_a D\\) we get\n   \\[4MN_a^2=2(BN_a^2+DN_a^2 )-BD^2=2(8r_a^2+(u-y)^2+(u-x)^2 )-u^2.\\]  Similarly \\[4MN_c^2=2(8r_c^2+(u-z)^2+(u-t)^2 )-u^2.\\] Hence\n \\[MN_a=MN_c\\iff 0=2(MN_a^2-MN_c^2 )\\iff \n0=8(r_a^2-r_c^2 )+(u-x)^2+(u-y)^2-(u-z)^2-(u-t)^2.\\] \n Inserting \\(2q=p+u, r_a^2=(q-x)(q-y)(q-u)/q\\) and \\(r_c^2=\\dfrac{(q-z)(q-t)(q-u)}{q}\\) we get that the last equality is equivalent to \n \\[0=4\\dfrac{q-u}{q}-1 \\iff \\dfrac{p}{u}=\\dfrac 5 3.\\]\n    </p>\n    <figure style=\"float:right;\">\n        <img src=\"../../static/images/problem57pic1.png\" style=\"width:400px;\">\n        <figcaption style=\"text-align:center;\">Figure 1</figcaption> </figure> Back to our problem. According to lemma 1, if \\(\\dfrac p u>\\dfrac 5 3\\) or \\(\\dfrac p u< \\dfrac 5 3\\) then \\(\\angle BRD+\\angle BSD<180^\\circ\\) and \\(\\angle BRD+\\angle BSD>180^\\circ\\), respectively, i.e. in both cases the points \\(B,R,D,S\\) are not concyclic. Thus concyclicity of \\(B,R,D,S\\) is equivalent to the condition \\(\\dfrac p u=\\dfrac 5 3\\), which, according to lemma 2, is equivalent to \\(MN_a=MN_c\\).",
+      "tags": [
+        "triangle",
+        "circles",
+        "incircle",
+        "Nagel point"
+      ]
+    },
+    {
       "id": 66,
       "category": "geometry",
       "statement": "<p>\n        Let us be given an isosceles tetrahedron \\(ABCD\\), i.e. it has equal opposite edges. Choose\n        a point \\(X\\) on its circumsphere \\(\\Omega\\) different from the points \\(A, B, C, D\\). Prove\n        that the center of the sphere passing through the reflections of \\(X\\) in the faces\n        of \\(ABCD\\) lies on \\(\\Omega\\).\n    </p>\n    <p align=\"right\"><i><a href=\"http://turmath.ru/kolm/files/archive/kolm23.zip\">\n        XXIII Kolmogorov Cup</a>, second tour, senior league, problem 1\n    </i></p>",
@@ -99,6 +124,19 @@
         "insphere",
         "isogonals",
         "conics"
+      ]
+    },
+    {
+      "id": 92,
+      "category": "geometry",
+      "statement": "The insphere of tetrahedron \\(ABCD\\) touches its faces \\(ABC\\), \\(BCD\\), \\(CDA\\), \\(DAB\\) at \\(D_1, A_1, B_1, C_1\\), respectively. Let \\(S_{AB}\\) denote the area of triangle \\(ABC_1\\) (or, equivalently, \\(ABD_1\\)). Similarly define \\(S_{AC}, S_{AD}, S_{BC}, S_{BD}, S_{CD}\\). Prove that the numbers \\(\\sqrt{S_{AB} S_{CD}}\\), \\(\\sqrt{S_{AC} S_{BD}}\\), \\(\\sqrt{S_{AD} S_{BC}}\\) are sides of a triangle. \n    </p>\n    <p align=\"right\"><i><a href=\"https://geometry.ru/olimp/2025/2025_zaoch_sol_eng.pdf\">\n        XXI Geometrical Olympiad in Honor of I.F. Sharygin, correspondence round</a>, problem 24\n    </i></p>",
+      "solution": "We will utilize the known fact that \\(\\angle AC_1B = \\angle AD_1B = \\angle CA_1D = \\angle CB_1D\\) (and other similar equalities).\n    Denote \\(AB_1=AC_1=AD_1=a\\) and similarly define \\(b, c, d\\). Also denote \\(\\angle AD_1B=\\gamma, \\angle BD_1C = \\alpha, \\angle CD_1A = \\beta\\) (clearly \\(\\alpha, \\beta, \\gamma < \\pi\\)). Then\n    \\[S_{AB}S_{CD} = \\frac{1}{2}ab\\sin\\gamma \\cdot \\frac{1}{2}cd\\sin\\gamma = \\frac{1}{4}abcd\\sin^2\\gamma.\\]\n    Thus, triangle inequality \\(\\sqrt{S_{AB} S_{CD}} + \\sqrt{S_{AC} S_{BD}} > \\sqrt{S_{AD} S_{BC}}\\) is equivalent to the inequality \\(\\sin\\gamma + \\sin\\beta>\\sin\\alpha\\).\n\n    To prove this, mark points \\(A_2, B_2, C_2\\) on rays \\(D_1A, D_1B\\) and \\(D_1C\\), respectively, at distance \\(1\\) from \\(D_1\\). Then the doubled areas of \\(A_2B_2D_1\\), \\(A_2C_2D_1\\) and \\(B_2C_2D_1\\) are equal to \\(\\sin\\gamma, \\sin\\beta\\) and \\(\\sin\\alpha\\), respectively. \\(D_1\\) is the circumcenter of \\(A_2B_2C_2\\)  and lies inside it, consequently lies inside its medial triangle. Hence the area of \\(B_2C_2D_1\\) is less than half the area of \\(A_2B_2C_2\\), i.e. \\(\\sin\\gamma+\\sin\\beta>\\sin\\alpha\\), as desired.",
+      "tags": [
+        "inequality",
+        "3D",
+        "tetrahedron",
+        "spheres",
+        "insphere"
       ]
     },
     {

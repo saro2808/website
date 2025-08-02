@@ -1,6 +1,7 @@
 {% extends 'math_base.html' %}
 
 {% block content %}
+<br>
 <h5>Problem {{ problem['id'] }}</h5>
 {{ problem['statement'] | safe }}
 <p>
@@ -9,4 +10,5 @@
     {% endfor %}
 </p>
 {{ problem['solution'] | safe }}
+<br>
 {% endblock %}
