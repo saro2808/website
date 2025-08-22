@@ -2,7 +2,7 @@ import sqlite3
 import json
 import os
 
-from flask import Flask, render_template, request, url_for, flash, redirect, jsonify
+from flask import Flask, render_template, request, url_for, flash, redirect, jsonify, send_from_directory
 from werkzeug.exceptions import abort
 
 
@@ -349,8 +349,14 @@ def lox_paket():
     todo.remove(readme)
     return render_template('lox_paket_xclsv.html', images=images, todo=todo, readme=readme)
 
+
 @app.route('/references')
 def references():
     with open('static/json/sites.json', 'r', encoding='utf-8') as file:
         sites = json.load(file)['sites']
     return render_template('references.html', sites=sites)
+
+
+@app.route("/robots.txt")
+def robots_txt():
+    return send_from_directory(app.root_path, "robots.txt")
