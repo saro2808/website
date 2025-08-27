@@ -6,3 +6,6 @@ Disallow:
 
 User-agent: YandexBot
 Disallow:
+
+User-agent: GPTBot
+Disallow:

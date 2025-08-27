@@ -8,68 +8,76 @@ with open('schema.sql') as f:
 
 cur = connection.cursor()
 
-with open('static/json/problems.json', 'r', encoding='utf-8') as file:
-    problems = json.load(file)['problems']
+def populate_problems():
+    with open('static/json/problems.json', 'r', encoding='utf-8') as file:
+        problems = json.load(file)['problems']
 
-for problem in problems:
-    cur.execute("INSERT INTO problems (category, id, statement, solution) VALUES (?, ?, ?, ?)",
-                (problem['category'], problem['id'], problem['statement'], problem['solution'])
-                )
-    for tag in problem['tags']:
-        cur.execute("INSERT INTO problem_tags (problem_category, problem_id, tag) VALUES (?, ?, ?)",
-                    (problem['category'], problem['id'], tag))
+    for problem in problems:
+        cur.execute("INSERT INTO problems (category, id, statement, solution) VALUES (?, ?, ?, ?)",
+                    (problem['category'], problem['id'], problem['statement'], problem['solution'])
+                    )
+        for tag in problem['tags']:
+            cur.execute("INSERT INTO problem_tags (problem_category, problem_id, tag) VALUES (?, ?, ?)",
+                        (problem['category'], problem['id'], tag))
 
-with open('static/json/humors.json', 'r', encoding='utf-8') as file:
-    humors = json.load(file)['humors']
 
-humorists = set()
-tags = set()
-viewers = set()
-for humor in humors:
-    humorists.update(set(humor['humorists']))
-    tags.update(set(humor['tags']))
-    viewers.update(set(humor['can_view']))
+def populate_humors():
+    with open('static/json/humors.json', 'r', encoding='utf-8') as file:
+        humors = json.load(file)['humors']
 
-humorists = sorted(list(humorists))
-tags = sorted(list(tags))
-viewers = sorted(list(viewers))
-humorist_index_dict = {humorists[index]: index for index in range(len(humorists))}
-tag_index_dict = {tags[index]: index for index in range(len(tags))}
-viewer_index_dict = {viewers[index]: index for index in range(len(viewers))}
+    humorists = set()
+    tags = set()
+    viewers = set()
+    for humor in humors:
+        humorists.update(set(humor['humorists']))
+        tags.update(set(humor['tags']))
+        viewers.update(set(humor['can_view']))
 
-for i in range(len(humorists)):
-    cur.execute("INSERT INTO humorists (id, humorist) VALUES (?, ?)", (i, humorists[i]))
+    humorists = sorted(list(humorists))
+    tags = sorted(list(tags))
+    viewers = sorted(list(viewers))
+    humorist_index_dict = {humorists[index]: index for index in range(len(humorists))}
+    tag_index_dict = {tags[index]: index for index in range(len(tags))}
+    viewer_index_dict = {viewers[index]: index for index in range(len(viewers))}
 
-for i in range(len(tags)):
-    cur.execute("INSERT INTO tags (id, tag) VALUES (?, ?)", (i, tags[i]))
+    for i in range(len(humorists)):
+        cur.execute("INSERT INTO humorists (id, humorist) VALUES (?, ?)", (i, humorists[i]))
 
-for i in range(len(viewers)):
-    cur.execute("INSERT INTO viewers (id, viewer) VALUES (?, ?)", (i, viewers[i]))
+    for i in range(len(tags)):
+        cur.execute("INSERT INTO tags (id, tag) VALUES (?, ?)", (i, tags[i]))
 
-for humor_index in range(len(humors)):
-    humor = humors[humor_index]
+    for i in range(len(viewers)):
+        cur.execute("INSERT INTO viewers (id, viewer) VALUES (?, ?)", (i, viewers[i]))
 
-    if 'img' in humor:
-        img_src = humor['img']['src']
-        img_alt = humor['img']['alt']
-    else:
-        img_src = None
-        img_alt = None
+    for humor_index in range(len(humors)):
+        humor = humors[humor_index]
 
-    cur.execute("INSERT INTO humors (id, content, censored, is_local, img_src, img_alt) VALUES (?, ?, ?, ?, ?, ?)",
-                (humor_index, humor['content'], humor['censored'], humor['local'], img_src, img_alt))
+        if 'img' in humor:
+            img_src = humor['img']['src']
+            img_alt = humor['img']['alt']
+        else:
+            img_src = None
+            img_alt = None
 
-    for humorist in humor['humorists']:
-        cur.execute("INSERT INTO humor_humorists (humor_id, humorist_id) VALUES (?, ?)",
-                    (humor_index, humorist_index_dict[humorist]))
+        cur.execute("INSERT INTO humors (id, content, censored, is_local, img_src, img_alt) VALUES (?, ?, ?, ?, ?, ?)",
+                    (humor_index, humor['content'], humor['censored'], humor['local'], img_src, img_alt))
 
-    for tag in humor['tags']:
-        cur.execute("INSERT INTO humor_tags (humor_id, tag_id) VALUES (?, ?)",
-                    (humor_index, tag_index_dict[tag]))
+        for humorist in humor['humorists']:
+            cur.execute("INSERT INTO humor_humorists (humor_id, humorist_id) VALUES (?, ?)",
+                        (humor_index, humorist_index_dict[humorist]))
 
-    for viewer in humor['can_view']:
-        cur.execute("INSERT INTO humor_viewers (humor_id, viewer_id) VALUES (?, ?)",
-                    (humor_index, viewer_index_dict[viewer]))
+        for tag in humor['tags']:
+            cur.execute("INSERT INTO humor_tags (humor_id, tag_id) VALUES (?, ?)",
+                        (humor_index, tag_index_dict[tag]))
+
+        for viewer in humor['can_view']:
+            cur.execute("INSERT INTO humor_viewers (humor_id, viewer_id) VALUES (?, ?)",
+                        (humor_index, viewer_index_dict[viewer]))
+
+
+
+populate_problems()
+populate_humors()
 
 connection.commit()
 connection.close()

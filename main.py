@@ -119,7 +119,7 @@ def index():
 def problem(category, id):
     problem = get_problem(category, id)
     tags = get_problem_tags(category, id)
-    return render_template('problem.html', problem=problem, tags=tags)
+    return render_template('problem.html', category=category, problem=problem, tags=tags)
 
 
 @app.route('/cv')

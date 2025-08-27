@@ -1,11 +1,20 @@
 # website
 
-This is my personal website source code. I relied on [this](https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3)
+This is my personal website's source code. I relied on [Digital Ocean's](https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3)
 tutorial when writing this website.
 
 This website is deployed [here](https://saroyr-com-d9a4be4812ff.herokuapp.com/).
 
-For redeployment refer to [here](https://dashboard.heroku.com/apps/saroyr-com/deploy/github).
+For redeployment refer to [Heroku](https://dashboard.heroku.com/apps/saroyr-com/deploy/github).
+
+For domain settings refer to [Network Solutions](https://www.networksolutions.com/my-account/home).
+
+For proxy settings refer to [Cloudflare](https://dash.cloudflare.com/1197453bb02576e0d9c4a5ca6e150eee/saro-harutyunyan.space).
+
+To see logs locally in the terminal (for Windows in Git Bash) run
+```commandline
+heroku logs --app saroyr-com -n 1500 --force-colors
+```
 
 Run locally in Linux terminal as follows:
 ```

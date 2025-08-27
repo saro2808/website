@@ -1,5 +1,7 @@
 {% extends 'math_base.html' %}
 
+{% block title %} Mathematics {% endblock %}
+
 {% block javascript %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -20,9 +22,15 @@
 <h3>Selected solutions</h3>
 <!--<hr>-->
 <p>
-    I am a member of the <a href="https://math.stackexchange.com/users/1135242/saroyr">stackexchange</a> and
-    <a href="https://artofproblemsolving.com/community/user/490563">AoPS</a> communities and occasionally
-    solve problems there. Here are some of my selected solutions to problems in these forums:
+    I am a member of the
+<!--    <a href="https://math.stackexchange.com/users/1135242/saroyr">stackexchange</a> and-->
+    <a href="https://artofproblemsolving.com/community/user/490563">AoPS</a>
+<!--    communities-->
+    community
+    and occasionally
+    solve problems there. Here are some of my selected solutions to problems in
+<!--    these fora:-->
+    this forum:
 </p>
 {% for category in solutions %}
 <div class="panel-group" style="padding:5px;padding-left: 10px;">
