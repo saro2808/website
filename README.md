@@ -36,6 +36,9 @@ After adding new humors or math problems run the following to repopulate the db:
 python init_db.py
 ```
 
+To view a webpage as it looks like on a phone when developing use Responsive Design Mode; for example in Mozilla and Chrome with the shortcut <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>.
+
+
 TODO: add
 * DB visual model,
 * Armenian language,

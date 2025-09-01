@@ -274,7 +274,7 @@
       ]
     },
     {
-      "name": "Other",
+      "name": "Other posts",
       "list": [
         {
           "url": "https://artofproblemsolving.com/community/c7h2873874p26779795",
@@ -291,6 +291,10 @@
         {
           "url": "https://artofproblemsolving.com/community/c7h3456936p33383067",
           "text": "Cauchy's mean value theorem for three functions"
+        },
+        {
+          "url": "https://artofproblemsolving.com/community/c6h3412567p32860292",
+          "text": "3D geometry results compendium"
         }
       ]
     }

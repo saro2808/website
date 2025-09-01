@@ -100,8 +100,26 @@ body.dark-mode #darkModeToggle .fa-moon {
 
 /* Layout styles */
 .text-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* optional spacing between items */
+}
+
+.text-container > div {
+  flex: 1;       /* let them share available space */
+  min-width: 150px; /* prevents them from shrinking too much */
+}
+
+/* On narrow screens, stack them */
+@media (max-width: 600px) {
+  .text-container {
+    flex-direction: column;
+    align-items: stretch; /* full width columns */
+  }
+
+  .text-container > div {
+    min-width: auto;
+  }
 }
 
 .text0,

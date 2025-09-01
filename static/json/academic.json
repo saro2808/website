@@ -1,6 +1,77 @@
 {
   "categories": [
     {
+      "name": "Data Science",
+      "list": [
+        {
+          "name": "Statistical Foundations of Learning",
+          "urls": [
+            {
+              "url": "static/documents/SFL_assignments.pdf",
+              "text": "Assignments"
+            },
+            {
+              "url": "static/documents/SFL_solutions.pdf",
+              "text": "Solutions"
+            }
+          ]
+        },
+        {
+          "name": "Advanced Machine Learning. Deep Generative Models",
+          "urls": [
+            {
+              "url": "https://github.com/saro2808/tum-deep-generative-models",
+              "text": "Homework"
+            }
+          ]
+        },
+        {
+          "name": "Machine Learning (advanced)",
+          "urls": [
+            {
+              "url": "https://github.com/girafe-ai/ml-course/tree/23s_advanced",
+              "text": "Course repository"
+            },
+            {
+              "url": "https://github.com/saro2808/advanced-ml-mipt-2023",
+              "text": "Homework"
+            }
+          ]
+        },
+        {
+          "name": "Machine Learning (basic)",
+          "urls": [
+            {
+              "url": "https://github.com/girafe-ai/ml-course/tree/21f_basic",
+              "text": "Course repository"
+            },
+            {
+              "url": "https://github.com/saro2808/ml-mipt-2021",
+              "text": "Homework"
+            }
+          ]
+        },
+        {
+          "name": "Methods of Optimization",
+          "urls": [
+            {
+              "url": "https://github.com/saro2808/met-opt-mipt-2021",
+              "text": "Homework"
+            }
+          ]
+        },
+        {
+          "name": "Practicum of Mathematical Statistics",
+          "urls": [
+            {
+              "url": "https://github.com/saro2808/math-stat-practice-mipt",
+              "text": "Preserved homework"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Computer Science",
       "list": [
         {
@@ -26,32 +97,6 @@
             {
               "url": "static/documents/caos-sems.pdf",
               "text": "Seminar notes"
-            }
-          ]
-        },
-        {
-          "name": "Machine Learning (basic)",
-          "urls": [
-            {
-              "url": "https://github.com/girafe-ai/ml-course/tree/21f_basic",
-              "text": "Course repository"
-            },
-            {
-              "url": "https://github.com/saro2808/ml-mipt-2021",
-              "text": "Homework"
-            }
-          ]
-        },
-        {
-          "name": "Machine Learning (advanced)",
-          "urls": [
-            {
-              "url": "https://github.com/girafe-ai/ml-course/tree/23s_advanced",
-              "text": "Course repository"
-            },
-            {
-              "url": "https://github.com/saro2808/advanced-ml-mipt-2023",
-              "text": "Homework"
             }
           ]
         },
@@ -114,7 +159,7 @@
           ]
         },
         {
-          "name": "Parallel Computation and Distributed Systems",
+          "name": "Parallel Computations and Distributed Systems",
           "urls": [
             {
               "url": "http://wiki.atp-fivt.org/index.php/%D0%9F%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%B8_%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5_%D0%B2%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_2021",
@@ -131,6 +176,15 @@
     {
       "name": "Mathematics",
       "list": [
+        {
+          "name": "Polyhedral Combinatorics",
+          "urls": [
+            {
+              "url": "static/documents/Polyhedral_Combinatorics__Summer_2025_.pdf",
+              "text": "Homework"
+            }
+          ]
+        },
         {
           "name": "Functional Analysis",
           "urls": [
@@ -201,29 +255,11 @@
           ]
         },
         {
-          "name": "Methods of Optimization",
-          "urls": [
-            {
-              "url": "https://github.com/saro2808/met-opt-mipt-2021",
-              "text": "Homework"
-            }
-          ]
-        },
-        {
           "name": "Stochastic Processes",
           "urls": [
             {
               "url": "static/documents/stochastic-processes.pdf",
               "text": "Some solutions"
-            }
-          ]
-        },
-        {
-          "name": "Practicum of Mathematical Statistics",
-          "urls": [
-            {
-              "url": "https://github.com/saro2808/math-stat-practice-mipt",
-              "text": "Preserved homework"
             }
           ]
         },
