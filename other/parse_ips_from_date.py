@@ -49,12 +49,14 @@ if __name__ == '__main__':
     last_time_updated = log_lines[0][:len(time_format)]
 
     try:
-        with open('ips.txt', 'r') as g:
+        with open('ips.json', 'r') as g:
             ip_info = json.load(g)
             ip_dict = ip_info['ip_dict']
             last_time_updated = ip_info['last_time_updated']
     except Exception as e:
         print(e)
+
+    print('Updating from', last_time_updated)
 
     for line in log_lines:
         
@@ -82,7 +84,7 @@ if __name__ == '__main__':
         'ip_dict': ip_dict
     }
 
-    with open('ips.txt', 'w+') as g:
+    with open('ips.json', 'w+') as g:
         json.dump(ip_info, g, indent=4)
 
     print('Done')

@@ -98,6 +98,23 @@ body.dark-mode #darkModeToggle .fa-moon {
     /* Add any other necessary styles */
 }
 
+/* Light mode */
+pre, code {
+    background-color: #f5f5f5;
+    color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* Dark mode */
+body.dark-mode pre,
+body.dark-mode code {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+
 /* Layout styles */
 .text-container {
   display: flex;

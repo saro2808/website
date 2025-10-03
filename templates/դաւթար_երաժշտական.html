@@ -26,7 +26,7 @@
       }
 
       .chord-gallery img {
-        max-height: 100px; /* adjust as needed */
+        max-height: 80px; /* adjust as needed */
         height: auto;
         display: block;
         margin: 0 auto;
@@ -47,6 +47,68 @@
         text-align: center;
         margin: 0px auto;
       }
+
+      .video-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .media-row {
+        display: flex;
+        justify-content: center;  /* centers the whole row */
+        align-items: center;       /* aligns items vertically by center */
+        gap: 20px;                /* space between video and image */
+        margin-top: 20px;
+      }
+
+      figure {
+        text-align: center;       /* caption centered under each item */
+      }
+
+      figcaption {
+        margin-top: 8px;
+        font-style: italic;
+        font-size: 14px;
+        color: #9c9c9c;
+      }
+
+      caption {
+        font-style: italic;
+        font-size: 14px;
+        color: #9c9c9c;
+      }
+
+      .index {
+        column-count: 3;       /* force 3 columns */
+        column-gap: 40px;      /* space between columns */
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+      }
+      .index li {
+        list-style: none;      /* remove bullets */
+        padding: 2px 0;
+      }
+
+      .footnotes {
+        font-size: 0.85em;       /* smaller text */
+        margin-top: 2em;         /* separate from main text */
+      }
+
+      .footnotes hr {
+        border: none;
+        border-top: 1px solid #8d8c8c;
+        margin-bottom: 0.5em;
+      }
+
+      .footnotes ol {
+        padding-left: 1em;
+      }
+
+      .footnotes a {
+        text-decoration: none;
+      }
+
     </style>
     <!-- <link rel="stylesheet" href="./style.css"> -->
     <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
@@ -58,59 +120,105 @@
         <hr>
 
         <p><i>Սխալ գտնելու դեպքում խնդրում եմ ինձ հայտնել։ Եթե համարում եք, որ այս գրվածքի գոյությունը ամբողջությամբ սխալ է, ապա կրկին հայտնեք։</i></p>
-        <p><i>Այս էջում մուգ ռեժիմը դեռևս կարգավորած չէ․ իրերը ճիշտ տեսնելու համար խորհուրդ ենք տալիս էջը դիտել պայծառ ռեժիմով։ </i></p>
         <div id="toc"></div>
         <hr>
 
+        <!-- Երաժշտության ֆիզիկական հիմունքները -->
         <div>
           <h2 id="section-physical-foundations">Երաժշտության ֆիզիկական հիմունքները</h2>
           <!-- <p>Երաժշտության հիմքը, իհարկե, հարմոնիան է։</p> -->
           <p>Պարզագույն երաժշտությունը նոտան է` պարբերական ձայնային ալիքը, որը բնորոշվում է հաճախությամբ և լայնույթով։
           </p>
-          <p>Համաձայն ֆիզիկայի օրենքների ալիքն ունի այսպես կոչված <em>հարմոնիկներ</em> (կամ <em>օբերտոններ</em>). եթե ալիքն ունի ν (<em>ֆունդամենտալ</em>) հաճախություն,
-            ապա նրա հարմոնիկները սինուսոիդներ են, որոնց հաճախությունները ν-ի ամբողջ բազմապատիկներն են, այսինքն ν, 2ν, 3ν, ․․․: (Իմիջայլոց, այստեղից է, որ 1 + 1/2 + 1/3
-            + ... շարքը մաթեմատիկայում կոչվում է հարմոնիկ։)
+          <p>Համաձայն ֆիզիկայի օրենքների ալիքն ունի այսպես կոչված <em>օբերտոններ</em> (կամ <em>հարմոնիկներ</em>՝ լարի կամ փողային գործիքների
+            դեպքում). եթե ալիքն ունի ν (<em>ֆունդամենտալ</em>) հաճախություն, ապա նրա օբերտոնները սինուսոիդներ են, որոնց հաճախությունները
+            ν-ի ամբողջ բազմապատիկներն են, այսինքն ν, 2ν, 3ν, ․․․։<sup id="fnref1"><a href="#fn1">1</a></sup>
           </p>
-          <p>Այսպիսով, նոտան իրենից ներկայացնում է անվերջ (հաշվելի) շատ սինուսոիդների (այն է՝ իր հարմոնիկների) գումար (Ֆուրիեի շարք)։ Այդ գումարի մեջ հարմոնիկների
-            (Ֆուրիեի) գործակիցները որոշում են ձայնի որակը՝ <em>տեմբրը</em>։ Հենց այդ գործակիցների շնորհիվ է, որ մենք տարբերում ենք, օրինակ, շվիի ձայնը ջութակինից
-            (տե՛ս <a href="https://music.stackexchange.com/a/8177/94569">այստեղ</a>)։
+          <p>Այսպիսով, նոտան իրենից ներկայացնում է անվերջ (հաշվելի) շատ սինուսոիդների (այն է՝ իր օբերտոնների) գումար (Ֆուրիեի շարք)։ Այդ գումարի
+            մեջ օբերտոնների (Ֆուրիեի) գործակիցները որոշում են ձայնի որակը՝ <em>տեմբրը</em>։<sup id="fnref2"><a href="#fn2">2</a></sup>
+            Հենց այդ գործակիցների շնորհիվ է, որ մենք տարբերում ենք, օրինակ, շվիի ձայնը ջութակինից (տե՛ս
+            <a href="https://music.stackexchange.com/a/8177/94569">այստեղ</a>)։<sup id="fnref3"><a href="#fn3">3</a></sup>
           </p>
-          <p>Մի նոտան լավ է, երկուսն՝ ավելի լավ։ Ներդաշնակություն ստեղծելու համար, իրոք, անհրաժեշտ է առնվազն երկու նոտա։ Երկու նոտա միասին հնչում են ներդաշնակ կամ
-            համաձայն (consonant), եթե նրանց ֆունդամենտալ հաճախությունների հարաբերությունը բավականին մոտ է որևէ ռացիոնալ թվի։ Եվ, իհարկե, հնչում են
-            անկայուն, անհանգիստ և անհամաձայն (dissonant), երբ այդ հարաբերությունը բավականին իռացիոնալ է։ Պատճառը, բնականաբար, հարմոնիկներն են՝ թե ինչպես են նրանք
-            վերադրվում։
+          <p>Մի նոտան լավ է, երկուսն՝ ավելի լավ։ Ներդաշնակություն ստեղծելու համար, իրոք, անհրաժեշտ է առնվազն երկու նոտա։ Երկու նոտա միասին
+            հնչում են ներդաշնակ կամ համաձայն (consonant), եթե նրանց ֆունդամենտալ հաճախությունների հարաբերությունը բավականին մոտ է որևէ ռացիոնալ
+            թվի։ Եվ, իհարկե, հնչում են անկայուն, անհանգիստ և անհամաձայն (dissonant), երբ այդ հարաբերությունը բավականին իռացիոնալ է։ Պատճառը,
+            բնականաբար, օբերտոններն են՝ թե ինչպես են նրանք վերադրվում։
           </p>
-          <p>Երկու նոտա միասին ստեղծում են <em>ինտերվալ</em>, որը կարելի է բնութագրել նոտաների ֆունդամենտալ հաճախությունների հարաբերությամբ։ Ամենատարրական ինտերվալը 1։2-ն
-            է, որը կոչվում է <em>օկտավա</em>։ Իրարից օկտավա հեռու նոտաներն ընդունված է նույնացնել, քանզի նրանք միասին հնչելիս առանձնակի էֆեկտ, զգացում չեն ստեղծում։
-            Այսպիսով, իրարից երկուսի աստիճան անգամ տարբերվող ֆունդամենտալ հաճախություններով նոտաները կազմում են համարժեքության դաս։
+          <p>Երկու նոտա միասին ստեղծում են <em>ինտերվալ</em>, որը կարելի է բնութագրել նոտաների ֆունդամենտալ հաճախությունների հարաբերությամբ։
+            Ամենատարրական ինտերվալը 1։2-ն է, որը կոչվում է <em>օկտավա</em>։ Իրարից օկտավա հեռու նոտաներն ընդունված է նույնացնել, քանզի նրանք
+            միասին հնչելիս առանձնակի էֆեկտ, զգացում չեն ստեղծում։ Այսպիսով, իրարից երկուսի աստիճան անգամ տարբերվող ֆունդամենտալ հաճախություններով
+            նոտաները կազմում են համարժեքության դաս։
           </p>
-          <p>Ճիշտ ինտերվալի նմանությամբ երկուսից ավել նոտաները ծնում են <em>ակորդ</em>։ Ակորդը նույնպես կարելի է տալ իրեն կազմող նոտաների ֆունդամենտալ հաճախությունների
-            հարաբերությամբ։
+          <p>Ճիշտ ինտերվալի նմանությամբ երկուսից ավել նոտաները ծնում են <em>ակորդ</em>։ Ակորդը նույնպես կարելի է տալ իրեն կազմող նոտաների
+            ֆունդամենտալ հաճախությունների հարաբերությամբ։
           </p>
-          <p>Դիտարկենք, առանց ընդհանրությունը խախտելու, 1, 2, 3, ... ֆունդամենտալ հաճախություններով նոտաները։ Ինչպես ասվեց վերը՝ 1, 2, 4, 8, ... նոտաները նույնացվում են,
-            ինչպես նաև նույնացվում են 3, 6, 12, ... նոտաները և այլն։ Ամենափոքր n-ը, որի համար 1, 2, ..., n նոտաների հավաքածուն պարունակում է առնվազն երեք տարբեր նոտա`
-            5-ն է։ Հարմարության համար ավելացնելով 6-ը նույնպես, հանդիպում ենք առաջին ոչ տրիվիալ ակորդին՝ 4։5։6-ին։ Այն կոչվում է <em>մաժոր</em>։
+          <p>Դիտարկենք, առանց ընդհանրությունը խախտելու, 1, 2, 3, ... ֆունդամենտալ հաճախություններով նոտաները։ Ինչպես ասվեց վերը՝
+            1, 2, 4, 8, ... նոտաները նույնացվում են, ինչպես նաև նույնացվում են 3, 6, 12, ... նոտաները և այլն։ Ամենափոքր n-ը, որի համար
+            1, 2, ..., n նոտաների հավաքածուն պարունակում է առնվազն երեք տարբեր նոտա` 5-ն է։ Հարմարության համար ավելացնելով 6-ը նույնպես,
+            հանդիպում ենք առաջին ոչ տրիվիալ ակորդին՝ 4։5։6-ին։ Այն կոչվում է <em>մաժոր</em>։
           </p>
-          <p>Սա է պատճառը, որ ասում են, թե մաժոր ակորդը գոյություն ունի բնության մեջ։ Օրինակ, եթե քարանձավում բարձրաձայն երգեք մի նոտա, ապա արձագանքի արդյունքում
-            կլսեք մաժոր ակորդ։
+          <p>Սա է պատճառը, որ ասում են, թե մաժոր ակորդը գոյություն ունի բնության մեջ։ Օրինակ, եթե քարանձավում բարձրաձայն երգեք մի նոտա,
+            ապա արձագանքի արդյունքում կլսեք մաժոր ակորդ։
           </p>
-          <p>Մաժոր ակորդի երկու բաղադրիչ ինտերվալները՝ 4։5-ն և 5։6-ն կոչվում են համապատասխանաբար <em>մեծ և փոքր տերցիաներ</em>։ Դրանք են հենց նոր ակորդներ կառուցելու
-            աղյուսները։ Մաժոր ակորդի եզրային տոները կազմում են 4:6 = 2:3 ինտերվալը, որը կոչվում է <em>կվինտա</em>։
+          <p>Մաժոր ակորդի երկու բաղադրիչ ինտերվալները՝ 4։5-ն և 5։6-ն կոչվում են համապատասխանաբար <em>մեծ և փոքր տերցիաներ</em>։ Դրանք են
+            հենց նոր ակորդներ կառուցելու աղյուսները։ Մաժոր ակորդի եզրային տոները կազմում են 4:6 = 2:3 ինտերվալը, որը կոչվում է <em>կվինտա</em>։
           </p>
 
-          <h4 id="section-rythm-and-pitch">Ռիթմ և հաճախություն</h4>
-          <p>Դիտարկենք հետևյալ փորձը․ ձախ ձեռքով չափ տանք (թեթևակի հարվածենք, օրինակ, ոտքին) ամեն երկու վայրկյանը մեկ, իսկ աջով՝ ամեն երեք վայրկյանը մեկ։
-            Այդպիսով կստեղծենք <em>ռիթմ</em>։ Եթե ձայնագրենք սա և արագացնենք, օրինակ, հազար անգամ, ապա կլսենք 2։3 ինտերվալը։
+          <!-- Դիսսոնանսի ընկալման մասին -->
+          <h4 id="section-about-dissonance-perception">Դիսսոնանսի ընկալման մասին</h4>
+          <p>Ինչպես բացատրվեց վերը՝ հարմոնիան ստեղծվում է երկու և ավելի նոտաների օբերտոնների՝ նրանց՝ իրար հետ այս կամ այն կերպ վերադրվելուց։
+            Քանի որ տարբեր գործիքներ ունեն օբերտոնների տարբեր գործակիցների հավաքածուներ՝ ամեն գործիք առաջ է բերում հենց իրեն բնորոշ
+            դիսսոնանսներ։ Այսինքն, եթե, օրինակ, 2։3 ինտերվալը (կվինտան) լարային կամ փողային գործիքի վրա հնչում է ներդաշնակ, ապա թմբուկով
+            կամ զանգով այն կհնչի դիսսոնանտ։ Այսպիսով տվյալ գործիքի վրա նվագի ներդաշնակությունը հույժ կախված է հենց գործիքի
+            տեսակից։<sup id="fnref4"><a href="#fn4">4</a></sup>
+          </p>
+          <p>Ստորև բերված է լարի համար դիսսոնանսի ընկալման (հոգեբանական) <a href="#fig-dissonance-graph">գրաֆիկը</a>՝ կախված ինտերվալի
+            բարձր նոտայի ֆունդամենտալ հաճախությունից, եթե ներքևինինը 1 է։ Սուր ծայրերի ցածր արժեքները համապատասխանում են քիչ թե շատ ներդաշնակ
+            հնչող ինտերվալներին։
+          </p>
+          <figure id="fig-dissonance-graph" style="display: table; margin: auto; text-align: center;">
+            <img src="../static/images/musical/dissonance-graph.png" style="height:300px;">
+            <figcaption style="text-align:center;">Լարային գործիքի վրա ինտերվալի ստեղծած ընկալողական դիսսոնանսը</figcaption>
+          </figure>
+          <p>Այս թեմային խորությամբ կարելի է ծանոթանալ յութուբյան minutephysics ալիքի
+            <a href="https://www.youtube.com/watch?v=tCsl6ZcY9ag">The Physics Of Dissonance</a> տեսանյութում։
+          </p>
+
+          <!-- Ռիթմ և հաճախություն -->
+          <h4 id="section-rhythm-and-pitch">Ռիթմ և հաճախություն</h4>
+          <p>Եթե ձեռքով չափ տանք (թեթևակի հարվածենք, օրինակ, ոտքին) ամեն վայրկյանը մեկ, ապա կստեղծենք <em>ռիթմ</em>։ Այն արագացնելով, օրինակ,
+            հազար անգամ` կլսենք նոտա։ Այսինքն ռիթմը և նոտան համարժեք են։ Սա զարմանալի չէ, քանի որ թե՛ մեկը և թե՛ մյուսը բնութագրվում են
+            հաճախությամբ․ փոքր հաճախությունների դեպքում ընկալում ենք այն որպես ռիթմ, իսկ մեծերի դեպքում՝ որպես նոտա։
+          </p>
+          <p>Այժմ անենք հետևյալը․ ձախ ձեռքով չափ տանք ամեն երկու վայրկյանը մեկ, իսկ աջով՝ ամեն երեք վայրկյանը մեկ։
+            Այդպիսով կստեղծենք <em>պոլիռիթմ</em>։ Եթե ձայնագրենք սա և կրկին արագացնենք, ապա կլսենք 2։3 (կվինտա) ինտերվալը։
           </p>
           <p>Այս դիտարկումից, մասնավորապես, հետևում է, որ կարելի է ներքին այրման շարժիչի ձայնով պարզել, թե այն քանի մխոցանի է։ Իրոք, բանն այն է, որ
             որպեսզի մխոցներն անցնեն ամբողջական ցիկլ, լիսեռը պետք է կատարի կոնկրետ քանակությամբ պտույտներ, որը կախված է մխոցների քանակից։ Օրինակ, 6 մխոցանի
             շարժիչը կարձակի կվինտայի ձայն, 8 մխոցանին՝ օկտավայի, իսկ 10 մխոցանին՝ տերցիայի (արձակված ինտերվալի երկարությունը՝ ըստ մոդուլ օկտավայի) (տե՛ս
             <a href="https://www.youtube.com/watch?v=X5wDBaJHzdY&t=405s&ab_channel=MGUYAustralia">այստեղ</a>):
           </p>
+          <p>Պոլիռիթմները կարող են կազմված լինել նաև երկուսից ավելի ռիթմերից։ Տե՛ս, օրինակ, <a href="#vid-collier-plays-polyrhythm">ստորև</a>
+            տեսագրությունը, որտեղ երաժշտագետ Ջեյքոբ Քոլիերը մի ձեռքի մատներով ստեղծում է 2:3:4:5:6 պոլիռիթմը։
+          </p>
+          <div class="media-row">
+            <figure id="vid-collier-plays-polyrhythm">
+              <iframe width="320" height="240"
+                      src="https://www.youtube.com/embed/fN-_j1yOXCE"
+                      frameborder="0" allowfullscreen>
+              </iframe>
+              <figcaption>Քոլիերը ստեղծում է 2։3։4։5։6 պոլիռիթմ</figcaption>
+            </figure>
+
+            <figure>
+              <img src="../static/images/musical/chords/23456chord.png" height="130" alt="2:3:4:5:6 chord">
+              <figcaption>2։3։4։5։6 պոլիռիթմը արագացնելուց հետո հնչող ակորդը</figcaption>
+            </figure>
+          </div>
           <div style="clear: both;"></div>
         </div>
         <hr>
 
+        <!-- Օկտավայի բաժանումը -->
         <div>
           <h2 id="section-octave-division">Օկտավայի բաժանումը</h2>
           <p>Այժմ իմաստ ունի ֆիքսել իրարից օկտավա հեռու ինչ-որ երկու նոտաներ, և նոր նոտաները դիտարկել այս օկտավայի մեջ։ Նոտաները կոնտինուալ շատ են, ուստի գործնական
@@ -135,6 +243,9 @@
             Այսինքն մեր տրամադրության տակ են ամեն նոտայի առաջին առնվազն 10 հարմոնիկները (չհաշված երկուսի աստիճան անգամ բարձր անվերջ շատ նոտաները), և դա
             օգտագործելով կարելի է ստեղծել համաձայն հնչող երաժշտություն՝ ներդաշնակություն։
           </p>
+          <p>12 նոտաներով հավասար լարումը, ինչպես կարելի է նկատել, համաձայնեցված է <a href="#fig-dissonance-graph">դիսսոնանսի գրաֆիկի</a> հետ․
+            շատ ինտերվալներ լավ մոտավորությամբ համապատասխանում են գրաֆիկի ցած ուղղված սուր ծայրերին։
+          </p>
           <p>Օկտավայի հավասար բաժանումը հնարավորություն է տալիս իրագործելու տոնի փոփոխում՝ <em>մոդուլյացիա (եղանակում / ելևէջում)</em>: Այսինքն, եթե նվագենք որևէ երաժշտություն,
             այնուհետև զուգահեռ տեղափոխենք այն մի քանի նոտա այն կողմ և կրկին կատարենք, ապա կհնչի նույն երաժշտությունը: Մասնավորապես ինտերվալներն ու ակորդները նույնպես
             զուգահեռ տեղափոխվելիս հնչում են նույն կերպ։
@@ -143,18 +254,15 @@
             Das Wohltemperierte Klavier երկու գրքերը՝ ամեն նոտայի մաժոր և մինոր գամմաներում երկուական գործ գրելով։
           </p>
           <p>Մենք կօգտագործենք նոտաների անվանման հետևյալ պայմանադրությունը․ մի նոտա կհայտարարենք A և նրանից հետո հաջորդաբար կսահմանենք իրարից 2<sup>1/12</sup> անգամ
-            բարձր A♯/B♭, B, C, C♯/D♭, D, D♯/E♭, E, F, F♯/G♭, G, G♯/A♭ նոտաները։ Ընդհանրապես բեմոլ (♭, flat) ասելով կհասկանանք 2<sup>1/12</sup> անգամ ցածր նոտան, իսկ
+            բարձր A♯/B♭, B, C, C♯/D♭, D, D♯/E♭, E, F, F♯/G♭, G, G♯/A♭ նոտաները։<sup id="fnref5"><a href="#fn5">5</a></sup>
+            Ընդհանրապես բեմոլ (♭, flat) ասելով կհասկանանք 2<sup>1/12</sup> անգամ ցածր նոտան, իսկ
             դիեզ (♯, sharp) ասելով՝ 2<sup>1/12</sup> անգամ բարձր նոտան։ 2<sup>1/12</sup> անգամ տարբերությունը կոչվում է <em>կես տոն</em>։
           </p>
           <p>Դո, ռե, մի, ֆա, սոլ, լա, սի անվանումը մենք կպահենք (reserve) տոնայնության աստիճանները բանավոր երգելու համար
             (տե՛ս <a href="https://en.wikipedia.org/wiki/Solmization">այստեղ</a>)։
           </p>
-          <p>Նկատենք, որ դաշնամուրի վրա A, B, C, D, E, F, G նոտաներին (այսինքն առանց բեմոլի և դիեզի նոտաներին) համապատասխանող ստեղները սպիտակ են,
-            իսկ մնացածը սև։ Ընդհանրապես, դաշնամուրի այդպիսի կառուցվածքը պայմանավորված է նրանով, որ հնարավոր լինի հեշտությամբ գտնել ամեն նոտա։ Իրոք,
-            եթե ստեղների դասավորությունը օկտավայի ներսում լիներ պարբերական, օրինակ սպիտակ, սպիտակ, սև, սպիտակ, սպիտակ, սև, և այլն, ապա հնարավոր չէր
-            լինի գտնել կոնկրետ նոտա՝ առանց ստեղնաշարի ծայրամասից հաշվելու։
-          </p>
 
+          <!-- Ստանդարտ լարումը և որոշ միջիններ -->
           <h4 id="section-numerical-relationships">Ստանդարտ լարումը և որոշ միջիններ</h4>
           <p>Դիտարկենք, առանց ընդհանրությունը խախտելու, երկու C նոտաներով կազմված օկտավա; նշանակենք այն C<sub>0</sub> C<sub>1</sub>։
             Կարող ենք համարել, որ ցածր C<sub>0</sub>-ի ֆունդամենտալ հաճախությունը 1 է։ Հետաքրիր է ականատես լինել, որ C<sub>0</sub>-ի և C<sub>1</sub>-ի
@@ -192,6 +300,7 @@
         </div>
         <hr>
 
+        <!-- Կվինտաների շրջան -->
         <div>
           <h2 id="section-circle-of-fifths">Կվինտաների շրջան</h2>
           <figure id="fig-circle-of-fifths" style="float:right;">
@@ -214,6 +323,7 @@
         </div>
         <hr>
 
+        <!-- Գամմա -->
         <div>
           <h2 id="section-scale">Գամմա</h2>
           <p><em>Գամման</em> օկտավայի ներսում նոտաների հավաքածու է։ Իհարկե ենթադրվում է, որ այդ հավաքածուն պատճենվում է վերև և ներքև օկտավաներ տեղափոխելով։ 
@@ -230,24 +340,64 @@
             ամենից հաճախ օգտագործում են յոթահնչյուն (հեպտատոնիկ) գամմաներ։ Ռոք երաժշտության կիթառի մենանվագները (solo) որպես կանոն օգտագործում են
             հնգահնչյուն (պենտատոնիկ) գամմաներ։ Ջազում օգտագործվում են նաև վեցահնչյուն և ութահնչյուն որոշ գամմաներ։
           </p>
+
+          <!-- Մաժոր գամմա -->
           <h4 id="section-major-scale">Մաժոր գամմա</h4>
           <p>Դիտարկենք (առանց ընդհանրությունը խախտելու) C նոտան և նրանից հաշված 7 նոտա՝ կվինտաների շրջանում, այն է՝ C, G, D, A, E, B, F♯ նոտաները։ Վերջին նոտան
             իջեցնելով կես տոն ցած ստանում ենք C, D, E, F, G, A, B նոտաների հաջորդական հավաքածուն, որը անվանում են <em>C մաժոր գամմա</em>։ Ընդ որում, C-ն անվանում են
-            <em>առաջին աստիճան</em>, D-ն՝ <em>երկրորդ</em> և այլն։
+            <em>առաջին աստիճան</em>, D-ն՝ <em>երկրորդ</em> և այլն (տե՛ս <a href="#fig-lydian-mode-fifth-cover">նկարը</a>)։
           </p>
+          <figure id="fig-lydian-mode-fifth-cover" style="display: table; margin: auto; text-align: center;">
+            <img src="../static/images/musical/Lydian-mode-fifth-cover.png" style="height:120px;">
+            <figcaption style="text-align:center;"><i>Վեց կվինտա դիզելով և վերի նոտան կես տոն իջեցնելով ստանում ենք մաժոր գամմայի նոտաներ</i></figcaption>
+          </figure>
           <p>Սակայն ինչու՞ վերջին՝ F♯ նոտան իջեցվեց կես տոն։ Բանն այն է, որ գամմայի հիմք C նոտան F♯-ի հետ կազմում է շատ անկայուն ինտերվալ՝ <em>տրիտոն</em>, այն է՝
             1:2<sup>1/2</sup>, որը բավականին իռացիոնալ է։ Իսկ F♯-ը կես տոն իջեցնելուց հետո ստանում ենք միանգամայն կայուն C-F կվարտա ինտերվալը։ Այնուամենայնիվ,
             ջազ երաժշտության մեջ ստանդարտ ակորդներին բարձր տոներ ավելացնելիս ավելի հաճախ արմատից տրիտոն բարձր նոտան գերադասում են կվարտա բարձրից։
             Պատճառը այն է, որ, օրինակ, C մաժոր գամմայում E և F նոտաները միասին ստեղծում են անկայուն կես տոն ինտերվալը (1:2<sup>1/12</sup>), իսկ E և F♯ նոտաները
             նման անհարմարություն չեն հարուցում (տե՛ս
             <a href="https://www.reddit.com/r/musictheory/comments/hk7r98/comment/fwr6264/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">այստեղ</a>)։
+            Սակայն պետք է նկատի ունենալ, որ սա ընդամենը հնարավոր բացատրություն է մաժոր գամմայի կառուցվածքի, և ոչ անպայմանորեն նրա սահմանումը։
           </p>
-          <p>Մաժոր գամմայի եղանակները կոչվում են <em>իոնյան (մաժոր), դորիական, փռյուգիական, լիդիական, միքսոլիդիական, էօլյան (մինոր), լոկրիական</em>։
-          </p>
-          <p>Ժամանակակից երաժշտությունը գործածում է գլխավորապես առաջին և վեցերորդ եղանակները՝ մաժոր և մինոր գամմաները։ Ջազում ժողովրդականություն են վայելում
+          <p>Մաժոր գամմայի առաջինից յոթերորդ եղանակները համապատասխանաբար կոչվում են <em>իոնյան (մաժոր), դորիական, փռյուգիական, լիդիական,
+            միքսոլիդիական, էօլյան (մինոր), լոկրիական</em> (տե՛ս <a href="#fig-major-scale-modes">նկարը</a>)։
+            Ժամանակակից երաժշտությունը գործածում է գլխավորապես առաջին և վեցերորդ եղանակները՝ մաժոր և մինոր գամմաները։ Ջազում ժողովրդականություն են վայելում
             նաև դորիական և միքսոլիդիական եղանակները։ Լիդիականը առավել տարածված է ֆիլմերի երաժշտություններում, իսկ փռյուգիականը՝ ռոքում (տե՛ս 
             <a href="https://www.reddit.com/r/musictheory/comments/o4vqw3/comment/h2jg166/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">այստեղ</a>):
           </p>
+          <figure id="fig-major-scale-modes">
+            <div class="chord-gallery">
+              <figure>
+                <img src="../static/images/musical/modes/C-Ionian.png" alt="C Ionian (major)">
+                <figcaption>իոնյան (մաժոր)</figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/modes/C-Dorian.png" alt="C Dorian">
+                <figcaption>դորիական</figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/modes/C-Phrygian.png" alt="C Phrygian">
+                <figcaption>փռյուգիական</figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/modes/C-Lydian.png" alt="C Lydian">
+                <figcaption>լիդիական</figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/modes/C-Mixolydian.png" alt="C Mixolydian">
+                <figcaption>միքսոլիդիական</figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/modes/C-Aeolian.png" alt="C Aeolian">
+                <figcaption>էօլյան (մինոր)</figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/modes/C-Locrian.png" alt="C Locrian">
+                <figcaption>լոկրիական</figcaption>
+              </figure>
+            </div>
+            <figcaption>Մաժոր գամմայի եղանակները՝ C տոնիկի վրա</figcaption>
+          </figure>
           <p>Այն մաժոր և մինոր տոնայնությունները, որոնք իրար եղանակներ են (այսինքն օգտագործում են նույն նոտաների բազմությունը), կոչվում են <em>հարաբերական
             (relative)</em> (այստեղ եզրույթների փոքրիկ շեղում է առաջանում հայերենի և անգլերենի միջև; հայերենում սա կոչում են <em>զուգահեռ</em>, սակայն անգլերենում
             զուգահեռ (parallel) կոչում են այն եղանակները, որոնց տոնիկները համընկնում են): Այդպես, օրինակ C մաժորը A մինորի հարաբերական տոնայնությունն է, և հակառակը։
@@ -257,6 +407,7 @@
             իջեցնենք։ Այստեղից գտնում ենք դորիականի բնութագրությունը՝ մաժորի տերմիններով․ 1 2 ♭3 4 5 6 ♭7:
           </p>
 
+          <!-- Մինոր գամմա -->
           <h4 id="section-minor-scale">Մինոր գամմա</h4>
           <p>Մինոր գամման, իչպես դժվար չէ ստուգել վերևի սահմանումից (որպես մաժորի վեցերորդ եղանակ), տրվում է որպես 1 2 ♭3 4 5 ♭6 ♭7։ Եթե 7-րդ աստիճանը կես տոն
             բարձրացնենք, ապա կստանանք <em>հարմոնիկ մինոր գամման</em>։
@@ -265,21 +416,40 @@
             աստիճան համոզիչ լուծում ապահովելու համար։ 
           </p>
 
-          <h4 id="section-pentatonics">Պենտատոնիկա</h4>
+          <!-- Պենտատոնիկ գամմա -->
+          <h4 id="section-pentatonics">Պենտատոնիկ գամմա</h4>
           <p>Կրկին դիտարկենք կվինտաների շրջանը՝ ընտրելով C-ն որպես հղման կետ։ Սակայն այս անգամ նրանից սկսած հաշվենք հինգ նոտա՝ C, G, D, A, E: Սորտավորելով այս
-            հավաքածուն գտնում ենք C, D, E, G, A նոտաներով կազմված <em>C մաժոր պենտատոնիկ գամման</em>։ Նրա երրորդ եղանակը կոչվում է <em>E մինոր պենտատոնիկ գամմա</em>։
+            հավաքածուն գտնում ենք C, D, E, G, A նոտաներով կազմված <em>C մաժոր պենտատոնիկ գամման</em>։ Նրա երրորդ եղանակը կոչվում է <em>E մինոր պենտատոնիկ գամմա</em>
+            (տե՛ս <a href="#fig-pentatonic-scales">նկարը</a>)։
           </p>
+          <figure id="fig-pentatonic-scales">
+            <div class="chord-gallery">
+              <figure>
+                <img src="../static/images/musical/C-major-pentatonic-scale.png" alt="C Major Pentatonic Scale">
+                <figcaption><i>C մաժոր պենտատոնիկ գամմա</i></figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/E-minor-pentatonic-scale.png" alt="E Minor Pentatonic Scale">
+                <figcaption><i>E մինոր պենտատոնիկ գամմա</i></figcaption>
+              </figure>
+            </div>
+          </figure>
           <p>Պենտատոնիկ գամման, ըստ սահմանման, չի պարունակում կես տոն ինտերվալ։ Դրա շնորհիվ նրա վրա գրված երաժշտությունը միշտ հնչում է ներդաշնակ։ Այս իսկ
             պատճառով պենտատոնիկ գամման կատարյալ է իմպրովիզներ անելու համար։
           </p>
           <p>Պենտատոնիկան, մասնավորապես, արևելյան երաժշտության տարբերիչ նշաններից է։
           </p>
+          <p>Այլ պենտատոնիկ գամմաների հանգամանալից կարելի է ծանոթանալ յութուբեր Ջասթին Հայլենդի ալիքում (օրինակ, տե՛ս
+            <a href="https://www.youtube.com/watch?v=RRFQETVYHVs">այս</a> տեսանյութը)։
+          </p>
 
+          <!-- Խրոմատիկ (գունային) գամմա -->
           <h4 id="section-chromatic-scale">Խրոմատիկ (գունային) գամմա</h4>
           <p>Խրոմատիկ գամման ներառում է օկտավայի բոլոր 12 նոտաները։ Օգտագործվում է ստանդարտ յոթատոն գամմաները գունավորելու և ծաղկացնելու, ինչպես նաև շարժում և
             լարվածություն ստեղծելու համար (տե՛ս <a href="https://en.wikipedia.org/wiki/Chromatic_scale#cite_note-7">այստեղ</a>):
           </p>
 
+          <!-- Ամբողջ-տոնային գամմա (whole-tone scale) -->
           <h4 id="section-whole-tone-scale">Ամբողջ-տոնային գամմա (whole-tone scale)</h4>
           <p>Այս գամման ստացվում է որևէ նոտա որպես տոնիկ ընդունելով և նրա վրա հաջորդաբար մեկ-մեկ տոն ավելացնելով։ Իր կառուցվածքի (սիմետրիայի) պատճառով՝
             այն է՝ հարևան աստիճանների հավասար հեռավորության պատճառով ոչ մի նոտա չի առանձնանում որպես տոնիկ (նույնը, իհարկե, ճիշտ է խրոմատիկ գամմայի համար)։
@@ -287,77 +457,86 @@
           <p>Այս գամման գործածվում է, օրինակ, հիշողության դրվագի կամ երազի էֆեկտ ստեղծելու համար։
           </p>
 
+          <!-- Այլ գամմաներ -->
           <h4 id="section-more-scales">Այլ գամմաներ</h4>
           <p>Այլ գամմաների կարելի է ծանոթանալ <a href="https://www.musicca.com/dictionary/scales">այստեղ</a>:</p>
           <div style="clear: both;"></div>
         </div>
         <hr>
 
+        <!-- Ինտերվալներ -->
         <div>
           <h2 id="section-intervals">Ինտերվալներ</h2>
           <p>Օգտագործելով մաժոր գամման որպես հաշվարկման համակարգ սահմանենք ինտերվալները, որոնց ցածր տոնը գամմայի առաջին աստիճանն է․</p>
-          <table>
-            <tr>
-              <th>ինտերվալի բարձր տոնը</th>
-              <th>անվանում</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>պրիմա</td>
-            </tr>
-            <tr>
-              <td>♭2</td>
-              <td>փոքր սեկունդա</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>սեկունդա</td>
-            </tr>
-            <tr>
-              <td>♭3</td>
-              <td>փոքր տերցիա</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>մեծ տերցիա</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>կվարտա</td>
-            </tr>
-            <tr>
-              <td>♭5</td>
-              <td>տրիտոն</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>կվինտա</td>
-            </tr>
-            <tr>
-              <td>♭6</td>
-              <td>փոքր սեքստա</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>մեծ սեքստա</td>
-            </tr>
-            <tr>
-              <td>♭7</td>
-              <td>փոքր սեպտիմա</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>մեծ սեպտիմա</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>օկտավա</td>
-            </tr>
-            <caption style="text-align:center;"><i>Ինտերվալներ</i></caption>
-          </table>
+          <figure style="text-align:center;">
+            <table>
+              <tr>
+                <th>ինտերվալի բարձր տոնը</th>
+                <th>1</th>
+                <th>♭2</th>
+                <th>2</th>
+                <th>♭3</th>
+                <th>3</th>
+                <th>4</th>
+                <th>♭5</th>
+              </tr>
+              <tr>
+                <th>անվանում</th>
+                <td>պրիմա</td>
+                <td>փոքր սեկունդա</td>
+                <td>սեկունդա</td>
+                <td>փոքր տերցիա</td>
+                <td>մեծ տերցիա</td>
+                <td>կվարտա</td>
+                <td>տրիտոն</td>
+              </tr>
+              <tr>
+                <th>C-ի վրա պատկերավոր</th>
+                <td><img src="../static/images/musical/intervals/prima.png" alt="Prima" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/minor-second.png" alt="Minor Second" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/major-second.png" alt="Major Second" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/minor-third.png" alt="Minor Third" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/major-third.png" alt="Major Third" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/fourth.png" alt="Fourth" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/tritone.png" alt="Tritone" class="table-img"></td>
+              </tr>
+            </table>
+            <br>
+            <table>
+              <tr>
+                <th>ինտերվալի բարձր տոնը</th>
+                <th>5</th>
+                <th>♭6</th>
+                <th>6</th>
+                <th>♭7</th>
+                <th>7</th>
+                <th>8</th>
+              </tr>
+              <tr>
+                <th>անվանում</th>
+                <td>կվինտա</td>
+                <td>փոքր սեքստա</td>
+                <td>մեծ սեքստա</td>
+                <td>փոքր սեպտիմա</td>
+                <td>մեծ սեպտիմա</td>
+                <td>օկտավա</td>
+              </tr>
+              <tr>
+                <th>C-ի վրա պատկերավոր</th>
+                <td><img src="../static/images/musical/intervals/fifth.png" alt="Fifth" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/minor-sixth.png" alt="Minor Sixth" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/major-sixth.png" alt="Major Sixth" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/minor-seventh.png" alt="Minor Seventh" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/major-seventh.png" alt="Major Seventh" class="table-img"></td>
+                <td><img src="../static/images/musical/intervals/octave.png" alt="Octave" class="table-img"></td>
+              </tr>
+            </table>
+            <figcaption><i>Ինտերվալներ</i></figcaption>
+          </figure>
         </div>
         <hr>
 
+        <!-- Ակորդներ -->
         <div>
           <h2 id="section-chords">Ակորդներ</h2>
           <p><em>Ակորդը</em> (բառացիորեն՝ համաձայնություն, ներդաշնակություն) երեք և ավելի նոտաների ամբողջությունն է, որ ունի արմատ։</p>
@@ -379,6 +558,7 @@
           </figure>
           <p>Ակորդները տարբեր տեղերում կարող են նշանակվել տարբեր ձևերով․ մենք կներկայացնենք որոշները։</p>
           
+          <!-- Եռահնչյուն ակորդներ -->
           <h4 id="section-triads">Եռահնչյուն ակորդներ</h4>
           <p>Դիտարկենք տերցիաներ դիզելով ստացվող եռահնչյուն ակորդները․ ունենք երկու աղյուս՝ մեծ և փոքր տերցիաներ, և պետք է նրանցով կազմենք զույգեր,
             ուստի կա 2<sup>2</sup> = 4 տարբերակ․
@@ -396,7 +576,7 @@
               <td>մաժոր ակորդ</td>
               <td>1 3 5</td>
               <td>C</td>
-              <td><img src="../static/images/musical/major-chord.png" alt="Major Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/major-chord.png" alt="Major Chord" class="table-img"></td>
               <td>
                 Քանզի 3-րդ և 5-րդ աստիճանների ֆունդամենտալներն առկա են արմատ 1-ի հարմոնիկներում, մաժոր ակորդը հնչում է պայծառ, ներդաշնակ, համաձայն։
               </td>
@@ -405,17 +585,19 @@
               <td>մինոր ակորդ</td>
               <td>1 ♭3 5</td>
               <td>Cm</td>
-              <td><img src="../static/images/musical/minor-chord.png" alt="Minor Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/minor-chord.png" alt="Minor Chord" class="table-img"></td>
               <td>
                 ♭3-ի ֆունդամենտալը առկա չէ 1-ի հարմոնիկներում, ուստի մինոր ակորդը չի հնչում նույնպես համաձայն և պայծառ, ինչպես մաժորը։ Տպավորություն է, որ
                 ինչ-որ մի բան այն չէ, և դա ստեղծում է փոքր-ինչ տխուր էֆեկտ (եթե ակորդը հնչում է համատեքստից դուրս):
+                Այս երևույթի մեկ այլ բացատրություն առաջարկում է <a href="https://youtu.be/gpjUu2g8fOY?t=299&si=tXym5jjaQv3xX7Cq">Ջեյքոբ Քոլիերը</a>`
+                մատնացույց անելով մինոր և մաժոր ակորդների՝ մեկը մյուսի հակադարձը լինելը։
               </td>
             </tr>
             <tr>
               <td>փոքրացրած ակորդ</td>
               <td>1 ♭3 ♭5</td>
               <td>C°</td>
-              <td><img src="../static/images/musical/diminished-chord.png" alt="Diminished Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/diminished-chord.png" alt="Diminished Chord" class="table-img"></td>
               <td>
                 1-ը և ♭5-ը կազմում են տրիտոն, որի պատճառով փոքրացրած ակորդը հնչում է անկայուն, լարված, և կարիք է առաջացնում այն լուծելու։
               </td>
@@ -424,7 +606,7 @@
               <td>մեծացրած ակորդ</td>
               <td>1 3 ♯5</td>
               <td>C+</td>
-              <td><img src="../static/images/musical/augmented-chord.png" alt="Augmented Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/augmented-chord.png" alt="Augmented Chord" class="table-img"></td>
               <td>
                 Յութուբեր <a href="https://www.youtube.com/@CharlesCornellStudios">Չարլզ Քորնելը</a> սիրում է ասոցացնել նրա ձայնը տիեզերքի հետ։
                 Պատճառը այս ակորդի բազմակի գործածումն է տիեզերքի հետ կապ ունեցող ֆիլմերի երաժշտություններում։
@@ -444,16 +626,17 @@
             <tr>
               <td>1 2 5</td>
               <td>C<sup>sus2</sup></td>
-              <td><img src="../static/images/musical/suspended-second-chord.png" alt="Suspended Second Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/suspended-second-chord.png" alt="Suspended Second Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>1 4 5</td>
               <td>C<sup>sus4</sup></td>
-              <td><img src="../static/images/musical/suspended-fourth-chord.png" alt="Suspended Fourth Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/suspended-fourth-chord.png" alt="Suspended Fourth Chord" class="table-img"></td>
             </tr>
             <caption style="text-align:center;"><i>Suspended ակորդներ</i></caption>
           </table>
 
+          <!-- Քառահնչյուն ակորդներ -->
           <h4 id="section-seventh-chords">Քառահնչյուն ակորդներ</h4>
           <p>Հավատարիմ մնալով ակորդները տերցիաներով կառուցելու մեր քաղաքականությանը, երեք մեծ կամ փոքր տերցիա կարող են ստեղծել 2<sup>3</sup> = 8 ակորդ։
             Սակայն երեք մեծ տերցիա իրար վրա դնելիս առաջին և վերջին նոտաները կրկնվում են, ուստի ստացվում է ընդամենը մեծացրած եռահնչյուն։ Մնացած 7 տարբերակները
@@ -471,7 +654,7 @@
               <td>դոմինանտ (սեպտ)ակորդ</td>
               <td>1 3 5 ♭7</td>
               <td>C<sup>7</sup></td>
-              <td><img src="../static/images/musical/dominant-chord.png" alt="Dominant Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/dominant-chord.png" alt="Dominant Seventh Chord" class="table-img"></td>
               <!-- <td>3-րդ և բեմոլ 7-րդ աստիճանները ստեղծում են տրիտոն և, այդպիսով, լարվածություն, ուստի դոմինանտ ակորդը ուզում է լուծվել։
                 Ամենահամոզիչ և բնական ձևով լուծվում է արմատից կվինտա ցածր նոտայի մաժոր ակորդին։
               </td> -->
@@ -480,37 +663,37 @@
               <td>մաժոր սեպտակորդ</td>
               <td>1 3 5 7</td>
               <td>C<sup>M7</sup></td>
-              <td><img src="../static/images/musical/major-seventh-chord.png" alt="Major Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/major-seventh-chord.png" alt="Major Seventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>մինոր սեպտակորդ</td>
               <td>1 ♭3 5 ♭7</td>
               <td>Cm<sup>7</sup></td>
-              <td><img src="../static/images/musical/minor-seventh-chord.png" alt="Minor Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/minor-seventh-chord.png" alt="Minor Seventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>մինոր-մաժոր սեպտակորդ</td>
               <td>1 ♭3 5 7</td>
               <td>Cm<sup>M7</sup></td>
-              <td><img src="../static/images/musical/minor-major-seventh-chord.png" alt="Minor-Major Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/minor-major-seventh-chord.png" alt="Minor-Major Seventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>կիսափոքրացրած (սեպտ)ակորդ</td>
               <td>1 ♭3 ♭5 ♭7</td>
               <td>Cm<sup>7 (♭5)</sup>, C<sup>ø7</sup></td>
-              <td><img src="../static/images/musical/half-diminished-chord.png" alt="Half-Diminished Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/half-diminished-chord.png" alt="Half-Diminished Seventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>մեծացրած մաժոր սեպտակորդ</td>
               <td>1 3 ♯5 7</td>
               <td>C+<sup>M7</sup></td>
-              <td><img src="../static/images/musical/augmented-major-seventh-chord.png" alt="Augmented Major Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/augmented-major-seventh-chord.png" alt="Augmented Major Seventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>փոքրացրած սեպտակորդ</td>
               <td>1 ♭3 ♭5 𝄫7</td>
               <td>C<sup>o7</sup></td>
-              <td><img src="../static/images/musical/diminished-seventh-chord.png" alt="Diminished Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/diminished-seventh-chord.png" alt="Diminished Seventh Chord" class="table-img"></td>
             </tr>
             <caption style="text-align:center;"><i>Տերցիաներով կառուցված քառահնչյուններ</i></caption>
           </table>
@@ -531,17 +714,32 @@
               <td>մեծացրած սեպտակորդ</td>
               <td>1 3 ♯5 ♭7</td>
               <td>C+<sup>7</sup>, C<sup>7 (♯5)</sup></td>
-              <td><img src="../static/images/musical/augmented-seventh-chord.png" alt="Augmented Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/augmented-seventh-chord.png" alt="Augmented Seventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>փոքրացրած մաժոր սեպտակորդ</td>
               <td>1 ♭3 ♭5 7</td>
               <td>C<sup>oM7</sup></td>
-              <td><img src="../static/images/musical/diminished-major-seventh-chord.png" alt="Diminished Major Seventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/diminished-major-seventh-chord.png" alt="Diminished Major Seventh Chord" class="table-img"></td>
             </tr>
             <caption style="text-align:center;"><i>Եռահնչյունով և սեպտիմայով կազմված քառահնչյուններ</i></caption>
           </table>
+          <p>Սեպտակորդներն արդեն ունակ են ստեղծելու բազում և բազմապիսի հույզեր։ Ակորդի առաջ բերած զգացողությունը, կրկին, կախված է համատեքստից,
+            սակայն ընդունված է համատեքստից դուրս հնչող ամեն ակորդի ձայնը ասոցացնել ինչ-որ կոնկրետ զգացողության հետ։ Այդպես, օրինակ յութուբեր
+            Դենիս Ժդանովը լրիվ փոքրացրած սեպտակորդի մասին <a href="https://www.youtube.com/watch?v=f__leVK8d9Q&t=275">մի առիթով</a> ասել է.
+          </p>
+          <cite style="display: block; text-align: center; margin: 15px;">
+            "We reach this diminished seventh chord. And this chord is so tense. It's like eating a lemon."
+          </cite>
+          <p>Կամ մաժոր և մինոր սեպտակորդներն, օրինակ, ընդունված է համարել հյութեղ (lush) և սահուն (smooth)։ Իրականում այս երկու ակորդների
+            հնչողություններում կարելի է նմանություն որսալ, որը կարելի է բացատրել նրանց կառուցվածքով։ Իրոք, մինոր սեպտակորդի ցածր և բարձր
+            հնչյունների եռյակները կազմում են համապատասխանաբար մինոր և մաժոր եռահնչյուններ, իսկ մաժոր ակորդի դեպքում հակառակը՝ մաժոր և մինոր
+            եռահնչյուններ։ Այսինքն որոշ առումով մաժոր և մինոր սեպտակորդները կարելի է համարել երկու՝ մաժոր և մինոր եռահնչյուններից կազմված՝
+            ուղղակի տարբեր հերթականություններով։
+            <!-- Այս կերպ կարելի է բացատրել նաև այլ սեպտակորդների՝ միմյանց նման հնչողությունը։ -->
+          </p>
 
+          <!-- Այլ ակորդներ -->
           <h4 id="section-other-chords">Այլ ակորդներ</h4>
           <p>Ներկայացնենք նաև մի քանի այլ նշանավոր ակորդներ, որոնք պարունակում են արմատից օկտավայից բարձր տոներ։ Եթե մաժոր գամմայի նոտաները կառուցենք արմատից սկսած՝
             իրար վրա տերցիաներ դիզելով, ապա ստացված սփռված նոտաներին կհղվենք 1, 3, 5, 7, 9, 11, 13 թվերով։
@@ -562,43 +760,43 @@
               <td>(դոմինանտ) նոնակորդ<br> (ninth chord)</td>
               <td>1 3 5 ♭7 9</td>
               <td>C<sup>9</sup></td>
-              <td><img src="../static/images/musical/ninth-chord.png" alt="Ninth chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/ninth-chord.png" alt="Ninth chord" class="table-img"></td>
             </tr>
             <tr>
               <td>դոմինանտ բեմոլ 9 նոնակորդ<br> (dominant flat ninth chord)</td>
               <td>1 3 5 ♭7 ♭9</td>
               <td>C<sup>7 (♭9)</sup></td>
-              <td><img src="../static/images/musical/dominant-flat-ninth-chord.png" alt="Dominant Flat Ninth chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/dominant-flat-ninth-chord.png" alt="Dominant Flat Ninth chord" class="table-img"></td>
             </tr>
             <tr>
               <td>մաժոր նոնակորդ<br> (major ninth chord)</td>
               <td>1 3 5 7 9</td>
               <td>C<sup>M9</sup></td>
-              <td><img src="../static/images/musical/major-ninth-chord.png" alt="Major Ninth chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/major-ninth-chord.png" alt="Major Ninth chord" class="table-img"></td>
             </tr>
             <tr>
               <td>մինոր նոնակորդ<br> (minor ninth chord)</td>
               <td>1 ♭3 5 ♭7 9</td>
               <td>Cm<sup>9</sup></td>
-              <td><img src="../static/images/musical/minor-ninth-chord.png" alt="Minor Ninth chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/minor-ninth-chord.png" alt="Minor Ninth chord" class="table-img"></td>
             </tr>
             <tr>
               <td>6/9 ակորդ<br> (six-nine chord)</td>
               <td>1 3 5 6 9</td>
               <td>C<sup>6/9</sup></td>
-              <td><img src="../static/images/musical/six-nine-chord.png" alt="6/9 Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/six-nine-chord.png" alt="6/9 Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>մաժոր դիեզ 11-րդ ակորդ<br> (major sharp eleventh chord)</td>
               <td>1 3 5 7 9 ♯11</td>
               <td>C<sup>M9 (♯11)</sup></td>
-              <td><img src="../static/images/musical/sharp-eleventh-chord.png" alt="Sharp Eleventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/sharp-eleventh-chord.png" alt="Sharp Eleventh Chord" class="table-img"></td>
             </tr>
             <tr>
               <td>դիեզ 11 13-րդ ակորդ<br> (thirteenth sharp eleven chord)</td>
               <td>1 3 5 7 9 ♯11 13</td>
               <td>C<sup>13 (♯11)</sup></td>
-              <td><img src="../static/images/musical/thirteenth-sharp-eleven-chord.png" alt="Thirteenth Sharp Eleventh Chord" class="table-img"></td>
+              <td><img src="../static/images/musical/chords/thirteenth-sharp-eleven-chord.png" alt="Thirteenth Sharp Eleventh Chord" class="table-img"></td>
             </tr>
             <caption style="text-align:center;"><i>Այլ ակորդներ</i></caption>
           </table>
@@ -609,9 +807,35 @@
           <p>11-ը ♯11-ով փոխարինելու միտումը պայմանավորված է նրանով, որ 3-ի հետ չստեղծվի կես տոն (+օկտավա) անկայուն և անցանկալի ինտերվալը։
           </p>
           <p>Այլ ակորդների կարելի է ծանոթանալ <a href="https://www.musicca.com/dictionary/chords">այստեղ</a> և <a href="https://www.pianochord.org/">այստեղ</a>:</p>
+          
+          <p>Կարելի է նկատել, որ տերցիաներով կառուցված ակորդները ներդաշնակ և կայուն են հնչում, եթե չկան իրար հաջորդող երկու մեծ
+            տերցիա կամ երկու փոքր տերցիա։ Պատճառը հասկանալի է․ երկու մեծ տերցիա ստեղծում են մեծացրած ակորդ, երկու փոքրը՝ փոքրացրած, ընդ որում
+            երկու ակորդներն էլ խիստ անկայուն են։ Ուստի հետաքրքրական է դիտարկել տերցիաներով կազմված ակորդները, որոնցում մեծ և փոքր տերցիաները
+            հանդիպում են հաջորդաբար, մեկումեջ։ Կա այդպիսի երկու ակորդ՝ լրացված բարձր տոներով (տե՛ս
+            <a href="#fig-chords-with-alt-thirds">նկարը</a>)․
+          </p>
+          <figure id="fig-chords-with-alt-thirds">
+            <div class="chord-gallery">
+              <figure>
+                <img src="../static/images/musical/chords/C-major-thirteenth-sharp-eleven.png" alt="C Major Thirteenth Sharp Eleven">
+                <figcaption><i>C մաժոր 13 դիեզ 11</i></figcaption>
+              </figure>
+              <figure>
+                <img src="../static/images/musical/chords/C-minor-thirteenth.png" alt="C Minor Thirteenth">
+                <figcaption><i>C մինոր 13</i></figcaption>
+              </figure>
+            </div>
+          </figure>
+          <p>Նկատենք, որ առաջին՝ C մաժոր 13 դիեզ 11 ակորդը պարունակում է C մաժոր գամմայի նոտաները, միայն թե չորրորդ (տասնմեկերորդ)
+            աստիճանը դիեզ է (ևս մեկ բացատրություն, թե ինչու է 11-րդ աստիճանը սովորաբար դիեզ դարձվում ջազում), այսինքն սրանք C լիդիական եղանակի
+            նոտաներն են։ Մյուս՝ C մինոր 13 ակորդը պարունակում C մինոր գամմայի նոտաները, միայն թե վեցերորդ (տասներեքերորդ) աստիճանը բնական է
+            (և ոչ թե բեմոլ), այսինքն սրանք C դորիական եղանակի նոտաներն են։ Այսպես կարելի է նաև բացատրել, թե ինչու և՛ մինոր, և՛ մաժոր 6-րդ
+            (13-րդ) ակորդներում վեցերորդ (տասներեքերորդ) աստիճանը բնական է (և ոչ թե բեմոլ)։
+          </p>
         </div>
         <hr>
 
+        <!-- Ակորդների պրոգրեսիա -->
         <div>
           <h2 id="section-chord-progression">Ակորդների պրոգրեսիա</h2>
             <p><em>Պրոգրեսիան</em> ակորդների հաջորդականություն է։ Որպես կանոն ամեն ակորդ ինչ-որ ձևով տանում է դեպի հաջորդը, այնպես, որ չլինի կտրուկության
@@ -621,9 +845,16 @@
             <p>Երաժշտության դինամիկան, ըստ էության, լարվածություն-լուծում, կծկում-բացում հաջորդությունն է, որ ստեղծում է անհանգստության և բավականության
               զգացումների հերթափոխություն։
             </p>
+            <p>Հարկ է նկատի ունենալ, որ տվյալ մեղեդին կարելի է հարմոնիզացնել տարբեր ակորդների պրոգրեսիաներով։ Ինչպես
+              <a href="https://www.youtube.com/watch?v=0Iw6UrF-J2c&t=265s">նկատում է</a> յութուբեր Մեթյու Քավուդը՝
+            </p>
+            <cite style="display: block; text-align: center; margin: 15px;">
+              "The melody is telling the story, but the chords tell you how to feel about that story.
+            "</cite>
         </div>
         <hr>
 
+        <!-- Հարաձայն (diatonic) հարմոնիա -->
         <div>
           <h2 id="section-diatonic-harmony">Հարաձայն (diatonic) հարմոնիա</h2>
           <p><em>Հարաձայն</em> կոչվում է հարմոնիան, որը կառուցված է միայն տվյալ տոնայնության նոտաներից։</p>
@@ -638,34 +869,34 @@
           <figure>
             <div class="chord-gallery">
               <figure>
-                <img src="../static/images/musical/major-chord.png" alt="I">
-                <figcaption>I</figcaption>
+                <img src="../static/images/musical/chords/major-chord.png" alt="I">
+                <caption>I</caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/D-minor-chord.png" alt="ii">
-                <figcaption>ii</figcaption>
+                <img src="../static/images/musical/chords/D-minor-chord.png" alt="ii">
+                <caption>ii</caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/E-minor-chord.png" alt="iii">
-                <figcaption>iii</figcaption>
+                <img src="../static/images/musical/chords/E-minor-chord.png" alt="iii">
+                <caption>iii</caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/F-major-chord.png" alt="IV">
-                <figcaption>IV</figcaption>
+                <img src="../static/images/musical/chords/F-major-chord.png" alt="IV">
+                <caption>IV</caption>
               </figure>
             </div>
             <div class="chord-gallery">
               <figure>
-                <img src="../static/images/musical/G-major-chord.png" alt="V">
-                <figcaption>V</figcaption>
+                <img src="../static/images/musical/chords/G-major-chord.png" alt="V">
+                <caption>V</caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/A-minor-chord.png" alt="vi">
-                <figcaption>vi</figcaption>
+                <img src="../static/images/musical/chords/A-minor-chord.png" alt="vi">
+                <caption>vi</caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/B-diminished-chord.png" alt="vii<sup>o</sup>">
-                <figcaption>vii<sup>o</sup></figcaption>
+                <img src="../static/images/musical/chords/B-diminished-chord.png" alt="vii<sup>o</sup>">
+                <caption>vii<sup>o</sup></caption>
               </figure>
             </div>
             <figcaption style="text-align:center;"><i>C մաժոր տոնայնության հարաձայն ակորդները</i></figcaption>
@@ -675,34 +906,34 @@
           <figure>
             <div class="chord-gallery">
               <figure>
-                <img src="../static/images/musical/major-seventh-chord.png" alt="I">
-                <figcaption>I<sup>M7</sup></figcaption>
+                <img src="../static/images/musical/chords/major-seventh-chord.png" alt="I">
+                <caption>I<sup>M7</sup></caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/D-minor-seventh-chord.png" alt="ii">
-                <figcaption>ii<sup>7</sup></figcaption>
+                <img src="../static/images/musical/chords/D-minor-seventh-chord.png" alt="ii">
+                <caption>ii<sup>7</sup></caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/E-minor-seventh-chord.png" alt="iii">
-                <figcaption>iii<sup>7</sup></figcaption>
+                <img src="../static/images/musical/chords/E-minor-seventh-chord.png" alt="iii">
+                <caption>iii<sup>7</sup></caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/F-major-seventh-chord.png" alt="IV">
-                <figcaption>IV<sup>M7</sup></figcaption>
+                <img src="../static/images/musical/chords/F-major-seventh-chord.png" alt="IV">
+                <caption>IV<sup>M7</sup></caption>
               </figure>
             </div>
             <div class="chord-gallery">
               <figure>
-                <img src="../static/images/musical/G-dominant-chord.png" alt="V">
-                <figcaption>V<sup>7</sup></figcaption>
+                <img src="../static/images/musical/chords/G-dominant-chord.png" alt="V">
+                <caption>V<sup>7</sup></caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/A-minor-seventh-chord.png" alt="vi">
-                <figcaption>vi<sup>7</sup></figcaption>
+                <img src="../static/images/musical/chords/A-minor-seventh-chord.png" alt="vi">
+                <caption>vi<sup>7</sup></caption>
               </figure>
               <figure>
-                <img src="../static/images/musical/B-half-diminished-chord.png" alt="vii<sup>o</sup>">
-                <figcaption>vii<sup>ø7</sup></figcaption>
+                <img src="../static/images/musical/chords/B-half-diminished-chord.png" alt="vii<sup>ø7</sup>">
+                <caption>vii<sup>ø7</sup></caption>
               </figure>
             </div>
             <figcaption style="text-align:center;"><i>C մաժոր տոնայնության հարաձայն սեպտակորդները</i></figcaption>
@@ -735,29 +966,70 @@
           <p>Առանձնացվում է նաև 4-րդ աստիճանի՝ <em>սուբդոմինանտի</em> IV եռահնչյունը։ Այն, ինչպես ii-ը, հարմար է դեպի դոմինանտ դիմելիս։</p>
           <p>Սահուն և ներդաշնակ է նաև մի եռահնչյունից մյուսին անցումը, որոնք ունեն երկու ընդհանուր տոն։ Օրինակ, հենց նոր նշված ii-ի և IV-ի միջև։</p>
 
+          <!-- Որոշ պրոգրեսիաներ -->
           <h4 id="section-some-progressions">Որոշ պրոգրեսիաներ</h4>
-            <p>ii-V-I-ը, IV-V-I-ը և VI-VII-i-ը ամենատարածված շարժումներից են բոլոր տեսակի երաժշտություններում:
-            </p>
-            <p>Կան մի քանի պրոգրեսիաներ, որոնք կազմում են փոփ երաժշտության առյուծի բաժնի հիմքը։ Դրանցից են օրինակ I–V–vi–IV-ը և i-VI-III-VII-ը։
-            </p>
-            <p>Դասական երաժշտության նշանավոր պրոգրեսիաներից են «<a href="https://en.wikipedia.org/wiki/Folia">Լա Ֆոլիա</a>» գործինը՝
-              i-V<sup>7</sup>-i-VII-III-VII-i-V<sup>7</sup>, ինչպես նաև Յոհան Պախելբելի «<a href="https://en.wikipedia.org/wiki/Pachelbel's_Canon">Կանոնինը</a>»`
-              I-V-vi-iii-IV-I-IV-V:
-            </p>
+          <p>ii-V-I-ը, IV-V-I-ը և VI-VII-i-ը ամենատարածված շարժումներից են բոլոր տեսակի երաժշտություններում:
+          </p>
+          <p>Կան մի քանի պրոգրեսիաներ, որոնք կազմում են փոփ երաժշտության առյուծի բաժնի հիմքը։ Դրանցից են օրինակ I–V–vi–IV-ը և i-VI-III-VII-ը։
+          </p>
+          <p>Դասական երաժշտության նշանավոր պրոգրեսիաներից են «<a href="https://en.wikipedia.org/wiki/Folia">Լա Ֆոլիա</a>» գործինը՝
+            i-V<sup>7</sup>-i-VII-III-VII-i-V<sup>7</sup>, ինչպես նաև Յոհան Պախելբելի «<a href="https://en.wikipedia.org/wiki/Pachelbel's_Canon">Կանոնինը</a>»`
+            I-V-vi-iii-IV-I-IV-V:
+          </p>
+          <p>Ուշադրության է արժանի նաև ջազ երաժշտության մեջ լայնորեն կիրառվող 2-5-1-ի մի տարաձևություն, որը կոչվում է <em>backdoor 2-5-1</em>,
+            այն է՝ 4-♭7-1-ը: Անվանման պատճառը և նրա ազդեցիկության բացատրությունը հետևյալն է․ կատարելով 4-♭7 շարժումը մենք սպասելիք ենք ստեղծում
+            լուծվելու 3-ին (այսինքն 2-5-1, բայց 3-ն ընդունելով տոնիկ), սակայն 3-ի փոխարեն լուծվում ենք նրա հարաբերական մինորին՝ 1-ին՝
+            «ետևից» մոտենալով (կարող ենք լուծվել 1-ի ինչպես մինոր, այնպես էլ մաժոր ակորդի)։
+          </p>
+          <p>Որոշ ակորդների հաջորդություններ հարմար են երաժշտական դրվագին համոզիչ հանգուցալուծում տալու համար (անգլերեն <em>cadence</em>):
+            Վերը նշված ii-V-I-ը, IV-V-I-ը և VI-VII-i շարժումները այդպիսի հաջորդությունների ամենավառ օրինակներն են։
+            Մասնավորապես V-I հանգուցալուծումը անգլերեն կոչվում է <em>perfect cadence</em>, իսկ IV-I-ը՝ <em>plagal cadence</em>:
+          </p>
+
+          <!-- Ակորդների փոփոխության քարտեզ -->
+          <h4 id="section-chord-change-map">Ակորդների փոփոխության քարտեզ</h4>
+          <figure id="fig-chord-change-map" style="float:right;">
+            <img src="../static/images/musical/chord-change-map.png" style="width:300px;">
+            <figcaption style="text-align:center;">Ակորդների անցումների քարտեզ</figcaption>
+          </figure>
+          <p>Դիտարկենք C մաժոր տոնայնությունը։ Նկատենք, որ ցանկացած աստիճանից (հարաձայն ակորդից) կարող ենք բարձրանալ կամ իջնել սեկունդայով,
+            տերցիայով կամ կվարտայով։ Եվ ընդհակառակը, ցանկացած անցում կարելի բնութագրել նախկին դիրքից սեկունդայով, տերցիայով կամ կվարտայով
+            շարժում վերև կամ ներքև։ Սա մոտիվացնում է կազմելու բերված քարտեզը․ այս քարտեզով կարելի է բնութագրել ցանկացած անցում՝ հարակցված
+            հարմոնիայի կոնտեքստում։
+          </p>
+          <p>Թե ինչ զգացողություն է առաջ բերում մի ակորդից մյուսին անցումը կարելի է հանգամանորեն իմանալ
+            <a href="https://www.youtube.com/watch?v=n6MViTAfNio">այս</a> տեսանյութում։
+          </p>
+          <div style="clear: both;"></div>
         </div>
         <hr>
 
+        <!-- Ֆունկցիոնալ հարմոնիա -->
         <div>
           <h2 id="section-functional-harmony">Ֆունկցիոնալ հարմոնիա</h2>
           <p><em>Ֆունկցիոնալ հարմոնիայում</em> ամեն ակորդ ունի իր գործառույթը տոնային կենտրոնի նկատմամբ, ինչպես հարաձայնում, սակայն այն կարող է
             օգտագործել ոչ հարաձայն ակորդներ։
           </p>
+
+          <!-- Մոդուլյացիա -->
           <h4 id="section-modulation">Մոդուլյացիա</h4>
-          <p>Մոդուլյացիան երաժշտության տոնայնության փոփոխումն է։ Այն օգտագործվում է գործին հետաքրքրություն տալու և որոշակի զգացումներ ստեղծելու նպատակով։</p>
+          <p>Մոդուլյացիան երաժշտության տոնայնության փոփոխումն է։<sup id="fnref6"><a href="#fn6">6</a></sup>
+            Այն օգտագործվում է գործին հետաքրքրություն տալու և որոշակի զգացումներ ստեղծելու նպատակով։
+          </p>
           <p>Մոդուլյացիայի ամենահուսալի գործիքներից մեկը <em>երկրորդական դոմինանտի</em> կիրառությունն է՝ դոմինանտ ակորդի, որը գոյություն չունի տվյալ
             տոնայնության մեջ, սակայն լուծվում է դեպի մեր նպատակակետ տոնայնության տոնիկին։ Օրինակ, եթե ուզում ենք C մաժորից/մինորից գնալ դեպի A մաժոր/մինոր, ապա
             ներկայացնելով A-ից կվինտա բարձր և C-ի տոնայնությունում բացակա E<sup>7</sup> երկրորդական դոմինանտը՝ համոզիչ կերպով լուծվում ենք A կամ Am ակորդին՝
             հաստատելով այն որպես նոր տոնիկ։
+          </p>
+          <p>Կարելի է գնալ մի քայլ այն կողմ և 5-1 շարժում երկրորդական դոմինանտով ապահովելու փոխարեն կատարել 2-5-1 շարժում՝ նետելով
+            (հնարավոր է տվյալ տոնայնության մեջ չեղող) մինոր սեպտակորդ (մաժոր 2-5-1-ի համար) կամ կիսափոքրացրած ակորդ (մինոր 2-5-1-ի համար)։ Այս հնարքը հատկապես սիրում է
+            օգտագործել Արմեն Մովսիսյանը։ Օրինակ նրա <a href="https://www.youtube.com/watch?v=2DQi7iL3CnA">«Դու ես միակը»</a> երգում I-V ակորդներից
+            հետո հնչում է iii<sup>ø7</sup> ակորդը, որտեղից VI<sup>7</sup>-ով 2-5-1 ենք կատարում դեպի ii՝ այն հաստատելով տոնիկ; այնուհետև
+            ii° ակորդի օգնությամբ վերադառնում ենք I: Այս երևույթի այլ օրինակներ են նաև Արմեն Մովսիսյանի
+            <a href="https://www.youtube.com/watch?v=BPJZQc70TAY">«Հանդիպում»</a> և Գիլբերտ օ՛Սուլիվանի
+            <a href="https://www.youtube.com/watch?v=D_P-v1BVQn8">«Alone Again (Naturally)»</a> երգերը։
+          </p>
+          <p>Մոդուլյացիան հաճախ կատարվում է երկու տոնայնությունների մի որևէ ընդհանուր ակորդի օգնությամբ՝ սահուն անցում ապահովելու համար։
           </p>
           <p>Կվինտաների շրջանում տվյալ տոնայնության հարևաններին կարելի է հարաբերականորեն հեշտ ձևով կատարել մոդուլյացիա, քանի որ կից
             տոնայնությունները տարբերվում են ընդամենը մի նոտայով։
@@ -765,7 +1037,10 @@
           <p>Մոդուլյացիայի տարածված տարատեսակներ են նաև կես տոն կամ մի տոն բարձրանալը։ Երբեմն, անսպասելիության ազդեցություն գործելու համար կատարում են նաև
             կտրուկ մոդուլյացիա՝ չօգտագործելով երկրորդական դոմինանտ և տեղափոխվելով ավելի, քան մեկ տոն։
           </p>
+          <p>Թեմային սպառիչ կարելի է ծանոթանալ <a href="https://www.beyondmusictheory.org/types-of-modulation/">այստեղ</a>։
+          </p>
 
+          <!-- Նեապոլիտանական ակորդ -->
           <h4 id="section-neapolitan-chord">Նեապոլիտանական ակորդ</h4>
           <p>Գամմայի <em>նեապոլիտանական ակորդը</em> ♭2-ի վրա կառուցված մաժոր ակորդն է։ Այլ կերպ ասած՝ զուգահեռ փռյուգիական գամմայի
             երկրորդ հարաձայն եռահնչյունը։ Օրինակ, C մաժորում դա D♭ մաժոր ակորդն է։ Կատարում է սուբդոմինանտի գործառույթ։ Մինոր տոնայնությունում խրոմատիկ
@@ -773,18 +1048,122 @@
           </p>
           <p>Որպես գործածության օրինակ կարող է ծառայել Հարութ Փամբուկչյանի «Սիրում եմ քեզ» երգի կրկներգը, որն օգտագործում է iv-i-♭II-v պրոգրեսիան։</p>
 
+          <!-- Տրիտոնի փոխարինում -->
           <h4 id="section-tritone-substitution">Տրիտոնի փոխարինում</h4>
           <p>Դիտարկենք ii<sup>7</sup>-V<sup>7</sup>-I<sup>M7</sup> պրոգրեսիան։ Նկատենք, որ ♭II<sup>7</sup> ակորդը V<sup>7</sup>-ի հետ կիսում է
             տրիտոնը, ուստի առաջացնում է նույն լարվածությունն, ինչ որ V<sup>7</sup>-ը։
             Մյուս կողմից ♭II<sup>7</sup>-ի արմատը ընդամենը կես տոն է հեռու տոնիկից։ Սա մոտիվացնում է ii<sup>7</sup>-♭II<sup>7</sup>-I<sup>M7</sup>
             պրոգրեսիան։ Այս երևույթը՝ 2-5-1 պրոգրեսիայում 5-ը իր տրիոտոնով փոխարինելու, կոչվում է <em>տրիտոնի փոխարինում</em>։ 
           </p>
-          <p>Նկատենք, տրիտոնի փոխարինում կիրառելով կվինտաների շրջանի երկայնքով պրոգրեսիայի ամեն երկրորդ ակորդի նկատմամբ այն դառնում է խրոմատիկ շարժում՝
+          <p>Նկատենք, որ տրիտոնի փոխարինում կիրառելով կվինտաների շրջանի երկայնքով պրոգրեսիայի ամեն երկրորդ ակորդի նկատմամբ այն դառնում է խրոմատիկ շարժում՝
             իջնող դեպի տոնիկ։ Սա կարող է լինել ցանկալի՝ բասի անընդհատ շարժում ապահովելու համար։
+          </p>
+
+          <!-- Բացասական հարմոնիա -->
+          <h4 id="section-negative-harmony">Բացասական հարմոնիա</h4>
+          <p>Դիցուք տրված է որևէ երաժշտական դրվագ՝ ինչ-որ մի տոնայնությունում։ Մենք կարող ենք ակորդների տրված հաջորդությունից ստանալ մի
+            նոր հաջորդություն, որը համապատասխանության մեջ լինի նախնականի հետ՝ պահպանելով ֆունկցիոնալությունը և ակորդների միջը հարաբերությունները։
+            Միտքը այն է, որ ընտրվի ինչ-որ մի «առանցք» և նախնական ակորդները արտացոլվեն այդ առանցքի նկատմամբ։ Այսպիսի ձևափոխության արդյունքը կոչվում է
+            <em>բացասական հարմոնիա</em>։ Անվանումը կարելի է մեկնաբանել այն իրողությամբ, որ մաժոր և մինոր ակորդները փոխակերպվում են մեկը մյուսի։
+            «Բացասական» բնորոշման մեկ այլ բացատրություն է այն, որ ավանդական՝ կվինտաներ ցած լուծվող հաջորդությունների «պայծառ» հնչեղությունը
+            փոխակերպվում է կվարտաներ ցած լուծվելով ավելի «մութ» էֆեկտի։
+          </p>
+          <p>Ընդհանրապես բացասական հարմոնիան կառուցվում է հետևյալ կերպ․ տոնիկի և կվինտայի միջնակետն ընդունվում է որպես «հայելի» և ակորդները
+            արտացոլվում են նրա նկատմամբ։ Բացատրենք C մաժորում vi-ii-V<sup>7</sup>-I՝ Am-Dm-G<sup>7</sup>-C հաջորդության օրինակի վրա։ Համաչափության
+            կենտրոնը C-ի և G-ի՝ այսինքն E♭-ի և E-ի միջնակետն է։ Այդ դեպքում դիտարկվող պրոգրեսիան փոխակերպվում է E♭-B♭-Dm<sup>7 (♭5)</sup>-Cm-ին։
+          </p>
+          <p>Դժվար չէ ստուգել, որ նկարագրված կառուցումը կարելի է անել նաև այլ կերպ․ կվինտաների շրջանում դիտարկենք տոնիկի և կվինտայի (վերջին
+            օրինակում՝ C-ի և G-ի) մեջտեղով անցնող տրամագիծը և նրա նկատմամբ արտացոլենք ակորդները։
+          </p>
+          <p>Բացասական հարմոնիան կիրառական է դրվագների հանգուցալուծումների (cadence) նկատմամբ՝ նոր, յուրօրինակ ավարտ ստանալու համար։ Տե՛ս
+            ավելին <a href="https://www.beyondmusictheory.org/cadences-and-negative-harmony/">այստեղ</a>։
           </p>
         </div>
         <hr>
 
+        <!-- Մոդալ հարմոնիա -->
+        <div>
+          <h2 id="section-modal-haromony">Մոդալ հարմոնիա</h2>
+          <p>Ի տարբերություն ֆունկցիոնալ հարմոնիայի՝ <em>մոդալ հարմոնիայում</em> բացակայում է
+            դոմինանտ-տոնիկ հարաբերությունը։ Փոխարենը այստեղ հնչողությունը աղոտ է, և հարմոնիան կառուցվում է տվյալ եղանակի (օրինակ դորիական)
+            գույնը պահելու հիման վրա։ Այսինքն այստեղ բացակայում է մի ակորդից մյուսը լուծվելու մղումը․ ընդհակառակը, ամեն ակորդ հնչում է
+            աղոտ և ոչ միանշանակ, այնպես որ չստեղծի ակնհայտ գրավիտացիա դեպի այլ ակորդներ։
+          </p>
+          <p>Նման էֆեկտի հասնելու համար օգտակար է օրինակ բասում անընդհատ նվագել տոնիկը՝ այն վերահաստատելով (pedal tone)։ Կարևոր է նաև
+            խիստ անկայուն տրիտոն ինտերվալից խուսափելը, որովհետև այն բնականորեն ձգտում է լուծվել։ Այն ակորդի արմատը, որին լուծվում է տրիտոնը,
+            կարող է հաստատվել որպես տոնիկ, որը վնասակար է եղանակին բնորոշ էֆեկտը պահելու համար։
+          </p>
+          <p>Մոդալ հարմոնիայում գործածվող ակորդի վառ օրինակ է Մայլս Դեյվիսի «So what» գործի անունով կոչվող և նրա հոլոգրաֆիկ տարբերիչ
+            նշանը հանդիսացող ակորդը (տե՛ս <a href="#fig-so-what-chord">նկարը</a>).
+          </p>
+          <figure id="fig-so-what-chord">
+            <img src="../static/images/musical/chords/so-what-chord.png" style="width:250px;">
+            <figcaption style="text-align:center;">So what ակորդը</figcaption>
+          </figure>
+          <p>Մոդալ ջազի էությունը կարելի է բնութագրել հետևյալ կերպ․ ձայնային սպեկտրի ստորին մասում (օրինակ, դաշնամուրի վրա՝ ձախ ձեռքով)
+            պահվում է ինչ-որ մի ակորդ, իսկ մեղեդին (աջ ձեռքով) օգտագործում է համապատասխան եղանակի նոտաները։ Օրինակ, մինոր սեպտակորդը հարմար է
+            իր արմատի դորիական եղանակի հետ համակցելը, դոմինանտ ակորդը՝ միքսոլիդիականի և այլն։
+          </p>
+
+          <!-- Կվարտալ հարմոնիա -->
+          <h4 id="section-quartal-harmony">Կվարտալ հարմոնիա</h4>
+          <p>Մոդալ հարմոնիայի ամենահիմնարար սյուներից մեկը <em>կվարտալ հնչյունավորումներն</em> են, այսինքն ակորդները, որոնք ոչ թե տերցիաներով՝
+            այլ կվարտաներով են կառուցված։ Քանի որ երաժշտության գերակշիռ մասը հիմնված է տերցիաներով կառուցված ակորդների վրա՝ մենք սովորել ենք
+            այդպիսի ակորդները ասոցացնել տոնային (մաժոր կամ մինոր տոնայնության մեջ գրված) երաժշտության հետ։ Կիրառելով կվարտալ ակորդներ մենք
+            կոտրում ենք տոնայինության սպասելիքները և երաժշտությունը հնչում է ավելի աղոտ, ոչ միանշանակ և ժամանակակից (տե՛ս
+            <a href="https://www.thejazzpianosite.com/jazz-piano-lessons/modern-jazz-theory/tonal-harmony-vs-modal-harmony/">այստեղ</a>)։
+          </p>
+          <p>Կարևոր է գիտակցել, որ կվարտալ ակորդները միանշանակ չեն, այսինքն ցանկացած հնչյունավորում կարող է նշանակել/ակնարկել (imply) տարբեր
+            ստանդարտ (տերցիաներով կազմված) ակորդներ (տե՛ս
+            <a href="https://www.thejazzpianosite.com/jazz-piano-lessons/jazz-chord-voicings/quartal-voicings/">այստեղ</a>)։ Օրինակ դիտարկենք
+            <a href="#fig-EADGC-chord">պատկերված</a> ակորդը.
+          </p>
+          <figure id="fig-EADGC-chord">
+            <img src="../static/images/musical/chords/EADGC-chord.png" style="width:290px;">
+            <figcaption style="text-align:center;">E-A-D-G-C ակորդը</figcaption>
+          </figure>
+          <p>Այն կարող է նշանակել C<sup>6/9</sup>, F<sup>M13</sup>, Am<sup>11</sup>, D<sup>9sus</sup> և B♭<sup>M13 (#11)</sup> ակորդներից
+            ցանկացածը։ Չնայած դրան, կան կվարտալ հնչյունավորումներ, որոնք ընդունված է օգտագործել որպես կոնկրետ ակորդ (տե՛ս
+            <a href="#table-quartal-voicings">աղյուսակը</a>)․
+          </p>
+
+          <figure id="fig-quartal-voicings">
+            <table id="table-quartal-voicings">
+              <tr>
+                <th>նոտաներ</th>
+                <th>ակորդ</th>
+              </tr>
+              <tr>
+                <td>E-A-D-G-C</td>
+                <td>C<sup>6/9</sup></td>
+              </tr>
+              <tr>
+                <td>B-E-A-D-G</td>
+                <td>C<sup>M9</sup></td>
+              </tr>
+              <tr>
+                <td>A-D-G-C-F</td>
+                <td>Dm<sup>11</sup></td>
+              </tr>
+              <tr>
+                <td>B-F-A-D-G</td>
+                <td>G<sup>9</sup></td>
+              </tr>
+              <tr>
+                <td>F-B-E-A-D</td>
+                <td>G<sup>13</sup></td>
+              </tr>
+            </table>
+            <figcaption>Որոշ կվարտալ հնչյունավորումներ՝ իրենց համապատասխան ակորդներով</figcaption>
+          </figure>
+          <p>Այս թեմային մանրակրկիտ կարելի է ծանոթանալ և կիրառության գործնական օրինակներ տեսնել
+            <a href="https://www.thejazzpianosite.com/jazz-piano-lessons/jazz-chord-voicings/quartal-voicings/">այստեղ</a>։
+          </p>
+          <div style="clear: both;"></div>
+        </div>
+        <hr>
+
+        <!-- Գործի վերլուծության օրինակ -->
         <div>
           <h2 id="section-analysis-example">Գործի վերլուծության օրինակ</h2>
           <p>Որպես օրինակ դիտարկենք Ռուբեն Հախվերդյանի «Ձյուն» երգը։ Այն գրված է մաժոր տոնայնության մեջ։ Նախ դիտարկենք առաջին տունը․</p>
@@ -838,6 +1217,7 @@
         </div>
         <hr>
 
+        <!-- Լսողությունը մարզելու մասին -->
         <div>
           <h2 id="section-ear-training">Լսողությունը մարզելու մասին</h2>
           <p>Երաժշտությունը լսողական առարկա է, ուստի գաղափարականորեն (ideally) երաժիշտը պետք է ունենա զարգացած լսողություն։
@@ -860,16 +1240,18 @@
             <em>հարաբերական</em> դասավորությունը մեկը մյուսի նկատմամբ։ Սա նման է նրան, որ մի մարդ, ով օրինակ գիտի հունարենի այբուբենը, բայց լեզվից գիտելիքներ չունի,
             կարող է հունարեն բառը կարդալ՝ տառ առ տառ վրայով անցնելով, սակայն այդ բառի իմաստը հասկանալ չի կարող։
           </p>
-          <p>Այսպիսով, երաժշտությունը որպես լեզու հասկանալու համար անհրաժեշտ է ունենալ զարգացած հենց հարաբերական լսողություն։
+          <p>Այսպիսով, երաժշտությունը <em>որպես լեզու</em> հասկանալու համար անհրաժեշտ է ունենալ զարգացած հենց հարաբերական լսողություն։
             Դրան հասնելը, սակայն, բոլորովին հեշտ գործ չէ, պահանջվում են կանոնավոր պարապմունքներ, որոնք կարող են տևել ամսիներ կամ տարիներ՝ ցանկալի մակարդակի
             հասնելու համար։ Պատճառն այն է, որ ձայնի որակը ճանաչելը <em>հոգեբանական</em> երևույթ է, այլ ոչ թե, օրինակ, մտավոր (ինտելեկտուալ)։ Ձայնը մեկ կամ
             մի քանի անգամ լսելով չի կարելի այն մտապահել, անհրաժեշտ է նրա հետ ասոցացնել որևէ զգացողություն։
           </p>
           <p>Այդպես, օրինակ, մաժոր ակորդի ձայնը սովորաբար համարում են ուրախ և պայծառ, իսկ մինորինը՝ տխուր և մութ։ Այսպիսի տրամադրվածությունը իրոք կարող է
-            օգտակար լինել ակորդը ճանաչելիս, սակայն եթե այն հնչում է <em>համատեքստից դուրս</em>։ Ինչպես սիրում է մատնանշել երաժշտագետ Ջաքոբ Քոլիերը, ակորդի
-            հնչելիս առաջ եկած զգացողությունը շատ է կախված համատեքստից, այսինքն թե դրանից մի պահ առաջ ինչ էր հնչում։ Այս իրողությունը դժվարացնում է
-            լսողությունը մարզելու գործը՝ բազմապատկելով պահանջվելիք աշխատանքը։ Այնուամենայնիվ, պետք է սկսել առավել պարզ խնդիրներից և միառժամանակ աշխատել
-            համատեքստից դուրս։
+            օգտակար լինել ակորդը ճանաչելիս, սակայն եթե այն հնչում է <em>համատեքստից դուրս</em>։ Ինչպես սիրում է մատնանշել երաժշտագետ Ջեյքոբ Քոլիերը, ակորդի
+            հնչելիս առաջ եկած զգացողությունը շատ է կախված համատեքստից, այսինքն թե դրանից մի պահ առաջ ինչ էր հնչում։ Ընդհանրապես, ակորդը տարբեր
+            համատեքստներում ճանաչելը նման է եռաչափ օբյեկտը իր տարբեր երկչափ պրոյեկցիաներով վերականգնելուն։
+          </p>
+          <p>Այս իրողությունը դժվարացնում է լսողությունը մարզելու գործը՝ բազմապատկելով պահանջվելիք աշխատանքը։ Այնուամենայնիվ, պետք է սկսել
+            առավել պարզ խնդիրներից և միառժամանակ աշխատել համատեքստից դուրս։
           </p>
           <p>Մարզումները անհրաժեշտ է սկսել ինտերվալների ճանաչումից։ Ինտերվալները նախնական շրջանում կարելի է փորձել ճանաչել,
             հուսահատությունից խուսափելու համար, դրանք պարունակող որևէ երաժշտություն հիշելով։ Օրինակ մեծ սեպտիման կարելի է մտապահել Mr.Kitty-ի
@@ -881,17 +1263,100 @@
             կարելի է ճանաչել միայն համատեքստում՝ կամ նախապես տրված տոնիկով, կամ նախապես ակորդների որևէ պրոգրեսիայով հաստատված տոնայնության մեջ։ Աստիճաններից
             կարելի է առանձնացնել տոնիկը․ այն ճանաչելը սովորաբար առանձնակի ջանք չի պահանջում, այն հնչում է կայուն, հանգիստ և զգացողություն է, որ տանն ենք։
             Տոնայնության աստիճանները լսելիս օգտակար է դրանք երգել փորձելը՝ դո, ռե, մի, ֆա, սոլ, լա, սի հնչյուններով։ Աստիճաններից հետո կարելի է անցնել
-            մեղեդի ճանաչելուն։
+            մեղեդի ճանաչելուն։ Ակորդների, գամմաների (եղանակների), պրոգրեսիաների ճանաչելը մարզվում է նմանապես։
           </p>
-          <p>Ակորդների, գամմաների (եղանակների), պրոգրեսիաների ճանաչելը մարզվում է նմանապես։
+          <p>Լսողությունը մարզելիս օգտակար է հնչած նոտայից աստիճան առ աստիճան վերև կամ ներքև երգելով հասնել ընկալվող տոնայնության տոնիկին։
+            Ավելի մանրամասն պատմվում է <a href="https://youtu.be/yi2En8QgiQU?si=QFYR4TYtpiI9q8LJ">այս</a> տեսագրությունում։
           </p>
         </div>
         <hr>
 
-        <!-- դաշնամուրի տեմբրի մասին -->
-        <!-- https://www.reddit.com/r/musictheory/comments/3giq8r/whats_the_difference_between_a_key_a_scale_and_a/ -->
-        <!-- կվարտալ հարմոնիա -->
-        <!-- ջազի դինամիկա, ակորդ + մոդ համակցություններ -->
+        <!-- Տուրք աղբյուրներին -->
+        <div>
+          <h2 id="section-giving-to-sources">Տուրք աղբյուրներին</h2>
+          <p>Սույն նյութը գրվել է տարբեր աղբյուրներից ժամանակի ընթացքում ստացած գիտելիքի հիման վրա, ուստի շատ տեղերում, ցավոք, դժվար է
+            վկայակոչել տվյալ տեղեկատվության ճշգրիտ աղբյուրը։
+          </p>
+          <p>
+            Գլխավորապես պարտական եմ յութուբեր <a href="https://www.youtube.com/@CharlesCornellStudios">Չարլզ Քորնելին</a>, ով տարատեսակ
+            գործեր վերլուծելով իր ալիքում ծածկում է այս գրվածքի նյութի մեծամասնությունը։ Ջազ երաժշտության բարձրորակ տեղեկատվություն է
+            օգտագործվել յութուբեր <a href="https://www.youtube.com/channel/UCaC0w8kevIxUEYQvjgLypXA">Ջասթին Հայլենդի</a> գերազանց տեսանյութերից։
+            Նաև մի շարք թեմաների համար օգտագործվել է Պեդրո Մուրինո Ալմեիդայի գլուխգործոց
+            <a href="https://www.beyondmusictheory.org/blog/index/">«Beyond Music Theory»</a> գիրքը։
+          </p>
+          <p>Այս գրության որոշ հատվածներ ոգեշնչվել կամ վկայակոչվել են Wikipedia, StackExchange և Reddit կայքերից։ Այլ՝ ավելի տեղային օգտագործված
+            աղբյուրներ հիմնականում հիշատակվում են հենց իրենց օգտագործման վայրերում (պարբերություններում կամ բաժիններում)։
+          </p>
+        </div>
+        <hr>
+
+        <!-- Footnotes section -->
+        <div class="footnotes">
+          <h6>Ծանոթագրություններ</h6>
+          <hr>
+          <ol>
+            <li id="fn1">
+              Իմիջայլոց, այստեղից է, որ 1 + 1/2 + 1/3 + ... շարքը մաթեմատիկայում կոչվում է հարմոնիկ; տե՛ս
+              <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)#History">այստեղ</a>։
+              <a href="#fnref1">↩</a>
+            </li>
+            <li id="fn2">
+              Տատանվող լարի համար տե՛ս նրա` սինուսոիդների վերլուծության ապացույցը
+              <a href="http://spiff.rit.edu/classes/phys283/lectures/string_ii/string_ii.html">այստեղ</a>։
+              <a href="#fnref2">↩</a>
+            </li>
+            <li id="fn3">
+              Հարկ է նշել սակայն, որ տվյալ գործիքի արձակած նոտաները կարող են ունենալ տարբեր տեմբրներ։ Օրինակ
+              դաշնամուրի լարերը բարձր ռեգիստրներում բարակ են, և ցածրանալու հետ գնալով հաստանում են։ Պատճառն այն է, որ նույն ֆիզիկական
+              բնութագրերն ունեցող երկու լար արձակում են իրարից մի օկտավայով տարբերվող նոտա այն դեպքում, երբ մի լարը մյուսից երկու անգամ
+              երկար է։ Սա հնարավոր չի դարձնում ստանդարտ 88 ստեղնանի դաշնամուրի ցածր ռեգիստրների համար օգտագործել նույն բարձրների լարերը՝
+              փոխելով միայն երկարությունը։ Այդ իսկ պատճառով ցածր նոտաների լարերը ավելի հաստ են, որը փոքր ինչ տարբերություն է ստեղծում բարձր
+              և ցածր նոտաների տեմբրների միջև։ Տե՛ս <a href="https://en.wikipedia.org/wiki/Piano_acoustics">այստեղ</a>։
+              <a href="#fnref3">↩</a>
+            </li>
+            <li id="fn4">
+              Օրինակ թմբուկների օբերտոններին կարելի է ծանոթանալ
+              <a href="http://spiff.rit.edu/classes/phys283/lectures/two_d/two_d.html">այստեղ</a>։
+              <a href="#fnref4">↩</a>
+            </li>
+            <li id="fn5">
+              Նկատենք, որ դաշնամուրի վրա A, B, C, D, E, F, G նոտաներին (այսինքն առանց բեմոլի և դիեզի նոտաներին) համապատասխանող ստեղները սպիտակ են,
+              իսկ մնացածը սև։ Ընդհանրապես, դաշնամուրի այդպիսի կառուցվածքը պայմանավորված է նրանով, որ հնարավոր լինի հեշտությամբ գտնել ամեն նոտա
+              (տե՛ս <a href="https://www.youtube.com/watch?v=ya0-oDCiO8w&ab_channel=%D0%96%D0%98%D0%97%D0%90">այստեղ</a>)։ Իրոք,
+              եթե ստեղների դասավորությունը օկտավայի ներսում լիներ պարբերական, օրինակ սպիտակ, սպիտակ, սև, սպիտակ, սպիտակ, սև, և այլն, ապա հնարավոր չէր
+              լինի գտնել կոնկրետ նոտա՝ առանց ստեղնաշարի ծայրամասից հաշվելու։
+              <a href="#fnref5">↩</a>
+            </li>
+            <li id="fn6">
+              Կա նաև <em>ռիթմիկ մոդուլյացիա</em> եզրույթը, որը վերը նկարագրված հարմոնիկ մոդուլյացիայի անալոգն է ռիթմի համար։
+              Այսինքն, այսպես հղվում են այն երևույթին, երբ երաժշտությունը փոխում է իր ռիթմը/զարկը, այնպես, որ մի չափից մյուսին
+              անցնելիս նրանք կիսում են մի որևէ ընդհանուր նոտայի տևողություն։ Այն հանդիպում է, օրինակ, «Oppenheimer» ֆիլմի գլխավոր
+              թեմա-երաժշտության մեջ, որի վերլուծությանը կարելի է ծանոթանալ Չարլզ Քորնելի
+              <a href="https://www.youtube.com/watch?v=Qd038myjUfc">տեսանյութում</a>։
+              <a href="#fnref6">↩</a>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Առարկայական ցանկ -->
+        <!-- <div>
+          <h2 id="section-index">Առարկայական ցանկ</h2>
+          <ul class="index">
+            <li>ակորդ
+գամմա
+ինտերվալ
+	- անհամաձայն (dissonant)
+	- համաձայն (consonant)
+հաճախություն
+	- ֆունդամենտալ
+մաժոր, մինոր
+նոտա
+տեմբր
+օբերտոն, հարմոնիկ</li>
+          </ul>
+        </div>
+        <hr> -->
+        
     </main>
     <!-- <script src="index.js"></script> -->
     <script>
