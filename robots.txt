@@ -4,8 +4,5 @@ Disallow: /
 User-agent: Googlebot
 Disallow:
 
-User-agent: YandexBot
-Disallow:
-
 User-agent: GPTBot
 Disallow:
