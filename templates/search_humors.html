@@ -4,34 +4,64 @@
 
 {% block content %}
 <hr>
-<h3>Humor search</h3>
+<h3>Հումերների որոնում</h3>
 <hr>
-<p>You can search humors by humorists and tags here.</p>
+<p>Այստեղ կարելի է փնտրել հումորներն ըստ կատակերգուների և պիտակների։</p>
 {% if non_censored_too %}
-<p>Unless you select all under censor, only censored humors will be displayed.</p>
+<p>Միայն եթերային հումորները կցուցադրվեն, եթե "Եթերային" բաժնում "ամենը" ընտրված չէ։</p>
 {% endif %}
 <br>
-<h5>Humorists</h5>
+<h5>Կատակերգուներ</h5>
 <p>{% for humorist in humorists %}
     <button class="humorist-frame">{{ humorist }}</button>
     {% endfor %}
 </p>
-<h5>Tags</h5>
+<h5>Պիտակներ</h5>
 <p>{% for tag in tags %}
     <button class="tag-frame" id="tag-{{ loop.index }}" data-tag="{{ tag }}">{{ tag }}</button>
     {% endfor %}
 </p>
 {% if non_censored_too %}
-<h5>Censor</h5>
+<h5>Եթերային</h5>
 <p>
-    <button class="censor-frame" id="censor-0" data-censor="censored-only">censored-only</button>
-    <button class="censor-frame" id="censor-1" data-censor="all">all</button>
+    <button class="censor-frame" id="censor-0" data-censor="censored-only">միայն եթերային</button>
+    <button class="censor-frame" id="censor-1" data-censor="all">ամենը</button>
 </p>
 {% endif %}
 <p id="humor-count" hidden></p>
 <div id="humor-container">
     <!-- Humors will be displayed here -->
 </div>
+
+<!--<hr>-->
+<!--<h3>Humor search</h3>-->
+<!--<hr>-->
+<!--<p>You can search humors by humorists and tags here.</p>-->
+<!--{% if non_censored_too %}-->
+<!--<p>Unless you select all under censor, only censored humors will be displayed.</p>-->
+<!--{% endif %}-->
+<!--<br>-->
+<!--<h5>Humorists</h5>-->
+<!--<p>{% for humorist in humorists %}-->
+<!--    <button class="humorist-frame">{{ humorist }}</button>-->
+<!--    {% endfor %}-->
+<!--</p>-->
+<!--<h5>Tags</h5>-->
+<!--<p>{% for tag in tags %}-->
+<!--    <button class="tag-frame" id="tag-{{ loop.index }}" data-tag="{{ tag }}">{{ tag }}</button>-->
+<!--    {% endfor %}-->
+<!--</p>-->
+<!--{% if non_censored_too %}-->
+<!--<h5>Censor</h5>-->
+<!--<p>-->
+<!--    <button class="censor-frame" id="censor-0" data-censor="censored-only">censored-only</button>-->
+<!--    <button class="censor-frame" id="censor-1" data-censor="all">all</button>-->
+<!--</p>-->
+<!--{% endif %}-->
+<!--<p id="humor-count" hidden></p>-->
+<!--<div id="humor-container">-->
+<!--    &lt;!&ndash; Humors will be displayed here &ndash;&gt;-->
+<!--</div>-->
 {% endblock %}
 
 {% block javascript %}
@@ -136,7 +166,8 @@
       const humoristsTagsP = document.createElement('p');
 
       const humoristsTitle = document.createElement('b');
-      humoristsTitle.textContent = 'Humorists:';
+      // humoristsTitle.textContent = 'Humorists:';
+      humoristsTitle.textContent = 'Կատակերգուներ․';
       humoristsTagsP.appendChild(humoristsTitle);
       humor.humorists.forEach(id => {
         const button = document.createElement('button');
@@ -146,7 +177,8 @@
       });
 
       const tagsTitle = document.createElement('b');
-      tagsTitle.textContent = 'Tags:';
+      // tagsTitle.textContent = 'Tags:';
+      tagsTitle.textContent = 'Պիտակներ․';
       humoristsTagsP.appendChild(tagsTitle);
       humor.tags.forEach(id => {
         const button = document.createElement('button');

@@ -3,8 +3,6 @@
 This is my personal website's source code. I relied on [Digital Ocean's](https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3)
 tutorial when writing this website.
 
-This website is deployed [here](https://saroyr-com-d9a4be4812ff.herokuapp.com/).
-
 For redeployment refer to [Heroku](https://dashboard.heroku.com/apps/saroyr-com/deploy/github).
 
 For domain settings refer to [Network Solutions](https://www.networksolutions.com/my-account/home).
