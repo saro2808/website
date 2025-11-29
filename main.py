@@ -1,6 +1,7 @@
 import sqlite3
 import json
 import os
+import logging
 
 from flask import Flask, render_template, request, url_for, flash, redirect, jsonify, send_from_directory
 from werkzeug.exceptions import abort
@@ -108,6 +109,16 @@ def get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'my secret key'
+
+# Disable logging for requests to /static/*
+log = logging.getLogger('werkzeug')
+
+@app.before_request
+def suppress_static_logs():
+    if request.path.startswith('/static/'):
+        log.setLevel(logging.ERROR)
+    else:
+        log.setLevel(logging.INFO)
 
 
 @app.route('/')

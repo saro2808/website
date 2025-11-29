@@ -26,6 +26,24 @@
           ]
         },
         {
+          "name": "Machine Learning for 3D Geometry",
+          "urls": [
+            {
+              "url": "https://github.com/saro2808/ML43D/",
+              "text": "Homework"
+            }
+          ]
+        },
+        {
+          "name": "Introduction to Deep Learning",
+          "urls": [
+            {
+              "url": "https://github.com/saro2808/deep-learning-tum",
+              "text": "Homework"
+            }
+          ]
+        },
+        {
           "name": "Machine Learning (advanced)",
           "urls": [
             {
