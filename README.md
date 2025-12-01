@@ -19,6 +19,8 @@ Run locally in Linux terminal as follows:
 export FLASK_APP=main
 export FLASK_ENV=development
 export SECRET_KEY="your_random_secret_key_here"
+export RECAPTCHA_SITEKEY="your_site_key_here"
+export RECAPTCHA_SECRET="your_secret_key_here"
 flask run
 ```
 
