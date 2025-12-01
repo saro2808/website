@@ -141,6 +141,9 @@ def verify_captcha():
         session["human_verified"] = True
         return redirect("/")  # send user to home
 
+    print("Captcha token:", request.form["g-recaptcha-response"])
+    print("Verification result:", resp.json())
+
     return "Captcha failed. Please try again.", 400
 
 
