@@ -18,6 +18,7 @@ Run locally in Linux terminal as follows:
 ```
 export FLASK_APP=main
 export FLASK_ENV=development
+export SECRET_KEY="your_random_secret_key_here"
 flask run
 ```
 

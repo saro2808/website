@@ -2,8 +2,10 @@ import sqlite3
 import json
 import os
 import logging
+import requests
+from functools import wraps
 
-from flask import Flask, render_template, request, url_for, flash, redirect, jsonify, send_from_directory
+from flask import Flask, render_template, request, url_for, flash, jsonify, send_from_directory, session, redirect
 from werkzeug.exceptions import abort
 
 
@@ -108,7 +110,41 @@ def get_humors_by_humorists_and_tags(selected_humorists, selected_tags, selected
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'my secret key'
+app.secret_key = os.getenv("SECRET_KEY")
+RECAPTCHA_SECRET = os.getenv("RECAPTCHA_SECRET")   # store in Heroku config
+RECAPTCHA_SITEKEY = os.getenv("RECAPTCHA_SITEKEY") # store in Heroku config
+
+@app.route("/captcha")
+def captcha():
+    return render_template("captcha.html", site_key=RECAPTCHA_SITEKEY)
+
+@app.route("/verify_captcha", methods=["POST"])
+def verify_captcha():
+    token = request.form.get("g-recaptcha-response")
+
+    resp = requests.post(
+        "https://www.google.com/recaptcha/api/siteverify",
+        data={
+            "secret": RECAPTCHA_SECRET,
+            "response": token
+        }
+    ).json()
+
+    if resp.get("success"):
+        session["human_verified"] = True
+        return redirect("/")  # send user to home
+
+    return "Captcha failed. Please try again.", 400
+
+
+def require_human(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        if not session.get("human_verified"):
+            return redirect("/captcha")
+        return f(*args, **kwargs)
+    return wrapper
+
 
 # Disable logging for requests to /static/*
 log = logging.getLogger('werkzeug')
@@ -122,11 +158,13 @@ def suppress_static_logs():
 
 
 @app.route('/')
+@require_human
 def index():
     return render_template('index.html')
 
 
 @app.route('/mathematics/<category>/<int:id>')
+@require_human
 def problem(category, id):
     problem = get_problem(category, id)
     tags = get_problem_tags(category, id)
@@ -134,11 +172,13 @@ def problem(category, id):
 
 
 @app.route('/cv')
+@require_human
 def cv():
     return render_template('cv.html')
 
 
 @app.route('/mathematics')
+@require_human
 def mathematics():
     with open('static/json/mathematics.json', 'r', encoding='utf-8') as file:
         loaded = json.load(file)
@@ -149,6 +189,7 @@ def mathematics():
 
 
 @app.route('/mathematics/<category>/all')
+@require_human
 def category_all(category):
     conn = get_db_connection()
     problems = conn.execute('SELECT * FROM problems WHERE category = ?',
@@ -162,16 +203,19 @@ def category_all(category):
 
 
 @app.route('/music')
+@require_human
 def music():
     return render_template('music.html')
 
 
 @app.route('/music/notes')
+@require_human
 def music_notes():
     return render_template('դաւթար_երաժշտական.html')
 
 
 @app.route('/academic')
+@require_human
 def academic():
     with open('static/json/academic.json', 'r', encoding='utf-8') as file:
         loaded = json.load(file)
@@ -181,16 +225,19 @@ def academic():
 
 
 @app.route('/literature')
+@require_human
 def literature():
     return render_template('literature.html')
 
 
 @app.route('/humor')
+@require_human
 def humor():
     return render_template('humor.html')
 
 
 @app.route('/humor/search')
+@require_human
 def search_humors():
     return render_template('search_humors.html', humorists=all_humorists, tags=all_tags,
                            id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict,
@@ -198,6 +245,7 @@ def search_humors():
 
 
 @app.route('/humor/search-all')
+@require_human
 def search_humors_all():
     return render_template('search_humors.html', humorists=all_humorists, tags=all_tags,
                            id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict,
@@ -205,6 +253,7 @@ def search_humors_all():
 
 
 @app.route('/humor/global')
+@require_human
 def global_humors():
     return render_template('search_humors.html', humorists=all_humorists, tags=all_tags,
                            id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict,
@@ -212,6 +261,7 @@ def global_humors():
 
 
 @app.route('/get_humors', methods=['GET'])
+@require_human
 def get_humors():
     selected_tags = request.args.getlist('tag')
     selected_humorists = request.args.getlist('humorist')
@@ -247,26 +297,31 @@ def humor_category(category_tag, non_censored_too=False, viewers=None):
 
 
 @app.route('/humor-isaa')
+@require_human
 def humor_isaa():
     return humor_category("ISAA")
 
 
 @app.route('/humor-isaa-all')
+@require_human
 def humor_isaa_all():
     return humor_category("ISAA", non_censored_too=True)
 
 
 @app.route('/humor-familiar')
+@require_human
 def humor_familiar():
     return humor_category("ընտանեկան")
 
 
 @app.route('/humor-familiar-all')
+@require_human
 def humor_familiar_all():
     return humor_category("ընտանեկան", non_censored_too=True)
 
 
 @app.route('/humor-family-xclsv')
+@require_human
 def humor_familiar_xclsv():
     humorists, tags = get_humorists_tags_for_group('family')
     return render_template('search_humors.html', humorists=humorists, tags=tags,
@@ -275,6 +330,7 @@ def humor_familiar_xclsv():
 
 
 @app.route('/humor-family-xclsv-all')
+@require_human
 def humor_familiar_xclsv_all():
     humorists, tags = get_humorists_tags_for_group('family')
     return render_template('search_humors.html', humorists=humorists, tags=tags,
@@ -283,16 +339,19 @@ def humor_familiar_xclsv_all():
 
 
 @app.route('/humor-phystech')
+@require_human
 def humor_phystech():
     return humor_category("ֆիզտեխ")
 
 
 @app.route('/humor-phystech-all')
+@require_human
 def humor_phystech_all():
     return humor_category("ֆիզտեխ", non_censored_too=True)
 
 
 @app.route('/humor-phystech-xclsv')
+@require_human
 def humor_phystech_xclsv():
     humorists, tags = get_humorists_tags_for_group('mipt')
     return render_template('search_humors.html', humorists=humorists, tags=tags,
@@ -301,6 +360,7 @@ def humor_phystech_xclsv():
 
 
 @app.route('/humor-phystech-xclsv-all')
+@require_human
 def humor_phystech_xclsv_all():
     humorists, tags = get_humorists_tags_for_group('mipt')
     return render_template('search_humors.html', humorists=humorists, tags=tags,
@@ -309,6 +369,7 @@ def humor_phystech_xclsv_all():
 
 
 @app.route('/humor-alles')
+@require_human
 def humor_alles():
     return render_template('search_humors.html', humorists=all_humorists, tags=all_tags,
                            id_humorist_dict=id_humorist_dict, id_tag_dict=id_tag_dict,
@@ -340,6 +401,7 @@ def verify_answer():
 
 
 @app.route('/art')
+@require_human
 def art():
     files = os.listdir('static/images/art')
     files = [[files[2 * i], files[2 * i + 1]] for i in range(len(files) // 2)]
@@ -349,6 +411,7 @@ def art():
 
 
 @app.route('/lox-paket-xclsv')
+@require_human
 def lox_paket():
     files = os.listdir('static/images/mock')
     images = [file for file in files if file.split('.')[-1] != 'txt']
@@ -362,6 +425,7 @@ def lox_paket():
 
 
 @app.route('/references')
+@require_human
 def references():
     with open('static/json/sites.json', 'r', encoding='utf-8') as file:
         sites = json.load(file)['sites']

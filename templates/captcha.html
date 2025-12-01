@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Human</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+<h2>Please verify you are human</h2>
+
+<form action="/verify_captcha" method="POST">
+    <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
+    <button type="submit">Verify</button>
+</form>
+
+</body>
+</html>
