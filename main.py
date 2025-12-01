@@ -137,9 +137,21 @@ def verify_captcha():
     return "Captcha failed. Please try again.", 400
 
 
+EXEMPT_ROUTES = [
+    "/static/",
+    "/favicon.ico",
+    "/captcha",
+    "/verify_captcha"
+]
+
+def is_exempt(path):
+    return any(path.startswith(route) for route in EXEMPT_ROUTES)
+
 def require_human(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
+        if is_exempt(request.path):
+            return f(*args, **kwargs)
         if not session.get("human_verified"):
             return redirect("/captcha")
         return f(*args, **kwargs)
