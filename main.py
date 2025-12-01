@@ -7,6 +7,7 @@ from functools import wraps
 
 from flask import Flask, render_template, request, url_for, flash, jsonify, send_from_directory, session, redirect
 from werkzeug.exceptions import abort
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 
 def get_db_connection():
@@ -113,6 +114,12 @@ app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 RECAPTCHA_SECRET = os.getenv("RECAPTCHA_SECRET")   # store in Heroku config
 RECAPTCHA_SITEKEY = os.getenv("RECAPTCHA_SITEKEY") # store in Heroku config
+
+# for redirects to work
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)
+app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_SAMESITE"] = None
+
 
 @app.route("/captcha")
 def captcha():
